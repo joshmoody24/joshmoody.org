@@ -70,7 +70,7 @@
    */
   
   header {
-	padding: 16rem 0; /* 1 */
+	padding: 10rem 0 4rem 0; /* 1 */
 	font-size: 1.2em; /* 2 */
   }
   
@@ -123,9 +123,14 @@
   input[type="button"]:disabled,
   input[type="reset"]:disabled,
   input[type="submit"]:disabled{
-	color: #fff; /* 1 */
-	background: #111; /* 1 */
-	cursor: not-allowed; /* 2 */
+    color: #fff; /* 1 */
+    background: #111; /* 1 */
+	  cursor: not-allowed; /* 2 */
+  }
+
+  .button.active {
+    color: #fff;
+    background: #111;
   }
   
   /**
@@ -374,6 +379,7 @@
 	  border-color: #fff;
 	}
 	button:disabled,
+  .button.active,
 	input[type="button"]:disabled,
 	input[type="reset"]:disabled,
 	input[type="submit"]:disabled{
