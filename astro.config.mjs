@@ -7,4 +7,5 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
 	site: 'https://joshmoody.org',
 	integrations: [mdx(), sitemap()],
+	compressHTML: false, // added to make concrete.css work better
 });
