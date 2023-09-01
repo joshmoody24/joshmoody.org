@@ -17,7 +17,7 @@ Blazor is not inherently bad, but it may not be the best choice for most project
 
 Blazor sells itself as the ideal framework for creating rich, interactive web applications with C# instead of JavaScript. This is a powerful selling point that has many people excited about the concept. I too once believed in Blazor's promises. Until I used it to build a non-trivial application. 
 
-Now that I know Blazor better than my own family members, I genuinely can't think of a single advantage Blazor has over other web frameworks. During development, I discovered many pitfalls, complexities, annoyances, and footguns in the framework that make it an absolute pain to work.
+Now that I know Blazor better than my own family, I genuinely can't think of a single advantage Blazor has over other web frameworks. During development, I discovered many pitfalls, complexities, annoyances, and footguns in the framework that make it an absolute pain to work.
 
 I now share these pitfalls with you in the hope that you will avoid falling into them.
 
@@ -188,7 +188,7 @@ Granted, counting lines of code isn't everything. I'll take a reasonably verbose
 
 So, what's the moral of the story?
 
-Using Blazor is like flying to the grocery store in a Saturn V rocket. Sure, it'll get you there, but it'll take astronomically more preparation and configuration. It'll take huge teams to make it happen, and any number of things could go wrong. [Only 24 people have ever needed a Saturn V rocket](https://www.space.com/how-many-people-have-walked-on-the-moon). You probably do not need one.
+Using Blazor is like travelling to the grocery store in a Saturn V rocket. Sure, it'll get you there, but it'll take astronomically more preparation and effort. It requires huge teams before it can take off, and countless things could go wrong. [Only 24 people have ever needed a Saturn V rocket](https://www.space.com/how-many-people-have-walked-on-the-moon). You probably do not need one.
 
 By choosing a simpler solution than Blazor, you will enjoy faster development. Faster development will result in reduced cost of new features and increased responsiveness to customer needs. It will also result in more reliable software, fewer frustrated customers, and (speaking from personal experience) less burnout. At the very least, I hope I've kept you from falling into the same pitfalls that I did.
 
