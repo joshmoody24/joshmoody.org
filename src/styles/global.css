@@ -441,3 +441,7 @@ a.button {
 ul.projects li {
   margin-top: 0.25rem;
 }
+
+html {
+  scroll-behavior: smooth;
+}
