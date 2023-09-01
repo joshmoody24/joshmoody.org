@@ -174,7 +174,7 @@ Additionally, since the value `HX-Trigger` is customizable in HTMX, this approac
 
 As a proof of concept, I spent two days rewriting a section of an enterprise application from Blazor to MVC + HTMX. The final product was functionally identical to the Blazor version but required **62% less code** to implement. This means that not only is it possible to use MVC + HTMX in place of Blazor without any functionality compromises, but the end result will probably be a lot simpler!
 
-![Blazor lines of code versus MVC + HTMX lines of code. MVC + HTMX has 62% fewer lines.](../../../public/blazor-vs-mvc-htmx.webp)
+![Blazor lines of code versus MVC + HTMX lines of code. MVC + HTMX has 62% fewer lines.](/blazor-vs-mvc-htmx.webp)
 
 The code reduction came mainly deleting all the boilerplate parameter passing and component state/lifecycle management. It also came from replacing simple, static Razor components with tag helpers also reduced the line count significantly. And some more reductions came from replacing complex Blazor components with their HTMX equivalents.
 
