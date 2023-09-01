@@ -1,5 +1,5 @@
 ---
-title: 'The Hidden Pitfalls of Using Blazor'
+title: 'The Hidden Pitfalls of Blazor'
 description: 'A post-mortem examination of the many pitfalls, annoyances, and hidden complexities of blazor.'
 pubDate: 'Sept 01 2023'
 heroImage: '/blazing-blazor-logo.webp'
