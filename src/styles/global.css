@@ -433,3 +433,11 @@ a.button {
   justify-content: space-between;
   align-items: center;
 }
+
+.posts h4 {
+  margin-top: 1rem;
+}
+
+ul.projects li {
+  margin-top: 0.25rem;
+}

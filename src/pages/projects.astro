@@ -6,13 +6,56 @@ import Layout from '../layouts/Main.astro';
 	title="Projects"
 	description="Lorem ipsum dolor sit amet"
 >
-	<section>
+
+	<a class="button" href="#games">Games</a>
+	<a class="button" href="#websites">Websites</a>
+	<a class="button" href="#youtube-channels">Videos</a>
+	<a class="button" href="#art">Art</a>
+
+	<section id="games">
+		<h2>Games I've made</h2>
+		<ul class="posts">
+			<li>
+				<a href="https://memetownusa.com">
+					<img src="/public/memetown-usa.png" />
+					<h4>Memetown USA</a> — <a style="text-decoration: underline" href="https://store.steampowered.com/app/911100/Memetown_USA/">Buy it on Steam</a></h4>
+				</a>
+			</li>
+			<li>
+				<a href="https://joshmoody24.itch.io/monster-mansion">
+					<img src="/public/monster-mansion.png" />
+					<h4>Monster Mansion</a></h4>
+				</a>
+			</li>
+			<li>
+				<a href="https://joshmoody24.itch.io/rocket-dice">
+					<img src="/public/rocket-dice.png" />
+					<h4>Rocket Dice</a></h4>
+				</a>
+			</li>
+			<li>
+				<a href="https://joshmoody24.itch.io/free-trial">
+					<img src="/public/free-trial.png" />
+					<h4>Free Trial</a></h4>
+				</a>
+			</li>
+			<li>
+				<a href="https://gamejolt.com/games/overset/194400">
+					<img src="/public/overset.png" />
+					<h4>Overset</h4>
+				</a>
+			</li>
+		</ul>
+	</section>
+
+	<section id="websites">
 		<h2>Websites I've made</h2>
-		<ul>
+		<ul class="projects">
 			<li><a href="https://gameassets.joshmoody.org">Public Domain Game Assets</a></li>
+			<li><a href="http://blastedscience.com/">Blasted Science</a></li>
 			<li><a href="https://alliterator.joshmoody.org">The Alliterator</a></li>
 			<li><a href="https://philosophy.joshmoody.org">My Philosophy on Life</a></li>
-			<li><a href="https://src.byu.edu">BYU Student Research Conference Website</a></li>
+			<li><a href="https://src.byu.edu">BYU Student Research Conference</a></li>
 			<li>
 				Latter-day Saint missionary training tools:
 				<ul>
@@ -24,20 +67,9 @@ import Layout from '../layouts/Main.astro';
 		</ul>
 	</section>
 
-	<section>
-		<h2>Games I've made</h2>
-		<ul>
-			<li><a href="https://memetownusa.com">Memetown USA</a> — <a href="https://store.steampowered.com/app/911100/Memetown_USA/">Buy it on Steam</a></li>
-			<li><a href="https://joshmoody24.itch.io/monster-mansion">Monster Mansion</a></li>
-			<li><a href="https://joshmoody24.itch.io/rocket-dice">Rocket Dice</a></li>
-			<li><a href="https://joshmoody24.itch.io/free-trial">Free Trial</a></li>
-			<li><a href="https://gamejolt.com/games/overset/194400">Overset</a></li>
-		</ul>
-	</section>
-
-	<section>
+	<section id="youtube-channels">
 		<h2>Youtube channels I've made</h2>
-		<ul>
+		<ul class="projects">
 			<li><a href="https://www.youtube.com/@BlastedScience">Blasted Science</a></li>
 			<li><a href="https://www.youtube.com/@SitcomSimulator">Sitcom Simulator</a></li>
 			<li><a href="https://www.youtube.com/channel/UCxFHoHvQWZ0VF9NM_XcYVeA">Personal Channel</a></li>
