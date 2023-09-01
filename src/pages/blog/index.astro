@@ -5,7 +5,7 @@ import Footer from '../../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
-import Layout from '../../layouts/BlogPost.astro';
+import Layout from '../../layouts/Main.astro';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
@@ -17,16 +17,18 @@ const posts = (await getCollection('blog')).sort(
 	description="Lorem ipsum dolor sit amet"
 >
 	<section>
-		<ul>
+		<ul class="posts">
 			{
-				posts.map((post) => (
+				posts.filter(p => p.data.pubDate < new Date()).map((post) => (
 					<li>
 						<a href={`/blog/${post.slug}/`}>
 							<img width={720} height={360} src={post.data.heroImage} alt="" />
-							<h4 class="title">{post.data.title}</h4>
-							<p class="date">
-								<FormattedDate date={post.data.pubDate} />
-							</p>
+							<div>
+								<h4 class="title">{post.data.title}</h4>
+								<p class="date">
+									<FormattedDate date={post.data.pubDate} />
+								</p>
+							</div>
 						</a>
 					</li>
 				))

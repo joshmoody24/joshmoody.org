@@ -414,3 +414,22 @@
 a.button {
   text-decoration: none;
 }
+
+.posts {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.posts li {
+  margin-bottom: 4rem;
+}
+
+.posts li a {
+  text-decoration: none;
+}
+
+.posts li a div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
