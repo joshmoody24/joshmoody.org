@@ -9,18 +9,19 @@ heroImage: '/relational-database-logo.png'
 
 Software development is largely influenced by the programming paradigms we adopt. Object-Oriented programming (OOP) may be the go-to approach for many, but it has many issues. One of the most difficult problems encountered in real-world object oriented development is the [object relational impedance mismatch](https://en.wikipedia.org/wiki/Object%E2%80%93relational_impedance_mismatch). In other words, object-oriented languages are fundamentally incompatible with the relational model used by most databases.
 
-The conflict between Object-Oriented and Relational models has long plagued developers. As Ted Neward pointed out, it is the ["Vietnam of Computer Science."](https://www.odbms.org/wp-content/uploads/2013/11/031.01-Neward-The-Vietnam-of-Computer-Science-June-2006.pdf)
+The conflict between object-oriented and relational models has long plagued developers. As Ted Neward pointed out, it is the ["Vietnam of Computer Science."](https://www.odbms.org/wp-content/uploads/2013/11/031.01-Neward-The-Vietnam-of-Computer-Science-June-2006.pdf)
 
 >  Object/Relational Mapping represents a quagmire which starts well, gets more complicated as time passes, and before long entraps its users in a commitment that has no clear demarcation point, no clear win conditions, and no clear exit strategy
 >
 > \- Ted Neward
 
-To list just a few of the incompatibilities between object-orientation and relational modeling:
+To list just a few of the incompatibilities between object-orientated and relational models:
 
-1. Objects are essentially directed graphs; you can only traverse references between objects in one direction. In contrast, references in the relational model are automatically bidirectional, which is much simpler and easier to manage.
-2. Object-orientated languages often use [reference equality](https://www.baeldung.com/java-equals-method-operator-difference) by default, which is a common source of bugs. Every new Java developer has questioned their sanity after mixing up `==` and `Equals` at some point. Relational models, on the other hand, use value equality, which eliminates the possibility of duplicate data and is easier to reason about.
-3. The relational model lacks many object-oriented concepts, including inheritance, encapsulation, and polymorphism. The usefulness of these features is [often questioned](https://youtu.be/QM1iUe6IofM?si=NZ2rdzanJ4M9ZZJM) (especially [inheritance](https://en.wikipedia.org/wiki/Composition_over_inheritance)), so the relational model is doing us a favor by getting rid of them.
-4. Relational modeling uses *declarative* constraints (e.g., foreign keys) to enforce data integrity. Object-oriented programming typically enforces integrity *imperatively*, through concepts like getters, setters, and exception handling. The OOP approach has much more room for bugs.
+1. Object-oriented programming ties data and behavior together. In the relational model, data and behavior are separate.
+2. Objects are essentially directed graphs; you can only traverse references between objects in one direction. In contrast, references in the relational model are automatically bidirectional, which is much simpler and easier to manage.
+3. Object-orientated languages often use [reference equality](https://www.baeldung.com/java-equals-method-operator-difference) by default, which is a common source of bugs. Every new Java developer has questioned their sanity after mixing up `==` and `Equals` at some point. Relational models, on the other hand, use value equality, which eliminates the possibility of duplicate data and is easier to reason about.
+4. The relational model lacks many object-oriented concepts, including inheritance, encapsulation, and polymorphism. The usefulness of these features is [often questioned](https://youtu.be/QM1iUe6IofM?si=NZ2rdzanJ4M9ZZJM) (especially [inheritance](https://en.wikipedia.org/wiki/Composition_over_inheritance)), so the relational model is doing us a favor by getting rid of them.
+5. Relational modeling uses *declarative* constraints (e.g., foreign keys) to enforce data integrity. Object-oriented programming typically enforces integrity *imperatively*, through concepts like getters, setters, and exception handling. The OOP approach has much more room for bugs.
 
 These clashes forces us to either bend relational models to fit OOP paradigms or vice versa. Usually, people resort to [Object-Relational Mappers (ORMs)](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping), which bend the relational model to fit within the constraints of OOP. However, I argue that we should instead give priority to the relational model, as it provides a simpler, more robust framework for computation.
 
