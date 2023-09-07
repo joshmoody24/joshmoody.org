@@ -1,8 +1,8 @@
 ---
-title: '"Keeping It Simple" Is Not Just a Cliché: A Guide for Overthinking Developers'
+title: '"Keeping It Simple" Is More Than a Cliché'
 description: 'A personal reflection on why complexity is the root of all evil in software development and every other part of life, too.'
-pubDate: 'Jul 08 2025'
-heroImage: '/blazing-blazor-logo.webp'
+pubDate: 'Sept 8 2023'
+heroImage: '/complexity.png'
 ---
 
 ## The Complexity Problem
@@ -20,11 +20,11 @@ Every system has some unavoidable complexity. It's the nature of the beast. Howe
 
 It's like the dilemma of [overfitting](https://en.wikipedia.org/wiki/Overfitting) in machine learning: a model that’s too complex for its data will actually perform worse.
 
-## What Does Simplicity Look Like?
+## What does simplicity look like?
 
 It's all about radicalsimpli.city and, as a wise sage once suggested, "just using postgres for everything." 
 
-## How Do We Achieve Simplicity?
+## How do we achieve simplicity?
 
 Achieving simplicity requires significant mental effort. Counterintuitively, it is much harder to design simple solutions than complex ones.
 
@@ -46,21 +46,21 @@ In short, the only way to achieve simplicity is through *aggressive complexity a
 
 ## The Simplicity Cycle
 
-### 1. Wrestle with Complexity
+### 1. Wrestle with the complexity
 Before diving into code, grapple with that complex idea. Try to distill it, refine it, and if possible, simplify it. But please, no actual wrestling – the keyboards are watching.
 
-### 2. If You Fail, Convince Your Project Manager to Pivot the Idea
-If you still can't distill the idea, maybe it's time to have "the talk" with your PM. Break out that persuasive charm and try to convince them that their feature idea isn't truly necessary. You might say:
+### 2. If you fail, convince your project manager to pivot
+If you still can't distill the idea, talk with your PM. Turn on the charm and try to convince them that their feature idea isn't truly necessary.
 
-> This feature isn't strictly necessary to reach minimum viable functionality across common use cases.
+You might say, "This feature isn't strictly necessary to reach minimum viable functionality across common use cases."
 
 What kind of PM could resist such eloquent business jargon?
 
-### 3. If That Also Fails, Propose the 80/20 Solution
+### 3. If that also fails, propose an 80/20 solution
 Ever heard of the Pareto principle? In 'grug brain' speak: "Do little, get lots." Find the simple solution that gets 80% of the job done with 20% of the effort. It’s like the design by subtraction method – start big, then shave away until you’re left with a beautiful, simple solution.
 
-### 4. If That Fails Too, the Complexity is Unavoidable
+### 4. If even that fails, the complexity is unavoidable
 Sometimes, despite our best efforts, we need that Rube Goldberg solution. If the complex feature really is important, you have no choice but to bite the bullet and make it complicated. But remember, if you have to go complex, do it intentionally, understanding every moving part.
 
-## Conclusion: The Art of Simplicity
+## Conclusion
 In the ever-evolving world of software development, the allure of shiny new technologies and intricate algorithms can be tempting. But as we chase after the next big thing, let's not forget the age-old wisdom: simplicity is the ultimate sophistication. Remember, complexity doesn't just confuse developers; it confuses users too. Challenge yourself to embrace the elegance of simplicity. Less really is more.
