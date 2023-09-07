@@ -1,56 +1,68 @@
 ---
 title: 'All I want is a Relational Programming Language'
 description: 'todo'
-pubDate: 'Jul 08 2025'
-heroImage: '/todo'
+pubDate: 'Sept 9, 2023'
+heroImage: '/relational-database-logo.png'
 ---
 
-The Vietnam of Computer Science
-Out of the Tar Pit
-The Third Manifesto
-Minikanren
-Logic programming is sort of the same but sort of not?
-Cell programming language is the best we can do? Not actively being developed anymore but sounds cool.
-Truly relational databases would be nice too
-Arbitrary constraints/datalog querying is nice too (Logica)
+## Introduction
+Software development is largely influenced by the programming paradigms we adopt. Object-Oriented programming (OOP) may be the go-to approach for many, but it has many issues. One of the most difficult problems encountered in real-world object oriented development is the [object relational impedance mismatch](https://en.wikipedia.org/wiki/Object%E2%80%93relational_impedance_mismatch). In other words, object-oriented languages are fundamentally incompatible with the relational model used by most databases.
 
-All I Want is a Relational Programming Language
-Published on: Jul 08, 2025
+## The Object-Relational Dilemma
+The conflict between Object-Oriented and Relational models has long plagued developers. As Ted Neward pointed out, it is the ["Vietnam of Computer Science."](https://www.odbms.org/wp-content/uploads/2013/11/031.01-Neward-The-Vietnam-of-Computer-Science-June-2006.pdf)
 
-Hero Image
+>  Object/Relational Mapping represents a quagmire which starts well, gets more complicated as time passes, and before long entraps its users in a commitment that has no clear demarcation point, no clear win conditions, and no clear exit strategy
+>
+> \- Ted Neward
 
-Introduction
-Software development is largely influenced by the programming paradigms we adopt. Object-Oriented Programming (OOP) may be the go-to approach for many, but it comes with its own set of issues. These issues often arise from what's known as the "object-relational impedance," a mismatch between the object and relational models that can make data manipulation cumbersome. In this post, I'll argue for the benefits of a relational programming language, which I believe can lead to more efficient and less error-prone code.
+To list just a few of the incompatibilities between object-orientation and relational modeling:
 
-The Incompatibility Problem
-The inherent incompatibility between Object-Oriented and Relational models is no minor issue. Ted Neward referred to this conflict as the "Vietnam of Computer Science."
+1. Objects are essentially directed graphs; you can only traverse references between objects in one direction. In contrast, references in the relational model are automatically bidirectional, which is much simpler and easier to manage.
+2. Object-orientated languages often use [reference equality](https://www.baeldung.com/java-equals-method-operator-difference) by default, which is a common source of bugs. Every new Java developer has questioned their sanity after mixing up `==` and `Equals` at some point. Relational models, on the other hand, use value equality, which eliminates the possibility of duplicate data and is easier to reason about.
+3. The relational model lacks many object-oriented concepts, including inheritance, encapsulation, and polymorphism. The usefulness of these features is [often questioned](https://youtu.be/QM1iUe6IofM?si=NZ2rdzanJ4M9ZZJM) (especially [inheritance](https://en.wikipedia.org/wiki/Composition_over_inheritance)), so the relational model is doing us a favor by getting rid of them.
+4. Relational modeling uses *declarative* constraints (e.g., foreign keys) to enforce data integrity. Object-oriented programming typically enforces integrity *imperatively*, through concepts like getters, setters, and exception handling. The OOP approach has much more room for bugs.
 
-"The Object-Relational Mapping problem is the Vietnam of computer science."
+These clashes forces us to either bend relational models to fit OOP paradigms or vice versa. Usually, people resort to [Object-Relational Mappers (ORMs)](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping), which bend the relational model to fit within the constraints of OOP. However, I argue that we should instead give priority to the relational model, as it provides a simpler, more robust framework for computation.
 
-This clash creates challenges in software development, as people usually resort to bending the relational model to fit within the constraints of OOP. Contrary to this common approach, I suggest that we should be accommodating our methods to better suit the relational model. The relational paradigm offers simpler and more consistent ways to handle data, a benefit that shouldn't be overlooked.
+## Why Relational Programming
+The famous paper [Out of the Tar Pit](https://curtclifton.net/papers/MoseleyMarks06a.pdf) provides a compelling argument for a relational programming language. The paper claims that software complexity is the most difficult aspect of developing large-scale software systems, and that current programming paradigms are incapable of managing this complexity.
 
-Why Relational Programming
-"Out of the Tar Pit" provides a compelling argument for Functional Relational Programming (FRP), which combines elements of both functional and relational programming paradigms. The paper highlights how FRP minimizes state, encourages declarative programming, and utilizes bidirectional references.
+The authors propose a new type of programming language, dubbed "Functional Relational Programming" (FRP), which combines elements of [functional](https://en.wikipedia.org/wiki/Functional_programming), [logical](https://en.wikipedia.org/wiki/Logic_programming), and [relational](https://en.wikipedia.org/wiki/Relational_model) programming paradigms. The paper highlights how FRP minimizes state, simplifies control flow, and employs a declarative approach to reduce complexity and bugs.
 
-"Functional Relational Programming... offers a way out of the non-essential complexity introduced by state."
+> The primary, overriding goal behind the FRP architecture (and indeed this whole paper) is of course *elimination of complexity.*
+>
+> \- *Out of the Tar Pit*
 
-The benefits of adopting an FRP approach are clear: reduced complexity, fewer bugs, and more straightforward code. However, it's disappointing to note that, as of now, there is no mainstream programming language that incorporates these principles effectively.
+Unfortunately, no mainstream programming language currently incorporates these principles effectively. The best effort so far is the [Cell programming language](https://www.cell-lang.net/), but it is relatively obscure and not actively maintained. This leaves us in a bind: the theory exists, but the practical tools don't.
 
-Not Just SQL
-SQL is not the answer to our programming needs, despite its widespread use in databases. "The Third Manifesto" makes it clear that even databases using SQL fall short of being truly relational.
+## Not Just SQL
+To be clear, I'm not advocating that we use SQL for all of our business logic. Despite its widespread use in so-called relational databases, SQL is not the answer to our programming needs.
 
-"Current SQL-based systems are far from the relational model."
+I'll say it again: *a relational programming language would not carry the limitations and peculiarities we associate with SQL and existing databases*.
 
-My focus is on the development of a programming language that genuinely embraces the relational model. Such a language would not carry the limitations and peculiarities we associate with SQL and existing databases.
+A well-known database paper, [The Third Manifesto](https://www.dcs.warwick.ac.uk/~hugh/TTM/DTATRM.pdf), critically assesses SQL-based databases and emphasizes their shortcomings in aligning with the relational model:
 
-Potential Solutions: Minikanren and Cell
-When it comes to languages that approach Functional Relational Programming, Minikanren and Cell come to mind. Both are relatively unknown and specialized for relational programming. Minikanren leans more towards logic programming, whereas Cell was developed specifically to implement FRP principles. Unfortunately, their limited user bases and lack of active development hinder their potential as mainstream solutions.
+> We seek a firm foundation for the future of data. We do not believe that the database language SQL is capable of providing such a foundation. Instead, we believe that any such foundation must be firmly rooted in the Relational Model of Data
+>
+> \- The Third Manifesto
 
-Logic Programming: A Half-Measure
-Prolog, a well-known logic programming language, does touch upon some relational concepts. However, it doesn't fully satisfy the requirements of Functional Relational Programming as outlined in "Out of the Tar Pit." This suggests that while logic programming languages like Prolog can serve as a step towards what we're looking for, they aren't the final solution.
+The authors explain that SQL databases deviate from the true "relational model" as described by [E.F. Codd's seminal work](http://db.dobo.sk/wp-content/uploads/2015/11/Codd_1970_A_relational_model.pdf), including SQL's allowance of null values and duplicate rows.
 
-Databases and Constraints
-On the topic of databases, it's worth mentioning Datomic, a database designed to be more relational and supports arbitrary constraints. However, its closed-source nature and strong coupling with the Clojure programming language make it niche and not universally applicable. These limitations underscore the larger issue: the absence of truly relational databases that can work hand-in-hand with a relational programming language.
+Hence, the need is not just for a better database querying language but a fully relational programming language free from the limitations and quirks of SQL-based systems.
 
-Conclusion
-The need for a relational programming language is evident. Such a language would offer simplified code management, fewer bugs, and an elegant resolution to the "object-relational impedance" problem. This isn't just a theoretical exercise; both new and seasoned software engineers stand to benefit from such a paradigm shift.
+The authors then go on to propose a hypothetical replacement to SQL, dubbed "D" to address these problems. However, once again, no mainstream version of "D" exists!
+
+Are you noticing a pattern?
+
+In addition to the SQL problems pointed out by *The Third Manifesto*, I would also point out SQL's lack of arbitrary constraints. Why can't SQL constraints like `check` and `unique` reference other tables? This would dramatically improve data integrity. But alas, it is not supported. Unless, of course, you use a trigger, which is the ideal solution exactly never.
+
+On the topic of arbitrary constraints, it's worth mentioning [Datomic](https://www.datomic.com/), a database which is more relational than its SQL counterparts and which even supports arbitrary constraints across multiple tables. In fact, [Datomic is probably the closest thing we have to a practical FRP architecture today.](https://www.youtube.com/watch?v=nbMMywfBXic) However, its closed-source nature and strong coupling with the Clojure programming language limit its applicability and make it niche solution.
+
+The limitations described above underscore the larger issue: there is a gap in both the programming and database markets. **We need a truly relational database that can work hand-in-hand with a relational programming language.**
+
+## Conclusion
+The promise of a truly relational programming language could herald a shift in how we approach software development. Such a language would address the longstanding object-relational impedance mismatch and present a more consistent, robust, and elegant framework for engineers at all levels.
+
+The theoretical groundwork exists. What we need now is a mainstream language that can turn this theory into practice. It's time for the software community to take the relational model seriously and develop tools that unlock its power.
+
+I admit that, since the concept of functional relational progrmaming is largely untested, nobody knows for sure how beneficial it really is. But the concept is promising enough that it deserves a concerted effort. We have the hypothesis. Now we need a way to test it.
