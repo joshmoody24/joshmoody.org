@@ -435,7 +435,8 @@ a.button {
 }
 
 .posts h4 {
-  margin-top: 1rem;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 ul.projects li {

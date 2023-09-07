@@ -1,5 +1,5 @@
 ---
-title: 'All I want is a Relational Programming Language'
+title: 'All I Want is a Relational Programming Language'
 description: 'todo'
 pubDate: 'Sept 7, 2023'
 heroImage: '/relational-database-logo.png'
