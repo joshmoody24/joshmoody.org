@@ -1,6 +1,6 @@
 ---
 title: 'All I Want is a Relational Programming Language'
-description: 'todo'
+description: 'The relational model is criminally underutilized in software development. Despite lots of theoretical discussion, no mainstream relational programming language exists. This needs to change if we want simpler, more robust software.'
 pubDate: 'Sept 7, 2023'
 heroImage: '/relational-database-logo.png'
 ---
@@ -66,4 +66,4 @@ The promise of a truly relational programming language could herald a shift in h
 
 The theoretical groundwork exists. What we need now is a mainstream language that can turn this theory into practice. It's time for the software community to take the relational model seriously and develop tools that unlock its power.
 
-I admit that, since the concept of functional relational progrmaming is largely untested, nobody knows for sure how beneficial it really is. But the concept is promising enough that it deserves a concerted effort. We have the hypothesis. Now we need a way to test it.
+I admit that, since the concept of functional relational programming is largely untested, nobody knows for sure how beneficial it really is. But the concept is promising enough that it deserves a concerted effort. We have the hypothesis. Now we need a way to test it.
