@@ -439,7 +439,7 @@ a.button {
   margin-bottom: auto;
 }
 
-ul.projects li {
+ul.projects li, article li {
   margin-top: 0.25rem;
 }
 
