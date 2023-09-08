@@ -36,11 +36,9 @@ Simple systems:
 - [Use inline JavaScript](https://htmx.org/essays/locality-of-behaviour/)
 
 ## How do we achieve simplicity?
-
 Achieving simplicity requires significant mental effort. Counterintuitively, simple systems are the hardest kind to make.
 
 ### Wrestle with complexity
-
 In the landmark paper, [*How Do Committees Invent?*](http://melconway.com/research/committees.html), Melvin Conway states that a system can only produce copies of its own communication structure. In other words, **only simple systems can produce simple output.** This principle, known as Conway's Law, was originally applied to social organizations but applies equally well to software systems. In fact, Conway's Law has been described as [the only immutable law of software architecture](https://www.youtube.com/watch?v=5IUj1EZwpJY).
 
 Thus, if we want to create simple experiences that delight customers, we must strive for simple software architecture. Unfortunately, this is easier said than done. In Conway's words:
@@ -56,11 +54,9 @@ In developer speak:
 This quote from Conway resonates with me because I have experienced that "wrestle" with complexity many times. Ideas do not naturally simplify themselves; it takes extreme mental exertion to reduce an idea to its core.
 
 ### Design by subtraction
-
-Fumito Ueda, the director of the video game [*Shadow of the Colossus*](https://en.wikipedia.org/wiki/Shadow_of_the_Colossus), echoes Conway's sentiments with his [Design by Subtraction](https://www.sirlin.net/articles/subtractive-design) philosophy. Instead of adding features to his games, Ueda repeatedly strips out features until only the game's purest essence remains. This philosophy has produced beautiful, elegant games that have been revered by players for decades. The broader software industry would do well to follow Ueda's example.
+Fumito Ueda, director of the video game [*Shadow of the Colossus*](https://en.wikipedia.org/wiki/Shadow_of_the_Colossus), echoes Conway's sentiments with his [Design by Subtraction](https://www.sirlin.net/articles/subtractive-design) philosophy. Instead of adding features to his games, Ueda repeatedly strips out features until only the game's purest essence remains. This philosophy has produced beautiful, elegant games that have been revered by players for decades. The broader software industry would do well to follow Ueda's example.
 
 ## How to avoid complexity
-
 Evidently, the only way to achieve simplicity is through **deliberate and aggressive complexity avoidance**. To accomplish this, I have found the following steps to be helpful:
 
 ### 1. Wrestle with the complexity
