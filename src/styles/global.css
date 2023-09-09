@@ -446,3 +446,7 @@ ul.projects li, article li {
 html {
   scroll-behavior: smooth;
 }
+
+.date {
+  text-wrap: nowrap;
+}
