@@ -2,6 +2,7 @@
 title: 'All I Want is a Relational Programming Language'
 description: 'The relational model is criminally underutilized in software development. Despite lots of theoretical discussion, no mainstream relational programming language exists. This needs to change if we want simpler, more robust software.'
 pubDate: 'Sept 7, 2023'
+updated date: 'Oct 7, 2023'
 heroImage: '/relational-database-logo.png'
 ---
 
