@@ -60,7 +60,7 @@
   main {
 	margin: auto; /* 1 */
 	max-width: 66rem; /* 2 */
-	padding: 0 1rem; /* 2 */
+	padding: 0 2rem; /* 2 */
 	width: 100%; /* 2 */
   }
   
@@ -70,16 +70,13 @@
    */
   
   header {
-	padding: 8rem 0 0rem 0; /* 1 */
+	padding: 6rem 0 0rem 0; /* 1 */
 	font-size: 1.2em; /* 2 */
   }
   
-  /**
-   * Center the text in the footer.
-   */
-  
   footer {
 	text-align: center;
+  margin-top: auto;
   }
   
   /**
@@ -449,4 +446,21 @@ html {
 
 .date {
   text-wrap: nowrap;
+}
+
+p.description {
+  margin-top: 0;
+  opacity: 90%;
+}
+
+.blog-post {
+  border-radius: 1rem;
+  border: 1px solid #7776;
+}
+
+.blog-post a {
+  padding: 2rem;
+  display: block;
+  width: 100%;
+  height: 100%;
 }

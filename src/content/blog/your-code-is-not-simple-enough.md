@@ -2,7 +2,7 @@
 title: "Your Code Isn't Simple Enough"
 description: 'Why complexity is the root of all evil in software development and what you should do about it.'
 pubDate: 'Sept 8 2023'
-heroImage: '/complexity.png'
+heroImage: '/complexity.webp'
 ---
 
 ## The Complexity Problem

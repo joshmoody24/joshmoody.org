@@ -23,15 +23,16 @@ const posts = (await getCollection('blog')).sort(
 				.filter(p => p.data.pubDate < new Date())
 				.sort((a,b) => a.data.pubDate < b.data.pubDate ? 1 : -1)
 				.map((post) => (
-					<li>
+					<li class="blog-post">
 						<a href={`/blog/${post.slug}/`}>
-							<img width={720} height={360} src={post.data.heroImage} alt="" />
+							<img width={720} height={360} src={post.data.heroImage} alt={`Header image for blog post "${post.data.title}"`} />
 							<div>
 								<h4 class="title">{post.data.title}</h4>
 								<p class="date">
 									<FormattedDate date={post.data.pubDate} />
 								</p>
 							</div>
+							<p class="description">{post.data.description}</p>
 						</a>
 					</li>
 				))
