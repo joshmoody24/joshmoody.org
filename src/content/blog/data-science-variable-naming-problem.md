@@ -1,7 +1,7 @@
 ---
 title: 'Data Science Has a Variable Naming Problem'
 description: 'Machine learning code almost always suffers from confusing variable names. Clearer, more descriptive variable names can simplify code and make it more accessible to all skill levels.'
-pubDate: 'Nov 10 2023'
+pubDate: 'Nov 09 2023'
 heroImage: '/sad-data-scientist.webp'
 ---
 
