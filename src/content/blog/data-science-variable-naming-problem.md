@@ -1,7 +1,7 @@
 ---
 title: 'Data Science Has a Variable Naming Problem'
 description: 'Machine learning code almost always suffers from confusing variable names. Clearer, more descriptive variable names can simplify code and make it more accessible to all skill levels.'
-pubDate: 'Nov 09 2023'
+pubDate: 'Nov 10 2023'
 heroImage: '/sad-data-scientist.webp'
 ---
 
@@ -44,7 +44,7 @@ def forward(self, x):
     s = k // h
     # Oh boy, some mental find-and-replace already!
     # Since I don't know what k means (heh)
-    # I shouldn't even bother to try to figure out the meaning of *s*.
+    # I shouldn't even bother to try to figure out the meaning of s.
 
     keys    = keys.view(b, t, h, s)
     queries = queries.view(b, t, h, s)
@@ -82,13 +82,13 @@ def forward(self, x):
     # Why didn't we just call it attention_weights or something?
 
     out = out.transpose(1, 2).contiguous().view(b, t, s * h)
-    # I still have no idea what *t* and *s* mean.
+    # I still have no idea what t and s mean.
     
     return self.unifyheads(out)
     # I feel like I understood about 25% of what I just read.
 ```
 
-To the inexperienced, this code is completely incomprehensible. An experienced data scientist could probably understand most of it on a first pass, but that's only possible because data scientists have spent years adapting to industry convention and tradition. Relative novicese like me get steamrolled by it.
+To the inexperienced, this code is completely incomprehensible. An experienced data scientist could probably understand most of it on a first pass, but that's only possible because data scientists have spent years adapting to industry convention and tradition. Relative novices like me get steamrolled by it.
 
 I don't blame Bloem for writing his code this way; everyone does it. I believe this coding style stems from the fact that machine learning research papers describe their algorithms using mathematical notation. For some reason, mathematicians love writing equations as concisely as possible, even when it means sacrificing clarity. Some people go so far as to declare [math notation is broken](https://davidwees.com/content/mathematical-notation-broken/).
 
