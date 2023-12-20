@@ -1,5 +1,5 @@
 ---
-title: 'Emulating Pong With a Neural Network'
+title: 'Emulating Pong with a Neural Network'
 description: "People have been training neural nets to play Atari games like Pong for years. But is it possible to simulate the game itself with a neural network? Sort of... but it's extremely difficult."
 pubDate: 'Dec 20, 2023'
 heroImage: '/pong-variance-attention.png'
@@ -50,9 +50,9 @@ The state predictor was difficult to train. It achieved better results by predic
 
 While it gets remarkably accurate, it's still not accurate enough to simulate the game realistically.
 
-Sadly, this makes sense, because neural networks are universal function *approximators*. Even the tinest bit of innaccuracy in a CPU can throw off the entire system, and it seems dubious that a neural network (of reasonable size) could approximate CPU logic without some degree of error.
+Sadly, this makes sense because neural networks are universal function *approximators*. Even the tiniest bit of inaccuracy in a CPU can throw off the entire system, and it seems dubious that a neural network (of reasonable size) could approximate CPU logic without some degree of error.
 
-My best result (twelve fully-connected layers with hidden size 128) achieved a mean squared error of 0.00138, and even that wasn't enough to generate realistic results. But it good enough to keep the simulation semi-stable for a few seconds. Sort of.
+My best result (twelve fully connected layers with hidden size 128) achieved a mean squared error of 0.00138, and even that wasn't enough to generate realistic results. But it good enough to keep the simulation semi-stable for a few seconds. Sort of.
 
 <div class="centered">
     <video height="315" width="240" controls>
@@ -63,7 +63,7 @@ My best result (twelve fully-connected layers with hidden size 128) achieved a m
 
 ### The Visualizer
 
-The state predictor was kind of a bust. But what about the visualizer? Surpsisingly, it was equally hard to train. I assumed that mapping between RAM and graphics would be simple, but alas, nothing about the Atari is as simple as it seems.
+The state predictor was kind of a bust. But what about the visualizer? Surprisingly, it was equally hard to train. I assumed that mapping between RAM and graphics would be simple, but alas, nothing about the Atari is as simple as it seems.
 
 The visualizer is based on the traditional autoencoder architecture, but I modified the encoder to be fully connected instead of convolutional because it produced better results.
 
@@ -113,7 +113,7 @@ Genuine question: is there any real difference between using a regressive model 
 
 ## The Results
 
-You've already seen the results of Dream Pong. Overall the results are underwhelming, but not so terrible that I feel like I wasted my time. The simulator at least seems to vaguely understand the concepts of paddle movement and scoring.
+You've already seen the results of Dream Pong. Overall, the results are underwhelming, but not so terrible that I feel like I wasted my time. The simulator at least seems to vaguely understand the concepts of paddle movement and scoring.
 
 <div class="centered">
     <video height="315" width="240" controls>
@@ -134,6 +134,8 @@ It was fun to make it a reality! Even though I mostly failed, I'm sure someone w
 
 As someone who loves retro video games, I've often considered buying ROM-ripping devices so I can legally emulate my old GameCube and Game Boy Advance games.
 
-But in the future, such devices will be unnecessary. We will simply let the AIs play our games and have them hallucinate the games for us, complete with bonus levels and enhanced graphics.
+But in the future, such devices will be unnecessary. We will simply instruct the AIs to memorize our games and hallucinate the graphics for us.
+
+Until then, we're stuck with our imagination.
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">if you&#39;re bored you can simply close your eyes and rotate a cow in your mind. it&#39;s free and the cops can&#39;t stop you</p>&mdash; three coffees and a nap guy (@AynRandy) <a href="https://twitter.com/AynRandy/status/1356087211070869507?ref_src=twsrc%5Etfw">February 1, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
