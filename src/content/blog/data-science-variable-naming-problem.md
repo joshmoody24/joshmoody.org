@@ -44,7 +44,7 @@ def forward(self, x):
     s = k // h
     # Oh boy, some mental find-and-replace already!
     # Since I don't know what k means (heh)
-    # I shouldn't even bother to try to figure out the meaning of *s*.
+    # I shouldn't even bother to try to figure out the meaning of s.
 
     keys    = keys.view(b, t, h, s)
     queries = queries.view(b, t, h, s)
@@ -82,17 +82,17 @@ def forward(self, x):
     # Why didn't we just call it attention_weights or something?
 
     out = out.transpose(1, 2).contiguous().view(b, t, s * h)
-    # I still have no idea what *t* and *s* mean.
+    # I still have no idea what t and s mean.
     
     return self.unifyheads(out)
     # I feel like I understood about 25% of what I just read.
 ```
 
-To the inexperienced, this code is completely incomprehensible. An experienced data scientist could probably understand most of it on a first pass, but that's only possible because data scientists have spent years adapting to industry convention and tradition. Relative novicese like me get steamrolled by it.
+To the inexperienced, this code is completely incomprehensible. An experienced data scientist could probably understand most of it on a first pass, but that's only possible because data scientists have spent years adapting to industry convention and tradition. Relative novices like me get steamrolled by it.
 
 I don't blame Bloem for writing his code this way; everyone does it. I believe this coding style stems from the fact that machine learning research papers describe their algorithms using mathematical notation. For some reason, mathematicians love writing equations as concisely as possible, even when it means sacrificing clarity. Some people go so far as to declare [math notation is broken](https://davidwees.com/content/mathematical-notation-broken/).
 
-I personally wouldn't call math notation *broken*, but I don't think it's descriptive enough to be a good coding style. In pure mathematics, maybe it's fine. But for real-world code, it increases the cognitive load of the people reading your code. If verbosity increases code readability, be verbose!
+I personally wouldn't call math notation *broken*, but I don't think it's descriptive enough to be a good coding style. In academia, sure, but not the real world. Too much cognitive load.
 
 Here's how I would improve the code snippet above. (feel free to skip this if you're not experienced with PyTorch or transformer models)
 
@@ -138,13 +138,13 @@ def forward(self, input_tensor):
     return self.unifyheads(attention_output)
 ```
 
-Does it make the code a bit longer? Sure, but it's much easier on the brain. Could this be taken too far? Absolutely. At some point *really long* variable names do more harm than good. But anything is better than single-letter variable names. Even just one or two extra letters can make a big difference.
+Does it make the code a bit longer? Sure, but it's much easier on the brain. Could this be taken too far? Absolutely. At some point *really long* variable names do more harm than good. But anything is better than single-letter variable names. Just one or two extra letters can make a big difference.
 
-Why don't data scientists do this already? I suspect the reason is because data scientists view themselves as being much closer to mathematicians than software engineers.
+Why don't data scientists do this already? I suspect the reason is because they view themselves as next-door neighbors to mathematicians.
 
 ![A spectrum with software engineering on the left and mathematics on the right. Data science is much closer to mathematics](/data-sci-spectrum-false.webp)
 
-But I think they are actually closer to the middle of the spectrum.
+But I think data science is closer to the middle mathematics/programming spectrum.
 
 ![A spectrum with software engineering on the left and mathematics on the right. Data science is in the center](/data-sci-spectrum-true.webp)
 

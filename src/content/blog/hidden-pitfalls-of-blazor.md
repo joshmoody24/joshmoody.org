@@ -176,7 +176,7 @@ As a proof of concept, I spent two days rewriting a section of an enterprise app
 
 ![Blazor lines of code versus MVC + HTMX lines of code. MVC + HTMX has 62% fewer lines.](/blazor-vs-mvc-htmx.webp)
 
-The code reduction came mainly deleting all the boilerplate parameter passing and component state/lifecycle management. It also came from replacing simple, static Razor components with tag helpers also reduced the line count significantly. And some more reductions came from replacing complex Blazor components with their HTMX equivalents.
+The code reduction came mainly deleting all the boilerplate parameter passing and component state/lifecycle management. Replacing simple, static Razor components with tag helpers also reduced the line count significantly. And some more reductions came from replacing complex Blazor components with their HTMX equivalents.
 
 Granted, counting lines of code isn't everything. I'll take a reasonably verbose, multiline function over a code-golfed one-liner any day. But in this case, I found the MVC + HTMX code to be both shorter **and** more readable, flexible, and maintanable. Truly a win in every respect.
 

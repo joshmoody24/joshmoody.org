@@ -7,7 +7,7 @@ heroImage: '/relational-database-logo.webp'
 
 ## The Object-Relational Dilemma
 
-Software development is largely influenced by the programming paradigms we adopt. Object-Oriented programming (OOP) is the go-to approach for many, but it has issues. One of the most difficult problems encountered in real-world object oriented development is the [object relational impedance mismatch](https://en.wikipedia.org/wiki/Object%E2%80%93relational_impedance_mismatch). In other words, object-oriented languages are fundamentally incompatible with the relational model used by most databases.
+Software development is largely influenced by the programming paradigms we adopt. Object-Oriented programming (OOP) is the go-to approach for many, but it has issues. One of the most difficult problems encountered in real-world object oriented development is the [object relational impedance mismatch](https://en.wikipedia.org/wiki/Object%E2%80%93relational_impedance_mismatch). In short, object-oriented languages are fundamentally incompatible with the relational model used by most databases.
 
 The conflict between object-oriented and relational models has long plagued developers. As Ted Neward pointed out, it is the ["Vietnam of Computer Science."](https://www.odbms.org/wp-content/uploads/2013/11/031.01-Neward-The-Vietnam-of-Computer-Science-June-2006.pdf)
 
