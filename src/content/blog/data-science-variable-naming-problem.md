@@ -5,7 +5,7 @@ pubDate: 'Nov 09 2023'
 heroImage: '/sad-data-scientist.webp'
 ---
 
-# Data Science Has a Variable Naming Problem
+## Variable Names Are a Big Deal
 
 Software engineers universally frown upon single-letter variable names. Data scientists haven't gotten the memo yet.
 

@@ -1,16 +1,22 @@
 ---
 title: 'Emulating Pong With a Neural Network'
 description: "People have been training neural nets to play Atari games like Pong for years. But is it possible to simulate the game itself with a neural network? Sort of... but it's extremely difficult."
+pubDate: 'Dec 20, 2023'
 heroImage: '/pong-variance-attention.png'
 ---
 
-# Emulating Pong With a Neural Network is Hard
+## Neural Game Emulation
 
 Close your eyes and imagine playing your favorite video game. Easy, right? Your brain has internalized the rules and graphics so well that your imagination is almost as good as playing the real thing. Your brain is essentially acting as an emulator, just at a much higher level of abstraction than a conventional software emulator.
 
 I recently had a strange question pop into my mind. Could I train an AI to emulate video games? After a few weekends of tinkering, I discovered that the answer is "sort of, but not really." I attempted to train a neural network to emulate the Atari game Pong, and... well, see for yourself:
 
-![Glitchy video of Dream Pong](/dream-pong-1.mp4)
+<div class="centered">
+    <video height="315" width="240" controls>
+    <source src="/dream-pong-1.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+    </video>
+</div>
 
 At least the results are interesting to watch. I call my useless invention *Dream Pong*. In this post, I'll explain what I tried and why it doesn't work.
 
@@ -44,7 +50,12 @@ Sadly, this makes sense, because neural networks are universal function *approxi
 
 My best result (twelve fully-connected layers with hidden size 128) achieved a mean squared error of 0.00138, and even that wasn't enough to generate realistic results. But it good enough to keep the simulation semi-stable for a few seconds. Sort of.
 
-![Glitchy video of Dream Pong, a bit jumpy](/dream-pong-2.mp4)
+<div class="centered">
+    <video height="315" width="240" controls>
+    <source src="/dream-pong-2.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+    </video>
+</div>
 
 ### The Visualizer
 
@@ -98,9 +109,14 @@ Genuine question: is there any real difference between using a regressive model 
 
 ## The Results
 
-You've already seen the results of Dream Pong. Overall the results are underwhelming, but not so terrible that I feel like I wasted my time. The simulator at least seems to vaguely understand the concepts of score and paddle movement.
+You've already seen the results of Dream Pong. Overall the results are underwhelming, but not so terrible that I feel like I wasted my time. The simulator at least seems to vaguely understand the concepts of paddle movement and scoring.
 
-![Glitchy video of Dream Pong, a bit unstable](/dream-pong-3.mp4)
+<div class="centered">
+    <video height="315" width="240" controls>
+    <source src="/dream-pong-3.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+    </video>
+</div>
 
 I believe the root of the problem is that the Atari's RAM does not capture the full internal state of the console. Thus, training a neural network on RAM will never reach sufficient levels of precision to emulate the game correctly.
 
