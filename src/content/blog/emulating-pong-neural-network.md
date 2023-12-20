@@ -22,15 +22,19 @@ At least the results are interesting to watch. I call my useless invention *Drea
 
 ## How Dream Pong Works
 
-Other people have tried emulating games with deep learning. One group tried to predict the next frame in a game based solely on image data from the previous frame. My experiment is similar but is based on RAM data instead of image data.
+Others have tried emulating games with deep learning. [One group tried to predict the next game frame from previous frames](https://ar5iv.labs.arxiv.org/html/1507.08750). My experiment is similar but is based on RAM, not images.
 
-Dream Pong consists of two neural networks: the *state predictor* and the *visualizer*. The state predictor's job is to emulate the game by taking the current game state (stored in the Atari's 128 bytes of RAM) and predicting the next state based on the player's input. The visualizer takes the current game state and generates a screenshot of the game in that state. Pretty straightforward design, but the tricky part is getting these two networks to produce anything useful.
+Dream Pong consists of two neural networks: the *state predictor* and the *visualizer*.
+
+The state predictor's job is to emulate the game by taking the current game state (stored in the Atari's 128 bytes of RAM) and predicting the next state based on the player's input.
+
+The visualizer takes the current game state and generates a screenshot of the game in that state. Pretty straightforward design, but the tricky part is getting these two networks to produce anything useful.
 
 ![A diagram of the Dream Pong architecture. One neural network generates a screenshot of the game based on the current RAM state, and the second predicts the next RAM state, taking player input into account.](/dream-pong-diagram.png)
 
 ### Dataset Generation
 
-I created the dataset by recording 250 games of Pong played by a custom AI agent. I trained the AI to play Pong based on the game state stored in RAM, using the original Deep-Q algorithm. After training overnight on my laptop (about 10 million steps/7 thousand games), it could put up a good fight but never actually won. Good enough for me.
+I created a dataset by recording 250 games of Pong played by a custom AI agent. I trained the AI to play Pong based on the game state stored in RAM, using the [original Deep Q-Learning algorithm](https://arxiv.org/pdf/1312.5602.pdf). After training overnight on my laptop (10 million steps, 7 thousand games), it could put up a good fight but never actually won. Good enough for me.
 
 ![Graph of AI Pong performance over time. My AI got pretty close to beating the computer eventually, but it never quite won.](/pong-dqn-learning.png)
 
@@ -101,9 +105,9 @@ Now we know the most common ball trajectories, I guess. But did attention actual
 
 Although it wasn't useful here, I think this local variance attention could be useful on other problems. I'm especially proud of inventing a machine learning technique that has "attention" in the name.
 
-(After this experiment, I learned that similar attention-based algorithms have been used elsewhere. Cool!)
+After this experiment, I learned that similar attention-based algorithms have been used elsewhere. One paper called it [uncertainty-driven loss](https://proceedings.neurips.cc/paper/2021/file/88a199611ac2b85bd3f76e8ee7e55650-Paper.pdf).
 
-I also experimented with cross entropy loss, which is used classifiers instead of regressors. Pong can be treated as a classification problem since it needs only two values: fully black and fully white. Once again, the results were not very different. Since MSE loss is more broadly usable in this domain, I decided to stick with it.
+I also experimented with cross entropy loss, which is used classifiers instead of regressors. Pong can be treated as a classification problem since it needs only two values: fully black and fully white. Once again, the results were not very different. Since MSE loss is more broadly applicable to images, I decided to stick with it.
 
 Genuine question: is there any real difference between using a regressive model with a threshold versus using a classifier model? Like for Pong, either one results in similar looking images. But should one theoretically perform better than the other? Are the gradients different or something? I couldn't find much useful information online about this. If anyone knows, shoot me an email 👀
 
@@ -132,4 +136,4 @@ As someone who loves retro video games, I've often considered buying ROM-ripping
 
 But in the future, such devices will be unnecessary. We will simply let the AIs play our games and have them hallucinate the games for us, complete with bonus levels and enhanced graphics.
 
-!["if you're bored you can simply close your eyes and rotate a cow in your mind. it's free and the cops can't stop you" - @AynRandy](/rotate-cow.webp)
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">if you&#39;re bored you can simply close your eyes and rotate a cow in your mind. it&#39;s free and the cops can&#39;t stop you</p>&mdash; three coffees and a nap guy (@AynRandy) <a href="https://twitter.com/AynRandy/status/1356087211070869507?ref_src=twsrc%5Etfw">February 1, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
