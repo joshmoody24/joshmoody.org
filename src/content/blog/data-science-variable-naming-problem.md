@@ -39,7 +39,7 @@ def forward(self, x):
     keys    = self.tokeys(x)   
     values  = self.tovalues(x)
     # Ah, passing the raw values through a neural net.
-    # This part is pretty clear, actually!
+    # This part is pretty clear, actually.
 
     s = k // h
     # Oh boy, some mental find-and-replace already!
@@ -144,7 +144,7 @@ Why don't data scientists do this already? I suspect the reason is because they 
 
 ![A spectrum with software engineering on the left and mathematics on the right. Data science is much closer to mathematics](/data-sci-spectrum-false.webp)
 
-But I think data science is closer to the middle mathematics/programming spectrum.
+But I think data science is closer to the middle of the mathematics/programming spectrum.
 
 ![A spectrum with software engineering on the left and mathematics on the right. Data science is in the center](/data-sci-spectrum-true.webp)
 
