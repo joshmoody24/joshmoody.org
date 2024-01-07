@@ -39,7 +39,9 @@ A platformer that uses the computer's webcam to detect the player's arm and hand
 
 ![AI-generated visual novel concept art, 5 teenagers facing against alien army](/game-idea-images/ghost-cipher.jpeg)
 
-This is an idea I've actually put some time into, although I eventually abandoned the project to pursue other interested. I'm envisioning an AI-generated narrative game where the text and images are generated on the fly, so every player has a different experience. You could allow the player to customize their appearance in natural language, for example. Lots of potential here, although you couldn't sell it on Steam, since, at the time of writing, [the platform bans AI-generated assets](https://techcrunch.com/2023/07/03/valve-responds-to-claims-it-has-banned-ai-generated-games-from-steam/).
+This is an idea I've actually put some time into, although I eventually abandoned the project to pursue other interests. Picture an AI-generated narrative game where the text and images are generated on the fly, so every player has a different experience. You could allow the player to customize their appearance in natural language, for example.
+
+Although you couldn't sell it on Steam, since, at the time of writing, [the platform bans AI-generated assets](https://techcrunch.com/2023/07/03/valve-responds-to-claims-it-has-banned-ai-generated-games-from-steam/).
 
 ### 5. Robot Death Battles
 
@@ -83,7 +85,7 @@ An game where the only enemy is an extremely complex final boss. We're talking p
 
 ![Ant colony terrarium](/game-idea-images/ant-farm.png)
 
-First, get an actual ant farm. Then, make the world's most advanced smart home for ants (electronic doors, gates, walls, etc). Then, stream the ant farm on Twitch and let the viewers control the ant farm, to guide the ants toward food and stuff. Yes, this idea is weird even by my standards. Yes, I have a couple dozen ant colonies. No, you're the crazy one.
+First, get an actual ant farm. Second, make the world's most advanced smart home for ants (electronic doors, gates, walls, etc). Third, stream the ant farm on Twitch and let viewers control the gadgets, guiding the ants toward food and stuff. Yes, this idea is weird even by my standards. Yes, I own a couple dozen ant colonies. No, you're the crazy one.
 
 ### 12. True AI-based Stealth Game
 
