@@ -17,8 +17,7 @@ This conflict has long plagued developers. As Ted Neward pointed out, it is the 
 > \- Ted Neward
 
 To list just a few of the incompatibilities between object-oriented and relational models:
-
-| Object-Oriented Programming                                                                                                              | Relational Model                                                                                                                                                                 |
+                                                                                                              |
 | Object-Oriented Programming                                                                                                              | Relational Model                                                                                                                                                                 |
 |------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Ties data and behavior together.                                                                                                         | Data and behavior are separate.                                                                                                                          |
@@ -26,7 +25,6 @@ To list just a few of the incompatibilities between object-oriented and relation
 | Typically uses [reference equality](https://www.baeldung.com/java-equals-method-operator-difference), a common source of bugs. Every new Java developer has questioned their sanity after mixing up `==` and `Equals` at some point. | Uses value equality, which eliminates the possibility of duplicate data and is easier to reason about.                                                           |
 | Includes concepts like inheritance, encapsulation, and polymorphism.                                                                     | Lacks object-oriented concepts, but the usefulness of these features is [often questioned](https://youtu.be/QM1iUe6IofM?si=NZ2rdzanJ4M9ZZJM) (especially [inheritance](https://en.wikipedia.org/wiki/Composition_over_inheritance)). |
 | Enforces integrity imperatively, e.g., getters, setters, and exception handling, etc. More room for bugs.                                | Enforces integrity declaratively, e.g., foreign keys, unique constraints, etc.                                                                                                  |
-                                                                                            |
 
 These clashes force us to either bend relational models to fit OOP paradigms or vice versa. Usually, people resort to [Object-Relational Mappers (ORMs)](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping), which favors the OOP mindset. But I argue that we should instead favor the relational model, as it provides a simpler, more robust framework for computation.
 
