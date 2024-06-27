@@ -17,7 +17,7 @@ This conflict has long plagued developers. As Ted Neward pointed out, it is the 
 > \- Ted Neward
 
 To list just a few of the incompatibilities between object-oriented and relational models:
-                                                                                                              |
+
 | Object-Oriented Programming                                                                                                              | Relational Model                                                                                                                                                                 |
 |------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Ties data and behavior together.                                                                                                         | Data and behavior are separate.                                                                                                                          |
