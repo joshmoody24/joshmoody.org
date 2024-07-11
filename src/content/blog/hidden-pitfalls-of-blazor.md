@@ -2,28 +2,27 @@
 title: 'The Hidden Pitfalls of Blazor'
 description: 'A post-mortem examination of the many pitfalls, annoyances, and hidden complexities of blazor.'
 pubDate: 'Sept 01 2023'
+updatedDate: 'Jul 11 2024'
 heroImage: '/blazing-blazor-logo.webp'
 ---
 
 ## Blazor Considered Harmful
 
-The allure of [Blazor](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor) is strong. The promise of building web applications with C# instead of JavaScript can make any .NET developer's heart race. Yet, closer inspection reveals that Blazor is no silver bullet. While the technology is impressive in many aspects, the added complexities, unconventional design decisions, and unexpected pitfalls can quickly turn development into a harrowing experience.
+The allure of [Blazor](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor) is strong. The promise of building web apps with C# instead of JavaScript is the fondest dream of .NET developers. However, Blazor is no silver bullet. While it is impressive in many aspects, its complexity, unconventional design decisions, and unexpected pitfalls can quickly turn development into a harrowing experience.
 
-The job of developers is to manage complexity, not compound it. After my deep dive into Blazor, I can safely say that there are better alternatives out there. For example, combining [MVC](https://dotnet.microsoft.com/en-us/apps/aspnet/mvc) with [HTMX](https://htmx.org/) helped me create a simpler, more straightforward, and equally powerful web application.
-
-Blazor is not inherently bad, but it may not be the best choice for most projects. Before you commit to using it, consider the kind of complexity you're signing up for and whether the trade-offs are worth it. There are alternatives that might align better with your project requirements and your sanity.
+After my deep dive into Blazor, I can safely say that there are better alternatives out there. For example, combining [MVC](https://dotnet.microsoft.com/en-us/apps/aspnet/mvc) with [HTMX](https://htmx.org/) helped me create a simpler, more straightforward, and equally powerful web app.
 
 ## Blazor: complexity made flesh
 
 Blazor sells itself as the ideal framework for creating rich, interactive web applications with C# instead of JavaScript. This is a powerful selling point that has many people excited about the concept. I too once believed in Blazor's promises. Until I used it to build a non-trivial application. 
 
-Now that I know Blazor better than my own family, I genuinely can't think of a single advantage Blazor has over other web frameworks. During development, I discovered many pitfalls, complexities, annoyances, and footguns in the framework that make it an absolute pain to work.
+Now that I know Blazor better than my own family, I genuinely can't think of a single advantage Blazor has over other web frameworks. During development, I repeatedly discovered annoyances and footguns in the framework that make it an absolute pain to work with.
 
 I now share these pitfalls with you in the hope that you will avoid falling into them.
 
 ### Pessimistic re-rendering
 
-Like most web frameworks, Razor components re-render whenever their parameters change. However, **unlike** most web frameworks, Blazor makes some bizarre decisions about when to re-render. Namely, Blazor doesn't bother to check parameters with complex types for equality. Instead, whenever a Razor component is determining whether its parameters have changed, it takes the lazy way out and [doesn't even bother to compare its complex type parameters](https://github.com/dotnet/aspnetcore/blob/main/src/Components/Components/src/ChangeDetection.cs)! It just assumes they have always changed! This is so ridiculously unintuitive that it caused me weeks of headaches as I tried to figure out where all my unnecessary re-renders were coming from. 
+Like most web frameworks, Razor components re-render whenever their parameters change. However, **unlike** most web frameworks, Blazor makes some bizarre decisions about when to re-render. Namely, Blazor doesn't bother to check parameters with complex types for equality. Instead, whenever a Razor component is checking its parameters for changes, it takes the lazy way out and [doesn't even bother to compare complex type parameters](https://github.com/dotnet/aspnetcore/blob/main/src/Components/Components/src/ChangeDetection.cs)! It always assumes they have changed! This is so ridiculously unintuitive that it caused me weeks of headaches as I tried to figure out where all my unnecessary re-renders were coming from. 
 
 One of the most common patterns in any web framework is running a side effect when certain component props (a.k.a. parameters) have changed. For example, let's imagine you have a paginated table component in React, and you wanted to fetch data only when certain props changed. Here's how you would implement that:
 
@@ -77,7 +76,7 @@ Blazor takes one of the most common use cases in all of web development and make
 
 ### No Separation of Concerns
 
-In traditional frontend/backend architectures for web apps, you are forced into separating, say, the database logic from the presentation logic. This helps keep your code understandable, maintainable, and flexible. In constrast, Blazor does not enforce this beneficial separation.
+In traditional frontend/backend architectures for web apps, you are forced into separating, say, the database logic from the presentation logic. This helps keep your code understandable, maintainable, and flexible. Not in Blazor.
 
 Want to sprinkle some raw database queries into your frontend logic? Go for it, says Blazor. The result is a tangled mess of behavior that is difficult to maintain. Sure, you can avoid this problem manually by creating [DTOs](https://learn.microsoft.com/en-us/aspnet/web-api/overview/data/using-web-api-with-entity-framework/part-5) or a service layer, or whatever. But the framework itself doesn't encourage a good architecture.
 
@@ -111,13 +110,11 @@ Blazor sells itself as a way to write web apps without JavaScript. However, this
 
 As an example, there is no way to call `element.scrollIntoView` from Blazor. Instead, you have to write the JavaScript you need, write some way to trigger it from Blazor, and then use [JSInterop](https://learn.microsoft.com/en-us/aspnet/core/blazor/javascript-interoperability/?view=aspnetcore-7.0) to hook them together. So now, instead of a JavaScript one-liner, you've introduced several new layers of abstraction into your application.
 
-What a time to be alive!
-
 ## So what's the alternative?
 
 If Blazor isn't all it's cracked up to be, what should you use instead?
 
-The most obvious replacement would be a traditional JavaScript single page application frameworks like React. As shown in the example code above, using React would get rid of the pessimistic re-rendering problem, as well as the JavaScript interop problem.
+The most obvious replacement would be a JavaScript-based framework like React. As shown in the example code above, React doesn't have the pessimistic re-rendering problem or the multi-language interop problem.
 
 However, for the most complexity-averse among you, I propose a simpler solution: MVC + HTMX.
 
@@ -133,7 +130,7 @@ That's it! Simple request/response pattern. So much easier to reason about than 
 
 In case you're worried about giving up Blazor Components, MVC comes with a ton of helpful features like layouts, tag helpers, partial views, and view components that can help a lot with elimininating duplicated HTML. In my experience, the majority of Razor components do nothing but render static HTML. In these cases, MVC can do the same thing but even more easily, since you don't have to worry about component lifecycles.
 
-But what about Razor components that have functionality? Unfortunately, MVC is inherently less interactive than Blazor. Most of the time, that's a good thing because it means your web app is simpler. But when you really need more complex functionality, we need a more powerful solution. One possibility is to combine Blazor and MVC in the same project. This is totally doable, but an even better idea is to avoid Blazor entirely. That's where HTMX comes in.
+But what about Razor components that need complex functionality? Unfortunately, MVC is inherently less interactive than Blazor. Most of the time, that's a good thing because it means your web app is simpler. But sometimes you really need more power. One possibility is to combine Blazor and MVC in the same project. This is totally doable, but an even better idea is to avoid Blazor entirely. That's where HTMX comes in.
 
 HTMX is a library that lets you create powerful single-page-app functionality without sacrificing the simplicity of the HTTP request/response cycle. Think of it like HTML on steroids. As its front page says, it enables you to "build modern user interfaces with the simplicity and power of hypertext." No JavaScript required.
 
