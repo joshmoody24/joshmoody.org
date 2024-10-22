@@ -52,7 +52,7 @@ While it gets remarkably accurate, it's still not accurate enough to simulate th
 
 Sadly, this makes sense because neural networks are universal function *approximators*. Even the tiniest bit of inaccuracy in a CPU can throw off the entire system, and it seems dubious that a neural network (of reasonable size) could approximate CPU logic without some degree of error.
 
-My best result (twelve fully connected layers with hidden size 128) achieved a mean squared error of 0.00138, and even that wasn't enough to generate realistic results. But it good enough to keep the simulation semi-stable for a few seconds. Sort of.
+My best result (twelve fully connected layers with hidden size 128) achieves a mean squared error of 0.00138, and even that isn't enough to generate realistic results. But it is good enough to keep the simulation semi-stable for a few seconds. Sort of.
 
 <div class="centered">
     <video height="315" width="240" controls>
@@ -71,15 +71,15 @@ The visualizer takes in the 128-byte RAM input and generates a 160&times;210 ima
 
 ![Graph of visualizer MSE loss over time.](/pong-visualizer-mse-loss.png)
 
-Several quirks of Pong and the Atari 2600 make visualizing a very difficult problem. For example, in Pong, the smallest parts of the image are also the most important; the ball is only 2&times;4 pixels, so the neural net can completely ignore it and still achieve high accuracy. Sadly, the ball proved to be almost impossible for the visualizer to predict regardless of network size or training time.
+Several quirks of Pong and the Atari 2600 make visualization a difficult problem. For example, in Pong, the smallest parts of the image are also the most important; the ball is only 2&times;4 pixels, so the neural net can completely ignore it and still achieve high accuracy. Sadly, the ball proved to be almost impossible for the visualizer to predict regardless of network size or training time.
 
-I suspect the ball prediction problem is unsolvable due to a quirk in the Atari 2600 architecture. This console uses its RAM in a very different way from modern computers. Some claim the Atari 2600's RAM does not capture the entire game state and that the ball's position and velocity may be stored in external registers, not RAM. Truly a sad day for me.
+I suspect the ball prediction problem is unsolvable due to a quirk in the Atari 2600 architecture. This console uses RAM in a different way from modern computers. Some claim the Atari 2600's RAM does not capture the entire game state and that the ball's position and velocity may be stored in external registers, not RAM. Truly a sad day for me.
 
 But besides the ball, the visualizer works well enough to use!
 
 ![Visualizer examples](/pong-mse-examples.png)
 
-I experimented with many different architectures and loss functions, but nothing improved the results significantly. The next section will dive into more detail on that, but I recommend scrolling past it unless you are really interested in loss functions for some reason.
+I experimented with many different architectures and loss functions, but nothing improved the results significantly. The next section will expand on that, but I recommend scrolling past it unless you are really interested in loss functions for some reason.
 
 #### Visualizer Loss Functions
 
@@ -128,9 +128,9 @@ However, since this quirk is unique to the Atari, it might be worth applying my 
 
 ## Conclusion
 
-This whole experiment started out as a random idea that popped into my head: "What if neural networks can dream about video games?"
+This whole experiment started as a whim: "What if neural networks can dream about video games?"
 
-It was fun to make it a reality! Even though I mostly failed, I'm sure someone will solve this problem eventually.
+Even though the experiment mostly failed, it was fun to try! I'm sure someone will solve this problem eventually.
 
 As someone who loves retro video games, I've often considered buying ROM-ripping devices so I can legally emulate my old GameCube and Game Boy Advance games.
 
