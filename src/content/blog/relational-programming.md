@@ -58,7 +58,7 @@ The authors then go on to propose a hypothetical replacement to SQL, dubbed *D* 
 
 Are you noticing a pattern?
 
-In addition to the SQL problems pointed out by *The Third Manifesto*, I would also point out SQL's lack of arbitrary constraints. Why can't SQL constraints like `check` and `unique` reference other tables? This would dramatically improve data integrity. But alas, it is not supported. Unless you use a trigger, but those are imperative.
+In addition to the SQL problems pointed out by *The Third Manifesto*, I would also point out SQL's lack of arbitrary declarative constraints. Why can't SQL constraints like `check` and `unique` reference other tables? This would dramatically improve data integrity. But alas, it is not supported. Unless you use a trigger, but those are imperative.
 
 On the topic of arbitrary constraints, it's worth mentioning [Datomic](https://www.datomic.com/), a database which is more relational than its SQL counterparts and which supports arbitrary constraints across tables. [Datomic is probably the closest thing we have to a practical FRP architecture today.](https://www.youtube.com/watch?v=nbMMywfBXic) However, its closed-source nature and strong coupling with the Clojure programming language limit its applicability.
 
