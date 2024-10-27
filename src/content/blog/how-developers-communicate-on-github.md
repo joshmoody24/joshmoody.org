@@ -150,4 +150,4 @@ And that concludes the high-level portion of my analysis!
 
 Analyzing how developers communicate on GitHub reveals a lot about project management and community dynamics. Or something. ChatGPT wrote that. I don't care if this project is useful; I did it on a whim.
 
-In future posts, I'll explore how these communication styles vary between projects and how much they impact project growth and popularity. Stay tuned!
+In future posts, I'll explore how these communication styles vary between web frameworks and how much they impact project growth and popularity. [Read part 2 here.](../web-framework-developer-communication-analysis)
