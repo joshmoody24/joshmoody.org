@@ -7,7 +7,9 @@ pubDate: 'Oct 26, 2024'
 
 This is the second post in which I analyze data scraped from GitHub to learn more about developer communication. [Check out the first post in this series to catch up.](./how-developers-communicate-on-github.md)
 
-These posts are based on a research paper I wrote for a natural language processing course at Brigham Young University. [The original paper is available here.](/github-nlp/analyzing-github-repositories.pdf)
+These posts are based on a research paper I wrote for a natural language processing course at Brigham Young University.
+
+[Original paper available here.](/github-nlp/analyzing-github-repositories.pdf)
 
 ## Does Communication Differ Between GitHub Projects?
 
@@ -29,7 +31,7 @@ I used the same classification methods as before:
 
 ## Results
 
-Sure enough, each framework has a different communication style.
+Let's examine the findings from each of the above bullet points individually.
 
 ### Comment Sentiment
 
@@ -57,9 +59,9 @@ In contrast to code comments, the purposes of issue comments varies significantl
 
 React comments are by far the most likely to be questions. This may be due to React’s popularity; it likely attracts the most new, inexperienced developers, who are more likely to ask questions.
 
-Django boasts a tiny bug report rate and a high discussion rate. Django is a relatively old, mature framework. Thus, it makes sense that its developers would be slower and more deliberate, leading to more open-ended discussions and fewer bugs.
+Django boasts a tiny bug report rate and a high discussion rate. Since Django is relatively old and mature, it makes sense that its developers would be slower and more deliberate.
 
-Rails has a similar pattern to Django, although less extreme. Rails has a similar design philosophy to Django – both prioritize developer experience and velocity. Does goal similarity lead to communication similarity?
+Rails has a similar pattern to Django, although less extreme. Rails has a similar design philosophy to Django: both prioritize developer experience and velocity. Does goal similarity lead to communication similarity?
 
 Phoenix has a high frequency of feature requests and bug reports. This tracks with my personal experience; I've found Phoenix lacking key features of more mature frameworks like Django. Give me auto-generated migration scripts already!
 
