@@ -1,7 +1,7 @@
 ---
 title: 'How Developers Communicate on GitHub'
 description: 'This analysis explores code comments and GitHub issues across various open-source projects to understand how developers communicate technical information. It includes findings on common types of code comments, the nature of issue discussions, and trends in sentiment.'
-heroImage: '/github-nlp/positive-comments-timeline.webp'
+heroImage: '/github-nlp/github-communication-header.webp'
 pubDate: 'Apr 16, 2024'
 ---
 

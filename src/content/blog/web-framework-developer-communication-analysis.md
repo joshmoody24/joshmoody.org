@@ -1,7 +1,7 @@
 ---
 title: 'Web Framework Communities Talk Differently'
 description: "Developers communicate differently across GitHub repositories like React, Vue, Django, Rails, Phoenix, and HTMX. Sentiment and topics discussed vary widely. For example, React is flooded with questions, Phoenix has many bug reports, and Django is highly discussion-oriented."
-heroImage: '/github-nlp/web-framework-positivity-ratios.webp'
+heroImage: '/github-nlp/github-web-framework-analysis-header.webp'
 pubDate: 'Oct 26, 2024'
 ---
 
