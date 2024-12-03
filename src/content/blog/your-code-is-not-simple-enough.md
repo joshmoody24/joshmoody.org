@@ -6,7 +6,7 @@ heroImage: '/complexity.webp'
 ---
 
 ## The Complexity Problem
-I've noticed that smart people like complex solutions. Why? I think it's because complexity is more mentally stimulating than simplicity. For example, several years ago I constructed an elaborate pully system in my bedroom so I could turn off the lights without leaving my bed. I won't lie: it was awesome.
+I've noticed that smart people like complex solutions. Why? I think it's because complexity is more mentally stimulating than simplicity. For example, several years ago I constructed an elaborate pulley system in my bedroom so I could turn off the lights without leaving my bed. I won't lie: it was awesome.
 
 But just because you *can* create a Rube Goldberg machine doesn't mean you should. In software engineering, complexity slows down development, causes bugs, frustrates both developers and customers, and is generally the bane of the entire industry's existence.
 
