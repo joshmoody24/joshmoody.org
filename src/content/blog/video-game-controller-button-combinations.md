@@ -1,6 +1,6 @@
 ---
 title: "How Many Input Combinations Do Video Game Controllers Have?"
-description: "Video game controllers have many input mechanisms. How many ways can you combine these inputs on popular controllers? Let's count them!"
+description: "Video game controllers have many input mechanisms. Let's count how ways you can combine them on popular controllers!
 heroImage: '/snes-gamepad.webp'
 pubDate: 'Dec 18, 2024'
 ---
