@@ -101,7 +101,7 @@
 	display: inline-block; /* 1 */
 	vertical-align: middle; /* 1 */
 	padding: .4rem 1rem; /* 1 */
-	font-size: 2rem; /* 1 */
+	font-size: 1.6rem; /* 1 */
 	font-weight: normal; /* 1 */
 	margin-bottom: 1rem; /* 1 */
 	background: #fff; /* 2 */
@@ -178,7 +178,7 @@
 	box-sizing: inherit; /* 1 */
 	padding: .4rem 1rem; /* 1 */
 	width: 100%; /* 1 */
-	font-size: 2rem; /* 1 */
+	font-size: 1.6rem; /* 1 */
 	color: #111; /* 2 */
 	background-color: #fff; /* 2 */
 	border: .2rem solid #111; /* 2 */
@@ -456,6 +456,11 @@ p.description {
 .blog-post {
   border-radius: 1rem;
   border: 1px solid #7776;
+  font-size: 2rem;
+}
+
+.blog-post .description {
+  font-size: 1.6rem;
 }
 
 .blog-post a {
