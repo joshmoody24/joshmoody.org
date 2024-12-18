@@ -470,6 +470,12 @@ p.description {
   height: 100%;
 }
 
+.blog-post > a > img + div {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
 .centered {
   display: flex;
   justify-content: center;
