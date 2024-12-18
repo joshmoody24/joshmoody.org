@@ -27,7 +27,7 @@
    */
   
   body {
-	font-size: 2rem; /* 1 */
+	font-size: 1.6rem; /* 1 */
 	font-weight: 400; /* 1 */
 	background: #fff; /* 2 */
 	color: #111; /* 2 */
@@ -349,12 +349,12 @@
   @media (prefers-color-scheme: dark) {
 	body {
 	  background: #111;
-	  color: #fff;
+	  color: #ddd;
 	}
 	a,
 	input::placeholder,
 	textarea::placeholder {
-	  color: #fff;
+	  color: #ddd;
 	}
 	button,
   .button,
@@ -372,7 +372,7 @@
 	select,
 	progress {
 	  background: #111;
-	  color: #fff;
+	  color: #ddd;
 	  border-color: #fff;
 	}
 	button:disabled,
@@ -381,26 +381,26 @@
 	input[type="reset"]:disabled,
 	input[type="submit"]:disabled{
 	  color: #111;
-	  background: #fff;
+	  background: #ddd;
 	}
 	fieldset {
-	  border-color: #fff;
+	  border-color: #ddd;
 	}
 	td,
 	th,
 	blockquote,
 	pre,
 	hr {
-	  border-color: #fff;
+	  border-color: #ddd;
 	}
 	progress::-webkit-progress-bar {
 	  background-color: #111;
 	}
 	progress::-webkit-progress-value {
-	  background-color: #fff;
+	  background-color: #ddd;
 	}
 	progress::-moz-progress-bar {
-	  background-color: #fff;
+	  background-color: #ddd;
 	}
 }
 
