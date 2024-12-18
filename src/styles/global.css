@@ -444,6 +444,10 @@ html {
   margin: 0;
 }
 
+.posts h4 {
+  margin: 0
+}
+
 p.description {
   margin-top: 0;
   opacity: 90%;
