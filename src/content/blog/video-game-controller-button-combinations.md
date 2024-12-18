@@ -1,11 +1,11 @@
 ---
-title: "How Many Degrees of Freedom Do Video Game Controllers Have?"
-description: "How many different combinations of button presses does each type of video game controller have? Let's count them!"
+title: "How Many Input Combinations Do Video Game Controllers Have?"
+description: "Video game controllers have many input mechanisms. How many ways can you combine these inputs on popular controllers? Let's count them!"
 heroImage: '/snes-gamepad.webp'
 pubDate: 'Dec 18, 2024'
 ---
 
-## Video Game Controller Dimensionality
+## Video Game Controllers Have Many Degrees of Freedom
 
 I love video games that utilize [knowledge-based unlocks](https://www.youtube.com/watch?v=tkv05ZO7d8I). These games hide secrets that players can technically access right away, but they lack the knowledge to do so. My favorite games that do this are [*Outer Wilds*](https://www.mobiusdigitalgames.com/outer-wilds-text-adventure.html), [*Void Stranger*](https://store.steampowered.com/app/2121980/Void_Stranger/), and [*Tunic*](https://tunicgame.com/).
 
