@@ -7,13 +7,15 @@ pubDate: 'Dec 18, 2024'
 
 ## Video Game Controller Dimensionality
 
-I love video games that utilize "knowledge-based unlocks": games that hide secrets that you can technically access right away, but you lack the knowledge to do so. Some examples include [*Tunic*](https://tunicgame.com/) and [*Void Stranger*](https://store.steampowered.com/app/2121980/Void_Stranger/).
+I love video games that utilize [knowledge-based unlocks](https://www.youtube.com/watch?v=tkv05ZO7d8I). These games hide secrets that players can technically access right away, but they lack the knowledge to do so. My favorite games that do this are [*Outer Wilds*](https://www.mobiusdigitalgames.com/outer-wilds-text-adventure.html), [*Void Stranger*](https://store.steampowered.com/app/2121980/Void_Stranger/), and [*Tunic*](https://tunicgame.com/).
 
-Without any spoilers, *Tunic*, in particular, hides several secrets behind obscure combinations of button presses that the player is very unlikely to stumble upon by accident.
+*Tunic*, in particular, hides several secrets behind obscure combinations of button presses that the player is very unlikely to stumble upon by accident.
+
+(don't worry, no spoilers)
 
 My question is, exactly *how* unlikely is it that a player will discover these types of secrets accidentally?
 
-The answer depends on the input device. Specifically, how many possible combinations of inputs the controller has.
+The answer depends on the input device. Specifically, it depends on how many possible combinations of inputs the controller has.
 
 For no good reason, I decided to quantify this for many of the most popular video game controllers!
 
@@ -21,7 +23,7 @@ This chart summarizes my findings:
 
 ![Chart of the growth of video game controller possible input states over time](/video-game-controllers/controller-input-states-over-time.png)
 
-Surprising no one, video game controllers have gotten more complex over time. But they haven't gotten *slightly* more complex. Not even *considerably* more complex. They have become more complex by many orders of magnitude.
+Surprising no one, video game controllers have gotten more complex over time. But they haven't gotten *slightly* more complex. Not even *considerably* more complex. They have become **many orders of magnitude** more complex.
 
 Let's examine each controller individually, starting small and working our way up. I'll explain as we go.
 
@@ -29,7 +31,7 @@ Let's examine each controller individually, starting small and working our way u
 
 ![Atari 2600 joystick](/video-game-controllers/atari-joystick.jpg)
 
-The Atari 2600 has the simplest controller I know of: an 8-way joystick and a single button.
+The Atari 2600 has the simplest controller I know of. It consists solely of one 8-way joystick and one button.
 
 The joystick has 9 possible states: neutral, up, down, left, right, and 4 diagonals, and the button has two: pressed and not pressed. This means that the controller can be in one of 9 &times; 2 = 18 possible input states at any given moment.
 
