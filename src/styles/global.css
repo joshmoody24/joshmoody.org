@@ -431,11 +431,6 @@ a.button {
   align-items: center;
 }
 
-.posts h4 {
-  margin-top: auto;
-  margin-bottom: auto;
-}
-
 ul.projects li, article li {
   margin-top: 0.25rem;
 }
@@ -446,6 +441,7 @@ html {
 
 .date {
   text-wrap: nowrap;
+  margin: 0;
 }
 
 p.description {
@@ -474,6 +470,8 @@ p.description {
   display: flex;
   align-items: flex-start;
   gap: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .centered {
