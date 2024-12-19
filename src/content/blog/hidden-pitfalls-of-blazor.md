@@ -1,6 +1,6 @@
 ---
 title: 'The Hidden Pitfalls of Blazor'
-description: 'A post-mortem examination of the many pitfalls, annoyances, and hidden complexities of blazor.'
+description: 'A post-mortem examination of the many pitfalls, annoyances, and hidden complexities of the Blazor web framework.'
 pubDate: 'Sept 01 2023'
 updatedDate: 'Oct 28 2024'
 heroImage: '/blazing-blazor-logo.webp'
