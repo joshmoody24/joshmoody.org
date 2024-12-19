@@ -117,7 +117,7 @@ Well, technically not infinite.
 
 But in practice, it's signficantly fewer, for two reasons:
 
-- The stick is an octagon, meaning diagonals have reduced range of motion.
+- The stick is an octagon, so diagonals have reduced range of motion.
 - As N64 controllers age, they lose flexibility. The developer documentation recommends using slightly less than half the maximum range.
 
 Together, these limitations mean the practical number of possible states is somewhere around 13,000.
@@ -209,9 +209,11 @@ Now for the IR pointer:
 
 The Wii Remote has an IR camera used for pointing at the screen, sort of like a computer mouse. [The IR sensor has a resolution of 1024 &times; 768 pixels](https://pmc.ncbi.nlm.nih.gov/articles/PMC7218719/#:~:text=The%20Nintendo%20Wii%20Remote%20has,resolution%20of%201024%20%C3%97%20768.), meaning 786,432 states total.
 
-Obviously, no one's hands are steady enough to reliably aim at a single pixel. I'll assume that the minimum reasonable size for a pointer target is 24 &times 24 pixels ([halfhearted justification](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html)).
+Obviously, no one's hands are steady enough to reliably aim at a single pixel. I'll assume that the minimum reasonable size for a pointer target is 24 &times; 24 pixels ([halfhearted justification](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html)).
 
 The Wii's output resolution is 640 &times; 480 ([rabbit hole](https://www.avsforum.com/threads/480i-widescreen-wii.765195/)). That means it can fit 26 targets horizontally and 20 vertically. That's 520 pointer states total.
+
+Update: I've been informed that I didn't account for the fact that the sensor bar allows the Wii Remote to sense one axis of rotation and its distance from the sensor. The current calculations don't take these inputs into account 😭
 
 Here's the final count:
 
