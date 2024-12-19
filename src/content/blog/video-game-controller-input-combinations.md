@@ -213,8 +213,6 @@ Obviously, no one's hands are steady enough to reliably aim at a single pixel. I
 
 The Wii's output resolution is 640 &times; 480 ([rabbit hole](https://www.avsforum.com/threads/480i-widescreen-wii.765195/)). That means it can fit 26 targets horizontally and 20 vertically. That's 520 pointer states total.
 
-Update: I've been informed that I didn't account for the fact that the sensor bar allows the Wii Remote to sense one axis of rotation and its distance from the sensor. The current calculations don't take these inputs into account 😭
-
 Here's the final count:
 
 | Input | Possible States |
@@ -227,6 +225,8 @@ Here's the final count:
 | Accelerometer &times; 3 | 125 |
 | Pointer | 520 |
 | **Total** | **37,440,000** |
+
+Update: I've been informed that I didn't account for the fact that the sensor bar allows the Wii Remote to sense one axis of rotation and its distance from the sensor. The total above doesn't take these inputs into account 😭
 
 ## Wii Remote + Nunchuk
 
