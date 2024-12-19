@@ -13,11 +13,9 @@ I love video games that utilize [knowledge-based unlocks](https://www.youtube.co
 
 (don't worry, no spoilers)
 
-My question is, exactly *how* unlikely is it that a player will discover these types of secrets accidentally?
+My question is, exactly *how* unlikely is it that a player will discover these types of secrets accidentally? The answer depends on the input device. Specifically, it depends on how many possible combinations of inputs the controller has.
 
-The answer depends on the input device. Specifically, it depends on how many possible combinations of inputs the controller has.
-
-For no good reason, I decided to quantify this for many of the most popular video game controllers!
+Out of sheer curiosity, I decided to count them!
 
 This chart summarizes my findings:
 
@@ -287,6 +285,7 @@ I'm also making a few other assumptions:
 - For each rotational axis, each 10-degree slice counts as one state (my hands shake, okay?), meaning 36 states per axis.
 - Home and screenshot buttons don't count because they're controlled by the operating system.
 - The SL/SR buttons are only intended for use when using an individual Joy-Con, and are equivalent to ZL/ZR. Thus, they will not be counted.
+- Amiibo don't count because they're external to the controller itself.
 
 | Input | Possible States |
 | - | - |
@@ -296,11 +295,12 @@ I'm also making a few other assumptions:
 | + / - | 4 |
 | Bumper &times; 2 | 4 |
 | Trigger &times; 2 | 4 |
+| IR camera | 2 |
 | Accelerometer &times; 6 | 15,625 |
 | Rotational axis &times; 6 | 2,176,782,336 |
-| **Total** | **362,355,894,779,904,000,000** |
+| **Total** | **724,711,789,559,808,000,000** |
 
-Joy-Cons have **362 quintillion** possible input combinations 😵
+Joy-Cons have **724 quintillion** possible input combinations 😵
 
 And that's not even counting the touchscreen!
 
@@ -321,5 +321,5 @@ Here are some other ideas to take this concept further:
 
 If you want to hide cool secrets in a video game that can technically be accessed immediately but are unlikely to be discovered accidentally, develop for Nintendo Switch, not the Atari 2600.
 
-The Nintendo Switch has 20 quintillion times more hiding places.
+The Nintendo Switch has 40 quintillion times more hiding places.
 
