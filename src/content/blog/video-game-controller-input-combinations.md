@@ -286,8 +286,8 @@ I'm also making a few other assumptions:
 - Despite technically being able to press opposite directions on the D-pad at the same time, this should not be counted because other Switch controllers (e.g., Switch Pro Controller) do not support this.
 - For each rotational axis, each 10-degree slice counts as one state (my hands shake, okay?), meaning 36 states per axis.
 - Home and screenshot buttons don't count because they're controlled by the operating system.
-- The SL/SR buttons are only intended for use when using an individual Joy-Con, and are equivalent to ZL/ZR. Thus, they will not be counted.
-- Amiibo don't count because they're external to the controller itself.
+- The SL/SR buttons are only intended for use when using an individual Joy-Con and are equivalent to ZL/ZR. Thus, they should not be counted separately.
+- Amiibo shouldn't count because they're external to the controller itself.
 
 | Input | Possible States |
 | - | - |
