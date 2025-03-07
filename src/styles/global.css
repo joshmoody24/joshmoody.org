@@ -446,10 +446,6 @@ article li {
   margin-top: 0.25rem;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 .date {
   text-wrap: nowrap;
   margin: 0;
