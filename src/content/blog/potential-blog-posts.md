@@ -2,7 +2,7 @@
 title: "Blog Posts I’ll Write if People Ask Me To"
 description: "I have tons of blog post ideas but not enough time to write them. I'll prioritize articles that people ask me to write."
 heroImage: "/empty-notebook.webp"
-pubDate: "Mar 7, 2025"
+pubDate: "Mar 6, 2025"
 ---
 
 ## Too Many Things to Write About
@@ -81,6 +81,8 @@ Consider the difference between organizing notes in folders versus marking them 
 
 I suspect there's some deeper principle here, but I haven't given it enough thought to be sure.
 
+[I'm not the only one, by the way.](https://blog.codinghorror.com/trees-treeviews-and-ui/)
+
 ## Information Systems is an Underrated Major for Software Engineers
 
 I have a chip on my shoulder about this one. Information Systems has a reputation for being less rigorous than Computer Science, which is somewhat true but is also an oversimplification.
@@ -94,6 +96,14 @@ I'm obviously biased, but so is every recruiter I've ever met. I could give a Te
 I think people value type safety the appropriate amount for large projects but overrate its importance for small projects.
 
 In other words, type safety is more useful for space probes than REPLs. Change my mind.
+
+## We've Forgotten Too Much From Programming's Past
+
+![XKCD LISP](https://imgs.xkcd.com/comics/lisp_cycles.png)
+
+The history of computing is full of brilliant ideas that have been overshadowed by hype about the latest JavaScript framework or whatever.
+
+I suspect there are tons of ideas in old research papers that never got the attention they deserved and are perfect solutions to modern problems.
 
 ## What I've Learned from Antkeeping
 
