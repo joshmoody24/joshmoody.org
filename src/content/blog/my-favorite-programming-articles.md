@@ -7,7 +7,7 @@ pubDate: "Mar 7, 2025"
 
 ## The Modern Equivalent of Spellbooks
 
-I collect blog posts like [Frieren collects grimoires](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWx3azI1YzNhZXY3d2E5MWNvdXlhY2h0b2pmY2wxMGJuM2xjeHFjNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/jUckyQVjuHNx9vXUtv/giphy.gif). Here are some of my favorites.
+I collect blog posts like [Frieren collects grimoires](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGJ4cG91YzBqaXIydjkyZzFyZTZ5cjR5NnFtc3cybmZtbXl4dnR1NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/jUckyQVjuHNx9vXUtv/giphy.gif). Here are some of my favorites.
 
 ## [The Grug Brained Developer](https://grugbrain.dev/)
 
@@ -105,7 +105,7 @@ Unfathomably based.
 
 ## [Programming with Nothing](https://tomstu.art/programming-with-nothing)
 
-A mind-blowing exploration of lambda calculus.
+A mind-blowing demonstration of lambda calculus.
 
 ## [To Mock a Mockingbird](https://en.wikipedia.org/wiki/To_Mock_a_Mockingbird)
 
@@ -113,14 +113,14 @@ A book to read if you think _Programming with Nothing_ isn't minimalist enough.
 
 The puzzles in this book inspired me to write a [combinatory logic interpreter](https://github.com/joshmoody24/skoobert).
 
-## Weird Stuff I Love
+## Weird Stuff I Like
 
 Here's a bunch of quirky links that I find fascinating, horrifying, hilarious, or all of the above:
 
 - [A brief, incomplete, and mostly wrong history of programming languages](https://james-iry.blogspot.com/2009/05/brief-incomplete-and-mostly-wrong.html)
 - [modalzmodalzmodalz](https://modalzmodalzmodalz.com/)
 - [mother\*\*\*\*ingwebsite](https://motherfuckingwebsite.com/)
-- [~~Dreamberd~~Gulf of Mexico](https://github.com/TodePond/GulfOfMexico)
+- [~~Dreamberd~~ Gulf of Mexico](https://github.com/TodePond/GulfOfMexico)
 - [You can't parse HTML with regex](https://stackoverflow.com/questions/1732348/regex-match-open-tags-except-xhtml-self-contained-tags)
 - [Cascading Server Sheets](https://dev.to/thormeier/dont-try-this-at-home-css-as-the-backend-what-3oih)
 - [Greenspun's tenth rule](https://en.wikipedia.org/wiki/Greenspun%27s_tenth_rule)
