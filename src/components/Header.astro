@@ -11,10 +11,12 @@ const {title} = Astro.props;
 
 <header>
 	<h1>{title}</h1>
-	<p>
-		<HeaderLink href="/">Home</HeaderLink>
-		<HeaderLink href="/blog">Blog</HeaderLink>
-		<HeaderLink href="/projects">Projects</HeaderLink>
-		<HeaderLink href="/contact">Contact</HeaderLink>
-	</p>
+	<nav aria-label="Main navigation">
+		<ul>
+			<li><HeaderLink href="/">Home</HeaderLink></li>
+			<li><HeaderLink href="/blog">Blog</HeaderLink></li>
+			<li><HeaderLink href="/projects">Projects</HeaderLink></li>
+			<li><HeaderLink href="/contact">Contact</HeaderLink></li>
+		</ul>
+	</nav>
 </header>

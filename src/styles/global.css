@@ -1,421 +1,559 @@
 /*! concrete.css v2.0.3 | MIT License | github.com/louismerlin/concrete.css */
 
-/**
- * 1. Modify the base font-size to 62.5% so that 1.6rem = 16px.
- * 2. Set box-sizing globally to handle padding and border widths.
- */
+:root {
+  --color-text: #2d3748;
+  --color-text-secondary: #4a5568;
+  --color-background: #ffffff;
+  --color-primary: #3182ce;
+  --color-accent: #4299e1;
+  --color-border: #e2e8f0;
 
-html {
-  font-size: 62.5%; /* 1 */
-  box-sizing: border-box; /* 2 */
+  --spacing-xs: 0.3125rem;
+  --spacing-sm: 0.625rem;
+  --spacing-md: 1.25rem;
+  --spacing-lg: 2.5rem;
+
+  --font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+  --line-height: 1.6;
+
+  --border-width: 1px;
+  --border-radius: 0.25rem;
+
+  /* Effects */
+  --hover-zoom: 1.025;
+  --card-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  --card-shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
-/**
-   * 1. Continue the global box-sizing modification.
-   * 2. Set the underline size for all elements.
-   */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text: #e2e8f0;
+    --color-text-secondary: #a0aec0;
+    --color-background: #1a202c;
+    --color-primary: #63b3ed;
+    --color-accent: #4299e1;
+    --color-border: #2d3748;
+
+    /* Dark mode effects */
+    --card-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    --card-shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.18);
+  }
+}
+
+html {
+  font-size: 100%; /* 16px base size */
+  box-sizing: border-box;
+}
 
 *,
 ::after,
 ::before {
-  box-sizing: inherit; /* 1 */
-  text-decoration-thickness: 0.2rem; /* 2 */
+  box-sizing: inherit;
+  text-decoration-thickness: 0.125rem; /* Consistent underline thickness */
 }
 
-/**
-   * 1. Set global font size to 2rem (20px) with a normal weight.
-   * 2. Set the text and background color to white and black by default.
-   * 3. Set the font-family to Helvetica, or equivalent.
-   */
+html,
+body {
+  height: 100%;
+}
+
+.footer-content {
+  text-align: center;
+}
 
 body {
-  font-size: 1.6rem; /* 1 */
-  font-weight: 400; /* 1 */
-  background: #fff; /* 2 */
-  color: #111; /* 2 */
-  font-family: Helvetica, Arial, sans-serif; /* 3 */
+  font-size: 0.9375rem;
+  font-weight: 400;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-family);
+  line-height: var(--line-height);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
-
-/**
-   * Set the link color to black
-   */
 
 a {
-  color: #111;
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
-/**
-   * 1. Set the max width of images to 100%, so that they don't overflow.
-   * 2. Set the height of images relative to their width.
-   */
+a:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
 
 img {
-  max-width: 100%; /* 1 */
-  height: auto; /* 2 */
+  max-width: 100%;
+  height: auto;
 }
 
-/** 
-   * 1. Center the main element horizontally.
-   * 2. Set the width of the element to 640px, with padding for mobile screens.
-   */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.2;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+h1 {
+  font-size: 1.75rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+h4 {
+  font-size: 1.125rem;
+}
+
+h5,
+h6 {
+  font-size: 1rem;
+}
 
 main {
-  margin: auto; /* 1 */
-  max-width: 66rem; /* 2 */
-  padding: 0 2rem; /* 2 */
-  width: 100%; /* 2 */
+  margin: 0 auto;
+  max-width: 41.25rem;
+  padding: 0 var(--spacing-md);
+  width: 100%;
+  flex: 1 0 auto; /* This allows main to grow and push footer down */
 }
 
-/**
-   * 1. Add some padding around the header.
-   * 2. Increase the size of text in the header.
-   */
+p {
+  margin-top: 0;
+  margin-bottom: var(--spacing-md);
+}
 
-header {
-  padding: 6rem 0 0rem 0; /* 1 */
-  font-size: 1.2em; /* 2 */
+main > header {
+  padding: var(--spacing-lg) 0 var(--spacing-md);
+}
+
+main > header h1 {
+  margin-top: 0;
+  margin-bottom: var(--spacing-md);
+}
+
+/* Blog post card header */
+.blog-post header {
+  padding: 0;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  width: 100%;
+}
+
+.blog-post header h4 {
+  margin-top: 0;
+  margin-bottom: 0;
+  flex: 1;
+}
+
+.blog-post header time {
+  margin: 0;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Shared link/button container styles */
+header nav ul,
+.contact-links,
+.button-group {
+  display: flex;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+  margin-bottom: 0;
+  padding: 0;
+  list-style: none;
+}
+
+header nav li {
+  margin: 0;
+}
+
+/* Base button style - used for all buttons and navigation links */
+.button,
+button,
+input:is([type="button"], [type="reset"], [type="submit"]),
+header a,
+.nav-link {
+  font-weight: 500;
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  padding: 0.375rem 0.75rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  opacity: 0.9;
+  display: inline-block;
+  border: var(--border-width) solid var(--color-border);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/* Header links don't need borders */
+header a {
+  border: none;
+}
+
+/* Hover state for all buttons and links */
+.button:hover,
+button:hover,
+input:is([type="button"], [type="reset"], [type="submit"]):hover,
+header a:hover,
+.nav-link:hover {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.05);
+  text-decoration: none;
+}
+
+/* Active/current state */
+header a[aria-current="page"],
+.button.active,
+.nav-link.active {
+  opacity: 1;
+  font-weight: 600;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Dark mode hover and active states */
+@media (prefers-color-scheme: dark) {
+  .button:hover,
+  button:hover,
+  input:is([type="button"], [type="reset"], [type="submit"]):hover,
+  header a:hover,
+  .nav-link:hover,
+  header a[aria-current="page"],
+  .button.active,
+  .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+}
+
+/* Additional margin for standalone button groups */
+.contact-links,
+.button-group,
+.game-links {
+  margin: var(--spacing-md) 0;
+}
+
+/* Game grid layout */
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+  list-style-type: none;
+  padding: 0;
+  margin: var(--spacing-md) 0;
+}
+
+.game-card {
+  border-radius: 8px;
+  border: var(--border-width) solid var(--color-border);
+  overflow: hidden;
+  background-color: var(--color-background);
+  box-shadow: var(--card-shadow);
+  height: 100%;
+  transition: box-shadow 0.3s ease;
+}
+
+.game-card:hover {
+  box-shadow: var(--card-shadow-hover);
+}
+
+.game-card a {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.game-image {
+  width: 100%;
+  overflow: hidden;
+}
+
+.game-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-bottom: var(--border-width) solid var(--color-border);
+  transition: transform 0.3s ease;
+}
+
+.game-card:hover img {
+  transform: scale(var(--hover-zoom));
+}
+
+.game-content {
+  padding: var(--spacing-md);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.game-card h3 {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text);
+  text-align: left;
 }
 
 footer {
-  text-align: center;
-  margin-top: auto;
+  margin-top: var(--spacing-lg);
+  padding: var(--spacing-md) 0;
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  flex-shrink: 0; /* Prevents the footer from shrinking */
 }
 
-/**
-   * Add some padding around the sections.
-   */
+footer a svg {
+  vertical-align: middle;
+  margin-left: var(--spacing-xs);
+  position: relative;
+  top: -2px; /* Move it up by 2px */
+}
 
 section {
-  padding: 2rem 0;
+  padding: var(--spacing-md) 0;
 }
 
-/**
-   * 1. Change the style of the button.
-   * 2. Set the color and border of the button.
-   * 3. Add the pointer cursor when hovering a button.
-   */
-
-button,
-.button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-  display: inline-block; /* 1 */
-  vertical-align: middle; /* 1 */
-  padding: 0.4rem 1rem; /* 1 */
-  font-size: 2rem; /* 1 */
-  font-weight: normal; /* 1 */
-  margin-bottom: 1rem; /* 1 */
-  background: #fff; /* 2 */
-  color: #111; /* 2 */
-  border: 0.2rem solid #111; /* 2 */
-  border-radius: 0; /* 2 */
-  cursor: pointer; /* 3 */
-}
-
-/**
-   * 1. Invert the colors of the disabled button.
-   * 2. Add the not-allowed cursor when hovering a disabled button.
-   */
-
+/* Disabled button state */
 button:disabled,
-input[type="button"]:disabled,
-input[type="reset"]:disabled,
-input[type="submit"]:disabled {
-  color: #fff; /* 1 */
-  background: #111; /* 1 */
-  cursor: not-allowed; /* 2 */
+input:is([type="button"], [type="reset"], [type="submit"]):disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
-
-.button.active {
-  color: #fff;
-  background: #111;
-}
-
-/**
-   * Set the list bullet to square.
-   */
 
 ul {
   list-style: square;
 }
 
-/**
-   * Set the border around a fieldset.
-   */
-
 fieldset {
-  border: 0.2rem solid #111;
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-sm);
 }
-
-/**
-   * 1. Modify the display of labels and legends.
-   * 2. Add a margin underneath.
-   */
 
 label,
 legend {
-  display: block; /* 1 */
-  font-weight: bold; /* 1 */
-  margin-bottom: 0.8rem; /* 2 */
+  display: block;
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-text);
 }
 
-/** 
-   * 1. Change the appearance of the text input.
-   * 2. Set the color and border of the text input.
-   */
-
-input[type="email"],
-input[type="number"],
-input[type="password"],
-input[type="search"],
-input[type="tel"],
-input[type="text"],
-input[type="url"],
+input:is(
+    [type="email"],
+    [type="number"],
+    [type="password"],
+    [type="search"],
+    [type="tel"],
+    [type="text"],
+    [type="url"]
+  ),
 textarea,
 select {
-  -webkit-appearance: none; /* 1 */
-  -moz-appearance: none; /* 1 */
-  appearance: none; /* 1 */
-  box-shadow: none; /* 1 */
-  box-sizing: inherit; /* 1 */
-  padding: 0.4rem 1rem; /* 1 */
-  width: 100%; /* 1 */
-  font-size: 2rem; /* 1 */
-  color: #111; /* 2 */
-  background-color: #fff; /* 2 */
-  border: 0.2rem solid #111; /* 2 */
-  border-radius: 0; /* 2 */
+  appearance: none;
+  box-shadow: none;
+  box-sizing: inherit;
+  padding: 0.8rem 1rem;
+  width: 100%;
+  font-size: 0.9375rem;
+  font-family: var(--font-family);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--border-radius);
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-/**
-   * Set margin for form elements.
-   */
+input:is(
+    [type="email"],
+    [type="number"],
+    [type="password"],
+    [type="search"],
+    [type="tel"],
+    [type="text"],
+    [type="url"]
+  ):focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+}
 
 fieldset,
 input,
 select,
 textarea {
-  margin: 0 0 1.6rem 0;
+  margin: 0 0 var(--spacing-md) 0;
 }
-
-/**
-   * 1. Set the font color for the placeholder in inputs.
-   * 2. Set font-style to italic for the placeholder in inputs.
-   */
 
 input::placeholder,
 textarea::placeholder {
-  color: #111; /* 1 */
-  font-style: italic; /* 2 */
+  color: var(--color-text-secondary);
+  font-style: italic;
 }
-
-/**
-   * 1. Expand width to 100% for the table element.
-   * 2. Remove the distance between the borders of adjacent table cells.
-   */
 
 table {
-  width: 100%; /* 1 */
-  border-spacing: 0; /* 2 */
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  margin-bottom: var(--spacing-md);
 }
-
-/**
-   * Add padding around table cells.
-   */
 
 td,
 th {
-  padding: 0.8rem;
+  padding: var(--spacing-sm);
+  text-align: left;
 }
 
-/**
-   * Remove left padding for first cell in a row.
-   */
-
-td:first-child,
-th:first-child {
+:is(td, th):first-child {
   padding-left: 0;
 }
 
-/**
-   * Remove right padding for last cell in a row.
-   */
-
-td:last-child,
-th:last-child {
+:is(td, th):last-child {
   padding-right: 0;
 }
 
-/**
-   * 1. Add a border under the table header.
-   * 2. Align the text to the left in the table header.
-   */
-
 th {
-  border-bottom: 0.2rem solid #111; /* 1 */
-  text-align: left; /* 2 */
+  border-bottom: var(--border-width) solid var(--color-border);
+  font-weight: 600;
 }
-
-/**
-   * Add a thiner border under table rows.
-   */
 
 td {
-  border-bottom: 0.1rem solid #111;
+  border-bottom: var(--border-width) solid var(--color-border);
 }
 
-/**
-   * 1. Change the margins and padding.
-   * 2. Add a border on the left of these elements.
-   * 3. Set the y overflow to hidden to hide the navigation bar.
-   */
+article {
+  line-height: var(--line-height);
+}
+
+article img {
+  border-radius: var(--border-radius);
+}
+
+article h2,
+article h3 {
+  margin-top: var(--spacing-lg);
+}
 
 blockquote,
 pre {
-  margin-left: 0; /* 1 */
-  margin-right: 0; /* 1 */
-  padding: 1rem 1.6rem; /* 1 */
-  border-left: 0.2rem solid #111; /* 2 */
-  overflow-y: hidden; /* 3 */
+  margin: var(--spacing-md) 0;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-left: 3px solid var(--color-primary);
+  background-color: rgba(0, 0, 0, 0.02);
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  overflow-y: hidden;
 }
 
-/**
-   * 1. Set the rest of the border of the preformatted element to dotted.
-   * 2. Re-set the left border style.
-   */
+blockquote {
+  font-style: italic;
+  color: var(--color-text-secondary);
+}
+
+/* Remove bottom margin from last paragraph in blockquotes */
+blockquote p:last-child {
+  margin-bottom: 0;
+}
 
 pre {
-  border: 0.1rem dotted #111;
-  border-left: 0.2rem solid #111;
+  border: var(--border-width) solid var(--color-border);
+  border-left: 3px solid var(--color-primary);
+  border-radius: var(--border-radius);
 }
 
-/**
-   * 1. Modify the display of the code block.
-   * 2. Reduce the font size of the code block.
-   */
+code {
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  font-size: 0.9em;
+  padding: 0.2rem 0.4rem;
+  background-color: rgba(0, 0, 0, 0.04);
+  border-radius: var(--border-radius);
+}
 
 pre > code {
-  white-space: pre; /* 1 */
-  display: block; /* 1 */
-  font-size: 1.6rem; /* 2 */
+  white-space: pre;
+  display: block;
+  padding: var(--spacing-sm);
+  background-color: transparent;
+  font-size: 0.875rem;
+  overflow-x: auto;
+  border-radius: 0;
 }
-
-/**
-   * 1. Modify the display of the progress bar in all browsers.
-   * 2. Set the colors and border of the progress bar.
-   */
-
-progress {
-  -moz-appearance: none; /* 1 */
-  -webkit-appearance: none; /* 1 */
-  display: block; /* 1 */
-  height: 1rem; /* 1 */
-  overflow: hidden; /* 1 */
-  padding: 0; /* 1 */
-  width: 100%; /* 1 */
-  background: #fff; /* 2 */
-  color: #111; /* 2 */
-  border: 0.2rem solid #111; /* 2 */
-  border-radius: 0; /* 2 */
-}
-
-/**
-   * Set the background color of the webkit progress bar.
-   */
-
-progress::-webkit-progress-bar {
-  background-color: #fff;
-}
-
-/**
-   * Set the color of the webkit progress bar.
-   */
-
-progress::-webkit-progress-value {
-  background-color: #111;
-}
-
-/**
-   * Set the color of the mozilla progress bar.
-   */
-
-progress::-moz-progress-bar {
-  background-color: #111;
-}
-
-/**
-   * Set the border for the horizontal rule.
-   */
-
-hr {
-  border: 0.1rem solid #111;
-}
-
-/**
-   * Invert the colors if the user has dark mode activated.
-   */
 
 @media (prefers-color-scheme: dark) {
-  body {
-    background: #111;
-    color: #ddd;
-  }
-  a,
-  input::placeholder,
-  textarea::placeholder {
-    color: #ddd;
-  }
-  button,
-  .button,
-  input[type="button"],
-  input[type="reset"],
-  input[type="submit"],
-  input[type="email"],
-  input[type="number"],
-  input[type="password"],
-  input[type="search"],
-  input[type="tel"],
-  input[type="text"],
-  input[type="url"],
-  textarea,
-  select,
-  progress {
-    background: #111;
-    color: #ddd;
-    border-color: #fff;
-  }
-  button:disabled,
-  .button.active,
-  input[type="button"]:disabled,
-  input[type="reset"]:disabled,
-  input[type="submit"]:disabled {
-    color: #111;
-    background: #ddd;
-  }
-  fieldset {
-    border-color: #ddd;
-  }
-  td,
-  th,
   blockquote,
   pre,
-  hr {
-    border-color: #ddd;
-  }
-  progress::-webkit-progress-bar {
-    background-color: #111;
-  }
-  progress::-webkit-progress-value {
-    background-color: #ddd;
-  }
-  progress::-moz-progress-bar {
-    background-color: #ddd;
+  code {
+    background-color: rgba(255, 255, 255, 0.03);
   }
 }
 
+progress {
+  appearance: none;
+  display: block;
+  height: 0.8rem;
+  overflow: hidden;
+  padding: 0;
+  width: 100%;
+  background: var(--color-background);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--border-radius);
+  margin: var(--spacing-md) 0;
+}
+
+progress::-webkit-progress-bar {
+  background-color: var(--color-background);
+}
+
+progress::-webkit-progress-value {
+  background-color: var(--color-primary);
+}
+
+progress::-moz-progress-bar {
+  background-color: var(--color-primary);
+}
+
+hr {
+  border: 0;
+  border-top: var(--border-width) solid var(--color-border);
+  margin: var(--spacing-md) 0;
+}
+
+/* Dark mode overrides are handled through CSS variables */
+
 .sr-only {
-  display: none;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 a.button {
@@ -425,67 +563,158 @@ a.button {
 .posts {
   list-style-type: none;
   padding-left: 0;
+  display: grid;
+  gap: var(--spacing-md);
 }
 
 .posts li {
-  margin-bottom: 4rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.posts li:hover {
+  box-shadow: var(--card-shadow-hover);
 }
 
 .posts li a {
   text-decoration: none;
+  color: var(--color-text);
 }
 
 .posts li a div {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
 }
 
 ul.projects li,
 article li {
-  margin-top: 0.25rem;
+  margin-top: var(--spacing-xs);
+  margin-bottom: var(--spacing-xs);
 }
 
-.date {
+.date,
+time.date {
   text-wrap: nowrap;
   margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  text-align: right;
 }
 
 .posts h4 {
   margin: 0;
+  color: var(--color-text);
+  flex: 1;
 }
 
 p.description {
-  margin-top: 0;
-  opacity: 90%;
+  margin-top: var(--spacing-xs);
+  margin-bottom: 0;
+  color: var(--color-text-secondary);
 }
 
 .blog-post {
-  border-radius: 1rem;
-  border: 1px solid #7776;
-  font-size: 2rem;
+  border-radius: 8px;
+  border: var(--border-width) solid var(--color-border);
+  overflow: hidden;
+  background-color: var(--color-background);
+  box-shadow: var(--card-shadow);
+  transition: box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .blog-post .description {
-  font-size: 1.6rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  margin-top: var(--spacing-sm);
+  color: var(--color-text-secondary);
+  text-align: left;
+  width: 100%;
 }
 
 .blog-post a {
-  padding: 2rem;
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-.blog-post > a > img + div {
   display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  flex-direction: column;
+  height: 100%;
+  padding: 0;
 }
 
+.blog-post .image-container {
+  width: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.02);
+  border-bottom: var(--border-width) solid var(--color-border);
+  display: block;
+}
+
+.blog-post:hover {
+  box-shadow: var(--card-shadow-hover);
+}
+
+.blog-post img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-bottom: var(--border-width) solid var(--color-border);
+  transition: transform 0.3s ease;
+}
+
+.blog-post:hover img {
+  transform: scale(var(--hover-zoom));
+}
+
+.blog-post .content {
+  padding: var(--spacing-md);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Dark mode background for images */
+@media (prefers-color-scheme: dark) {
+  .blog-post .image-container,
+  .game-image {
+    background-color: rgba(255, 255, 255, 0.03);
+  }
+}
+
+/* Utility classes */
 .centered {
   display: flex;
   justify-content: center;
+}
+
+.blog-post .content > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
+  margin-bottom: var(--spacing-xs);
+}
+
+@media (max-width: 480px) {
+  .blog-post .content > div {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .date,
+  time.date {
+    text-align: left;
+    margin-top: var(--spacing-xs);
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.hero-image img {
+  width: 100%;
 }
