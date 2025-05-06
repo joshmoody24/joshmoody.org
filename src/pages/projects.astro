@@ -6,57 +6,74 @@ import Layout from '../layouts/Main.astro';
 	title="Projects"
 	description="Various technical projects by Josh Moody, including games, websites, videos, and digital art."
 >
-
-	<br />
-
-	<a class="button" href="#games">Games</a>
-	<a class="button" href="#websites">Websites</a>
-	<a class="button" href="#youtube-channels">Videos</a>
-	<a class="button" href="#art">Art</a>
-
 	<section id="games">
-		<h2>Games I've made</h2>
-		<ul class="posts">
-			<li>
-				<a href="https://memetownusa.com">
-					<img src="/memetown-usa.webp" alt="Memetown USA game header image" />
-					<h4>Memetown USA</a> — <a style="text-decoration: underline" href="https://store.steampowered.com/app/911100/Memetown_USA/">Buy it on Steam</a></h4>
+		<h2>Games</h2>
+		<ul class="game-grid">
+			<li class="game-card">
+				<a href="https://www.memetownusa.com">
+					<div class="game-image">
+						<img src="/memetown-usa.webp" alt="Memetown USA game header image" />
+					</div>
+					<div class="game-content">
+						<h3>Memetown USA</h3>
+					</div>
 				</a>
 			</li>
-			<li>
-				<a href="https://joshmoody24.itch.io/monster-mansion">
-					<img src="/monster-mansion.webp" alt="Monster Mansion game header image" />
-					<h4>Monster Mansion</a></h4>
-				</a>
-			</li>
-			<li>
-				<a href="https://joshmoody24.itch.io/rocket-dice">
-					<img src="/rocket-dice.webp" alt="Rocket Dice game header image" />
-					<h4>Rocket Dice</a></h4>
-				</a>
-			</li>
-			<li>
-				<a href="https://joshmoody24.itch.io/free-trial">
-					<img src="/free-trial.webp" alt="Free Trial game header image" />
-					<h4>Free Trial</a></h4>
-				</a>
-			</li>
-			<li>
-				<a href="https://joshmoody24.itch.io/swords-and-shelves">
-					<img src="/swords-and-shelves.webp" alt="Swords and Shelves game header image" />
-					<h4>Swords and Shelves</a></h4>
-				</a>
-			<li>
+			<li class="game-card">
 				<a href="https://gamejolt.com/games/overset/194400">
-					<img src="/overset.webp" alt="Overset game header image" />
-					<h4>Overset</h4>
+					<div class="game-image">
+						<img src="/overset.webp" alt="Overset game header image" />
+					</div>
+					<div class="game-content">
+						<h3>Overset</h3>
+					</div>
+				</a>
+			</li>
+			<li class="game-card">
+				<a href="https://joshmoody24.itch.io/monster-mansion">
+					<div class="game-image">
+						<img src="/monster-mansion.webp" alt="Monster Mansion game header image" />
+					</div>
+					<div class="game-content">
+						<h3>Monster Mansion</h3>
+					</div>
+				</a>
+			</li>
+			<li class="game-card">
+				<a href="https://joshmoody24.itch.io/rocket-dice">
+					<div class="game-image">
+						<img src="/rocket-dice.webp" alt="Rocket Dice game header image" />
+					</div>
+					<div class="game-content">
+						<h3>Rocket Dice</h3>
+					</div>
+				</a>
+			</li>
+			<li class="game-card">
+				<a href="https://joshmoody24.itch.io/free-trial">
+					<div class="game-image">
+						<img src="/free-trial.webp" alt="Free Trial game header image" />
+					</div>
+					<div class="game-content">
+						<h3>Free Trial</h3>
+					</div>
+				</a>
+			</li>
+			<li class="game-card">
+				<a href="https://joshmoody24.itch.io/swords-and-shelves">
+					<div class="game-image">
+						<img src="/swords-and-shelves.webp" alt="Swords and Shelves game header image" />
+					</div>
+					<div class="game-content">
+						<h3>Swords and Shelves</h3>
+					</div>
 				</a>
 			</li>
 		</ul>
 	</section>
 
 	<section id="websites">
-		<h2>Websites I've made</h2>
+		<h2>Websites</h2>
 		<ul class="projects">
 			<li><a href="https://gameassets.joshmoody.org">Public Domain Game Assets</a></li>
 			<li><a href="http://blastedscience.com/">Blasted Science</a></li>
@@ -75,7 +92,7 @@ import Layout from '../layouts/Main.astro';
 	</section>
 
 	<section id="youtube-channels">
-		<h2>Youtube channels I've made</h2>
+		<h2>YouTube Channels</h2>
 		<ul class="projects">
 			<li><a href="https://www.youtube.com/@BlastedScience">Blasted Science</a></li>
 			<li><a href="https://www.youtube.com/@SitcomSimulator">Sitcom Simulator</a></li>
@@ -90,6 +107,8 @@ import Layout from '../layouts/Main.astro';
 	</section>
 
 	<section>
-		<a class="button" href="#top">Back to Top</a>
+		<div class="button-group">
+			<a class="button" href="#top">Back to Top</a>
+		</div>
 	</section>
 </Layout>
