@@ -138,7 +138,7 @@ p {
 }
 
 main > header {
-  padding: var(--spacing-lg) 0 var(--spacing-md);
+  padding: var(--spacing-lg) 0 var(--spacing-lg);
 }
 
 main > header h1 {
@@ -330,10 +330,6 @@ footer a svg {
   margin-left: var(--spacing-xs);
   position: relative;
   top: -2px; /* Move it up by 2px */
-}
-
-section {
-  padding: var(--spacing-md) 0;
 }
 
 /* Disabled button state */
@@ -565,6 +561,7 @@ a.button {
   padding-left: 0;
   display: grid;
   gap: var(--spacing-md);
+  margin: 0;
 }
 
 .posts li {
@@ -658,7 +655,6 @@ p.description {
   width: 100%;
   height: auto;
   display: block;
-  border-bottom: var(--border-width) solid var(--color-border);
   transition: transform 0.3s ease;
 }
 
