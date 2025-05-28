@@ -65,7 +65,7 @@ I recently watched a friend struggle with this minigame for over an hour, which 
 
 Ocarina of Time's source code has the answer. I won't spoil it before the full blog post, but [here's a good starting point](https://youtu.be/efAbKfUeSW0?si=WwbayYbML6cZGEV0) if you want to figure it out for yourself.
 
-## Art Peaked in the Data Movement
+## Art Peaked in the Dada Movement
 
 ![Fountain by Marcel Duchamp](https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/The_blind_man_MET_b1120124_004.jpg/800px-The_blind_man_MET_b1120124_004.jpg)
 
@@ -75,9 +75,9 @@ Ocarina of Time's source code has the answer. I won't spoil it before the full b
 
 ![Binary search tree](https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Binary_search_tree.svg/1280px-Binary_search_tree.svg.png)
 
-I don't know how to explain it, but I've always had a gut feeling that hierarchical data structures are cringe, while sets are based.
+I don't know how to explain it, but I've always had a gut feeling that hierarchies are cringe, while sets are based.
 
-Consider the difference between organizing notes in folders versus marking them with tags. Folders lock you into a single organizational structure, whereas tags give you much more flexibility.
+Consider the difference between organizing notes in folders versus marking them with tags. Folders lock you into a single organizational structure, whereas tags give you more flexibility.
 
 I suspect there's some deeper principle here, but I haven't given it enough thought to be sure.
 
@@ -87,7 +87,7 @@ I suspect there's some deeper principle here, but I haven't given it enough thou
 
 I have a chip on my shoulder about this one. Information Systems has a reputation for being less rigorous than Computer Science, which is somewhat true but is also an oversimplification.
 
-In my experience, the average IS major can run circles around CS majors when it comes to database management and cloud architecture. Both of these skills are central to software engineering.
+In my experience, the average <abbr title="Information Systems">IS</abbr> major can run circles around <abbr title="Computer Science">CS</abbr> majors when it comes to database management and cloud architecture. Both of these skills are central to software engineering.
 
 I'm obviously biased, but so is every recruiter I've ever met. I could give a Ted Talk on this.
 
@@ -107,7 +107,7 @@ I suspect there are tons of ideas in old research papers that never got the atte
 
 ## What I've Learned from Antkeeping
 
-I've been raising a dozen ant colonies for the last few years and have learned a lot while doing so. For example:
+I've been raising a dozen ant colonies for the past few years and have learned a lot while doing so. For example:
 
 - Queen ants are literally everywhere if you know where to look.
 - Fly larvae will eat your queen ants from the inside out.
