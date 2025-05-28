@@ -105,11 +105,11 @@ My benchmark for web framework quality is [Django](https://www.djangoproject.com
 
 I turned off [LiveView](https://hexdocs.pm/phoenix_live_view/welcome.html) for this project so I can't speak to that. Although, if I had to guess, I probably wouldn't like it very much due to its similarity to [Blazor](https://joshmoody.org/blog/hidden-pitfalls-of-blazor/).
 
-My biggest complaint with Phoenix is its emphasis on code gen. When you create a new project, it [scaffolds a _ton_ of code for you](https://hexdocs.pm/phoenix/Mix.Tasks.Phx.New.html). I'm sure this is helpful to experienced users, but as a beginner, I was scared of choosing a setting wrong and then having no easy way to change it later.
+My biggest complaint with Phoenix is its emphasis on code generation. When you create a new project, it [scaffolds a _ton_ of code for you](https://hexdocs.pm/phoenix/Mix.Tasks.Phx.New.html). I'm sure this is helpful to experienced users, but as a beginner, I was scared of choosing a setting wrong and then having no easy way to change it later.
 
 For example, I didn't want to use [Tailwind](https://tailwindcss.com/) for this project, but even after using the `--no-tailwind` flag, a lot of the generated code had Tailwind classes in it, and it took annoyingly long to remove it by hand.
 
-I wish the framework less boilerplate so I wouldn't be so scared of screwing up a new project.
+I wish the framework had less boilerplate so I wouldn't be so scared of screwing up a new project.
 
 ### Bots Are Annoying and Expensive
 
