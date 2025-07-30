@@ -22,6 +22,10 @@ import Layout from '../layouts/Main.astro';
 		</p>
 	</section>
 	<section>
-		<img src="/josh-moody.jpg" alt="Josh Moody: the man, the myth, the legend" />
+  <img
+      src="/josh/josh-moody-1280.jpg"
+      srcset="/josh/josh-moody-1280.jpg 1280w, /josh/josh-moody-640.jpg 640w, /josh/josh-moody-320.jpg 320w"
+      sizes="(min-width: 620px) 620px, 100vw"
+      alt="Josh Moody: the man, the myth, the legend" />
 	</section>
 </Layout>
