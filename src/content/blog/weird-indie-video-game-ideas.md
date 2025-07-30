@@ -1,8 +1,7 @@
 ---
-title: '25 Weird Indie Video Game Ideas'
+title: "25 Weird Indie Video Game Ideas"
 description: "A collection of video game ideas that I've come up with over the last few years. Free for the taking."
-pubDate: 'Jan 06 2024'
-heroImage: '/weird-indie-game-ideas.webp'
+pubDate: "Jan 06 2024"
 ---
 
 ## Ideas are Underrated
@@ -47,7 +46,7 @@ Although you couldn't sell it on Steam, since, at the time of writing, [the plat
 
 ![A screenshot from Bot Arena 3](/game-idea-images/bot-arena-3.png)
 
-A game where two players design robots from modular parts and set them loose at each other. Some games already exist in this genre. I played the [Bot Arena 3 flash game](https://armorgames.com/play/563/bot-arena-3) (shown above) *so* many times as a kid.
+A game where two players design robots from modular parts and set them loose at each other. Some games already exist in this genre. I played the [Bot Arena 3 flash game](https://armorgames.com/play/563/bot-arena-3) (shown above) _so_ many times as a kid.
 
 However, in my opinion, the idea has never been fully realized. I want in-depth customization options like modular bot architecture and custom AI behavior.
 
@@ -112,6 +111,7 @@ All my friends grew up playing this random [Tanks flash game](https://www.addict
 A fighting game where all the characters are in the public domain. This might be my favorite game idea of all time. I want to beat up Mickey Mouse with Sherlock Holmes so bad. The only thing keeping me from making this right now is the fact that it would take a lot of work. I think it would be really cool idea to open-source the game and allow anyone to contribute to it. If anyone wants to give this a try, hit me up. If I can get a few people on board to help me make this, I'm so down.
 
 My roster ideas so far:
+
 - Mickey Mouse
 - Beowulf
 - Winnie the Pooh
@@ -186,7 +186,7 @@ You play as a chicken with realistic flying physics akin to flight simulators. H
 
 ![Super unhinged anime dating sim concept art](/game-idea-images/anime-parody-of-parody.png)
 
-[Doki-Doki Literature Club was partly created to make fun of anime visual novel dating sims.](https://kotaku.com/doki-doki-literature-clubs-horror-was-born-from-a-love-1819724999) Ironically, however, a huge chunk of DDLC fans are [down *bad* for the game's girls](https://www.reddit.com/r/DDLC/). There's some meta-commentary in there somewhere.
+[Doki-Doki Literature Club was partly created to make fun of anime visual novel dating sims.](https://kotaku.com/doki-doki-literature-clubs-horror-was-born-from-a-love-1819724999) Ironically, however, a huge chunk of DDLC fans are [down _bad_ for the game's girls](https://www.reddit.com/r/DDLC/). There's some meta-commentary in there somewhere.
 
 ### 24. A Game Inspired by The Book of Mormon
 
@@ -211,3 +211,4 @@ The ducks in the pond are free—you can just take them—and so are these ideas
 And seriously, hit me up if you want to make a public domain Smash Bros. game. I'm down if you're down.
 
 Enjoy!
+

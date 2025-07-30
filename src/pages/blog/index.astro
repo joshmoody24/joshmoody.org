@@ -26,9 +26,11 @@ const posts = (await getCollection('blog')).sort(
 					<li>
 						<article class="blog-post">
 							<a href={`/blog/${post.slug}/`}>
-								<div class="image-container">
-									<img src={post.data.heroImage} alt={`Header image for blog post "${post.data.title}"`} />
-								</div>
+                {post.data.heroImage && (
+                  <div class="image-container">
+                    <img src={post.data.heroImage} alt={`Header image for blog post "${post.data.title}"`} />
+                  </div>
+                )}
 								<div class="content">
 									<header>
 										<h4 class="title">{post.data.title}</h4>

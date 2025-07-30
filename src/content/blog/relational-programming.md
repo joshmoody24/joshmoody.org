@@ -1,9 +1,8 @@
 ---
-title: 'All I Want is a Relational Programming Language'
-description: 'The relational model is criminally underutilized in software development. Despite much theoretical discussion, no mainstream relational programming language exists. This needs to change if we want simpler, more robust software.'
-pubDate: 'Oct 7, 2023'
-updatedDate: 'Jun 27, 2024'
-heroImage: '/relational-database-logo.webp'
+title: "All I Want is a Relational Programming Language"
+description: "The relational model is criminally underutilized in software development. Despite much theoretical discussion, no mainstream relational programming language exists. This needs to change if we want simpler, more robust software."
+pubDate: "Oct 7, 2023"
+updatedDate: "Jun 27, 2024"
 ---
 
 ## The Object-Relational Dilemma
@@ -18,13 +17,13 @@ This conflict has long plagued developers. As Ted Neward pointed out, it is the 
 
 To list just a few of the incompatibilities between object-oriented and relational models:
 
-| Object-Oriented Programming                                                                                                              | Relational Model                                                                                                                                                                 |
-|------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Ties data and behavior together.                                                                                                         | Data and behavior are separate.                                                                                                                          |
-| Objects are directed graphs; references are one-way.                                                                                     | References are automatically bidirectional (simpler and easier to manage).                                                                                                         |
-| Typically uses [reference equality](https://www.baeldung.com/java-equals-method-operator-difference), a common source of bugs. Every new Java developer has questioned their sanity after mixing up `==` and `Equals` at some point. | Uses value equality, which eliminates the possibility of duplicate data and is easier to reason about.                                                           |
-| Includes concepts like inheritance, encapsulation, and polymorphism.                                                                     | Lacks object-oriented concepts, but the usefulness of these features is [often questioned](https://youtu.be/QM1iUe6IofM?si=NZ2rdzanJ4M9ZZJM) (especially [inheritance](https://en.wikipedia.org/wiki/Composition_over_inheritance)). |
-| Enforces integrity imperatively, e.g., getters, setters, and exception handling, etc. More room for bugs.                                | Enforces integrity declaratively, e.g., foreign keys, unique constraints, etc.                                                                                                  |
+| Object-Oriented Programming                                                                                                                                                                                                          | Relational Model                                                                                                                                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Ties data and behavior together.                                                                                                                                                                                                     | Data and behavior are separate.                                                                                                                                                                                                      |
+| Objects are directed graphs; references are one-way.                                                                                                                                                                                 | References are automatically bidirectional (simpler and easier to manage).                                                                                                                                                           |
+| Typically uses [reference equality](https://www.baeldung.com/java-equals-method-operator-difference), a common source of bugs. Every new Java developer has questioned their sanity after mixing up `==` and `Equals` at some point. | Uses value equality, which eliminates the possibility of duplicate data and is easier to reason about.                                                                                                                               |
+| Includes concepts like inheritance, encapsulation, and polymorphism.                                                                                                                                                                 | Lacks object-oriented concepts, but the usefulness of these features is [often questioned](https://youtu.be/QM1iUe6IofM?si=NZ2rdzanJ4M9ZZJM) (especially [inheritance](https://en.wikipedia.org/wiki/Composition_over_inheritance)). |
+| Enforces integrity imperatively, e.g., getters, setters, and exception handling, etc. More room for bugs.                                                                                                                            | Enforces integrity declaratively, e.g., foreign keys, unique constraints, etc.                                                                                                                                                       |
 
 These clashes force us to either bend relational models to fit OOP paradigms or vice versa. Usually, people resort to [Object-Relational Mappers (ORMs)](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping), which favors the OOP mindset. But I argue that we should instead favor the relational model, as it provides a simpler, more robust framework for computation.
 
@@ -34,9 +33,9 @@ The famous paper [Out of the Tar Pit](https://curtclifton.net/papers/MoseleyMark
 
 The authors propose a new type of programming language, dubbed "Functional Relational Programming" (FRP), which combines elements of [functional](https://en.wikipedia.org/wiki/Functional_programming), [logical](https://en.wikipedia.org/wiki/Logic_programming), and [relational](https://en.wikipedia.org/wiki/Relational_model) programming paradigms. The paper highlights how FRP minimizes state, simplifies control flow, and employs a declarative approach to reduce complexity and bugs.
 
-> The primary, overriding goal behind the FRP architecture (and indeed this whole paper) is of course *elimination of complexity.*
+> The primary, overriding goal behind the FRP architecture (and indeed this whole paper) is of course _elimination of complexity._
 >
-> \- *Out of the Tar Pit*
+> \- _Out of the Tar Pit_
 
 Unfortunately, no mainstream programming language currently incorporates these principles effectively. The theory exists, but the practical tools don't. The best effort so far is the [Cell programming language](https://www.cell-lang.net/), but it is relatively obscure and not actively maintained.
 
@@ -54,11 +53,11 @@ The authors explain that SQL databases deviate from the true "relational model" 
 
 Hence, the need is not just for a better database querying language but a fully relational programming language free from the limitations and quirks of SQL-based systems.
 
-The authors then go on to propose a hypothetical replacement to SQL, dubbed *D* to address these problems. However, once again, no mainstream version of *D* exists!
+The authors then go on to propose a hypothetical replacement to SQL, dubbed _D_ to address these problems. However, once again, no mainstream version of _D_ exists!
 
 Are you noticing a pattern?
 
-In addition to the SQL problems pointed out by *The Third Manifesto*, I would also point out SQL's lack of arbitrary declarative constraints. Why can't SQL constraints like `check` and `unique` reference other tables? This would dramatically improve data integrity. But alas, it is not supported. Unless you use a trigger, but those are imperative.
+In addition to the SQL problems pointed out by _The Third Manifesto_, I would also point out SQL's lack of arbitrary declarative constraints. Why can't SQL constraints like `check` and `unique` reference other tables? This would dramatically improve data integrity. But alas, it is not supported. Unless you use a trigger, but those are imperative.
 
 On the topic of arbitrary constraints, it's worth mentioning [Datomic](https://www.datomic.com/), a database which is more relational than its SQL counterparts and which supports arbitrary constraints across tables. [Datomic is probably the closest thing we have to a practical FRP architecture today.](https://www.youtube.com/watch?v=nbMMywfBXic) However, its closed-source nature and strong coupling with the Clojure programming language limit its applicability.
 

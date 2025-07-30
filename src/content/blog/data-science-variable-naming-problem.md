@@ -1,8 +1,7 @@
 ---
-title: 'Data Science Has a Variable Naming Problem'
-description: 'Machine learning code almost always suffers from confusing variable names. Clearer, more descriptive variable names can simplify code and make it more accessible to all skill levels.'
-pubDate: 'Nov 09 2023'
-heroImage: '/sad-data-scientist.webp'
+title: "Data Science Has a Variable Naming Problem"
+description: "Machine learning code almost always suffers from confusing variable names. Clearer, more descriptive variable names can simplify code and make it more accessible to all skill levels."
+pubDate: "Nov 09 2023"
 ---
 
 ## Variable Names Are a Big Deal
@@ -36,7 +35,7 @@ def forward(self, x):
     # every instance of h for the rest of the function.
 
     queries = self.toqueries(x)
-    keys    = self.tokeys(x)   
+    keys    = self.tokeys(x)
     values  = self.tovalues(x)
     # Ah, passing the raw values through a neural net.
     # This part is pretty clear, actually.
@@ -69,7 +68,7 @@ def forward(self, x):
     dot = dot / (k ** (1/2))
     # Scaling the mysterious dot thing.
     # Could have at least named it dot_scaled or something.
-    
+
     dot = F.softmax(dot, dim=2)
     # Softmax converts numbers into probabilities, basically.
     # Seems like a pretty significant modification.
@@ -83,7 +82,7 @@ def forward(self, x):
 
     out = out.transpose(1, 2).contiguous().view(b, t, s * h)
     # I still have no idea what t and s mean.
-    
+
     return self.unifyheads(out)
     # I feel like I understood about 25% of what I just read.
 ```
@@ -92,7 +91,7 @@ To the inexperienced, this code is completely incomprehensible. An experienced d
 
 I don't blame Bloem for writing his code this way; everyone does it. I believe this coding style stems from the fact that machine learning research papers describe their algorithms using mathematical notation. For some reason, mathematicians love writing equations as concisely as possible, even when it means sacrificing clarity. Some people go so far as to declare [math notation is broken](https://davidwees.com/content/mathematical-notation-broken/).
 
-I personally wouldn't call math notation *broken*, but I don't think it's descriptive enough to be a good coding style. In academia, sure, but not the real world. Too much cognitive load.
+I personally wouldn't call math notation _broken_, but I don't think it's descriptive enough to be a good coding style. In academia, sure, but not the real world. Too much cognitive load.
 
 Here's how I would improve the code snippet above. (feel free to skip this if you're not experienced with PyTorch or transformer models)
 
@@ -106,7 +105,7 @@ def forward(self, input_tensor):
 
     # run queries, keys, values through neural networks before computing attention.
     queries = self.toqueries(input_tensor)
-    keys    = self.tokeys(input_tensor)   
+    keys    = self.tokeys(input_tensor)
     values  = self.tovalues(input_tensor)
 
     # each head in the multi-headed attention mechanism gets a subset of the features
@@ -138,7 +137,7 @@ def forward(self, input_tensor):
     return self.unifyheads(attention_output)
 ```
 
-Does it make the code a bit longer? Sure, but it's much easier on the brain. Could this be taken too far? Absolutely. At some point *really long* variable names do more harm than good. But anything is better than single-letter variable names. Just one or two extra letters can make a big difference.
+Does it make the code a bit longer? Sure, but it's much easier on the brain. Could this be taken too far? Absolutely. At some point _really long_ variable names do more harm than good. But anything is better than single-letter variable names. Just one or two extra letters can make a big difference.
 
 Why don't data scientists do this already? I suspect the reason is because they view themselves as next-door neighbors to mathematicians.
 

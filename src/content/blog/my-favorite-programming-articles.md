@@ -1,7 +1,6 @@
 ---
 title: "My Favorite Programming Articles"
 description: "A collection of the best programming articles I've ever read."
-heroImage: "/ef-codd.webp"
 pubDate: "Mar 7, 2025"
 ---
 

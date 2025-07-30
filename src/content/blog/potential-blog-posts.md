@@ -1,7 +1,6 @@
 ---
 title: "Blog Posts I’ll Write if People Ask Me To"
 description: "I have tons of blog post ideas but not enough time to write them. I'll prioritize articles that people ask me to write."
-heroImage: "/empty-notebook.webp"
 pubDate: "Mar 6, 2025"
 ---
 

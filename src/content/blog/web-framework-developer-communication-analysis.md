@@ -1,8 +1,7 @@
 ---
-title: 'Web Framework Communities Talk Differently'
+title: "GitHub NLP Analysis #2: Web Framework Communities Talk Differently"
 description: "Developers communicate differently across GitHub repositories like React, Vue, Django, Rails, Phoenix, and HTMX. For example, React is flooded with questions, Phoenix has many bug reports, and Django is highly discussion-oriented."
-heroImage: '/github-nlp/github-web-framework-analysis-header.webp'
-pubDate: 'Oct 26, 2024'
+pubDate: "Oct 26, 2024"
 ---
 
 This is the second post in which I analyze data scraped from GitHub to learn more about developer communication. [Check out the first post in this series to catch up.](./how-developers-communicate-on-github.md)
@@ -25,9 +24,9 @@ For this post, I'll focus on a subset of these projects: web frameworks like Rea
 
 I used the same classification methods as before:
 
-- Sentiment analysis was performed to label comments as *positive* or *negative*.
-- Code comments are categorized as *explanations*, *deprecations*, or *future work*.
-- Issue comments are categorized as *questions*, *conclusions*, *discussions*, *solutions*, *feature requests*, or *bug reports*.
+- Sentiment analysis was performed to label comments as _positive_ or _negative_.
+- Code comments are categorized as _explanations_, _deprecations_, or _future work_.
+- Issue comments are categorized as _questions_, _conclusions_, _discussions_, _solutions_, _feature requests_, or _bug reports_.
 
 ## Results
 
@@ -49,7 +48,7 @@ When it comes to code comments, the distribution of purposes doesn't vary much b
 
 ![Purposes of code comments by project](/github-nlp/web-framework-code-comment-purpose-ratios.webp)
 
-The only notable exception is Vue's much higher proportion of *future work* comments. Perhaps the Vue community is more forward-thinking than most?
+The only notable exception is Vue's much higher proportion of _future work_ comments. Perhaps the Vue community is more forward-thinking than most?
 
 ### Issue Comment Purposes
 
@@ -85,3 +84,4 @@ Understanding how communication styles vary between projects can help developers
 In the next post, I'll explore how communication styles impact project growth and popularity. Do explanatory comments and positive sentiment help your project get more stars? Stay tuned!
 
 Hopefully it won't take me another six months to write it 😅
+

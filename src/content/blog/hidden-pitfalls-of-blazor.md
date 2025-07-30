@@ -1,9 +1,8 @@
 ---
-title: 'The Hidden Pitfalls of Blazor'
-description: 'A post-mortem examination of the many pitfalls, annoyances, and hidden complexities of the Blazor web framework.'
-pubDate: 'Sept 01 2023'
-updatedDate: 'Oct 28 2024'
-heroImage: '/blazing-blazor-logo.webp'
+title: "The Hidden Pitfalls of Blazor"
+description: "A post-mortem examination of the many pitfalls, annoyances, and hidden complexities of the Blazor web framework."
+pubDate: "Sept 01 2023"
+updatedDate: "Oct 28 2024"
 ---
 
 ## Blazor considered harmful
@@ -16,7 +15,7 @@ After my deep dive into Blazor, I can safely say that there are better alternati
 
 ## Blazor: complexity made flesh
 
-Blazor sells itself as the ideal framework for creating rich, interactive web applications with C# instead of JavaScript. This is a powerful selling point. I believed in this vision until I used Blazor to build something non-trivial. 
+Blazor sells itself as the ideal framework for creating rich, interactive web applications with C# instead of JavaScript. This is a powerful selling point. I believed in this vision until I used Blazor to build something non-trivial.
 
 Now that I know Blazor better than my own family, I genuinely can't think of a single advantage Blazor has over other web frameworks. In fact, it's riddled with pitfalls and footguns.
 
@@ -105,7 +104,7 @@ Most web frameworks these days are "functional" in nature: they take in props an
 
 Minimizing state also makes applications easier to reason about, since you don't have to hold as many concepts in your head at the same time.
 
-Blazor *sort of* follows the trend of being functional, but mostly doesn't. Like other frameworks, it has props \[parameters\], but that's where the similarities end. As a C# framework, Blazor inherits (heh) much of its design from object oriented programming.
+Blazor _sort of_ follows the trend of being functional, but mostly doesn't. Like other frameworks, it has props \[parameters\], but that's where the similarities end. As a C# framework, Blazor inherits (heh) much of its design from object oriented programming.
 
 One of the consequences of this design is that Blazor components have mutable state which can be modified by the component itself or by its parent. This can lead to weird behavior and bugs, especially when dealing with asynchronous operations or event handlers.
 
@@ -162,8 +161,7 @@ HTMX gives us extra power without sacrificing simplicity. Think of it like HTML 
 Here's a simple example of how MVC + HTMX works. Let's imagine you have a website with a navbar.
 
 ```html
-<a href="/page1">Page 1</a>
-<a href="/page2">Page 2</a>
+<a href="/page1">Page 1</a> <a href="/page2">Page 2</a>
 ```
 
 Now let's say you don't want to reload the entire page every time the user clicks a link. Instead, you want to swap out only the relevant section of the page.
@@ -225,3 +223,4 @@ Speaking from personal experience, avoiding Blazor will also result in less burn
 If nothing else, I hope this post helps some poor Blazor developer from falling into the same pitfalls that I did.
 
 May your day be filled with simple problems and equally simple solutions 🙏
+
