@@ -2,6 +2,7 @@
 title: "My Favorite Programming Articles"
 description: "A collection of the best programming articles I've ever read."
 pubDate: "Mar 7, 2025"
+updatedDate: "Jul 30, 2025"
 ---
 
 ## The Modern Equivalent of Spellbooks
@@ -111,6 +112,50 @@ A mind-blowing demonstration of lambda calculus.
 A book to read if you think _Programming with Nothing_ isn't minimalist enough.
 
 The puzzles in this book inspired me to write a [combinatory logic interpreter](https://github.com/joshmoody24/skoobert).
+
+## [The Rails Doctrine](https://rubyonrails.org/doctrine)
+
+I go back and forth on whether I think <abbr title="David Heinemeier Hansson">DHH</abbr> is based or crazy (probably both), but this essay is the strongest argument I've seen for the former.
+
+In particular, I like the section [Provide sharp knives](https://rubyonrails.org/doctrine#:~:text=about%20the%20person.-,Provide%20sharp%20knives,-Ruby%20includes%20a), which is DHH's justification for monkey patching in Ruby.
+
+> [Monkey patching] has frequently been derided as simply too much for mere mortal programmers to handle.
+>
+> [But] the flip side of monkey patching is the power to do such feats of wonder as `2.days.ago`.
+>
+> If you can change anything, what is there to stop you from overwriting `String#capitalize` so that `"something bold".capitalize` returns `"Something Bold"` rather than `"Something bold"`? That might work in your local application, but then break all sorts of auxiliary code that depend on the original implementation.
+>
+> Nothing, is the answer. There’s nothing programmatically in Ruby to stop you using its sharp knives to cut ties with reason. We enforce such good senses by convention, by nudges, and through education. Not by banning sharp knives from the kitchen and insisting everyone use spoons to slice tomatoes.
+>
+> Ruby on Rails is an environment for chefs and those who wish to become chefs. You might start out doing the dishes, but you can work your way up to running the kitchen. Don’t let anyone tell you that you can’t be trusted with the best tool in the trade as part of that journey.
+
+The prevailing wisdom among programmers is that it's good to "lock down" a language to prevent errors, i.e., static typing. I see value in that, but I also find it inherently pessimistic towards programmers' abilities. I find DHH's optimism refreshing.
+
+## [Stability by Design](https://potetm.com/devtalk/stability-by-design.html)
+
+This article uses Clojure as an example of how to design software systems that are stable and maintainable.
+
+I'm an armchair fan of Clojure (I admire it but haven't used it much), and I think this article does a great job of explaining why Clojure is "the most static dynamic language."
+
+## [What Problems to Solve - By Richard Feynman](http://genius.cat-v.org/richard-feynman/writtings/letters/problems)
+
+This is a letter from the legendary physicist Richard Feynman to a former student. In it, Feynman encourages the student not to worry about how "humble" their work seems.
+
+> No problem is too small or too trivial if we can really do something about it.
+
+This one cuts deep, because I often have delusions of grandeur and daydream about solving the Reimann Hypothesis or whatever. I like to read this whenever my ego grows larger than my abilities.
+
+## [Studying Animal Languages Without Translation: An Insight from Ants](https://reznikova.net/wp-content/uploads/2013/03/reznikova2017.pdf)
+
+The information theory of ants.
+
+Easily the coolest paper I've ever read. Sections 4 and 5 go especially hard.
+
+The highlights:
+
+- Ants can communicate directions through a binary maze at 1 bit per minute
+- They use data compression, e.g., they can communicate "left left left left left right" more efficiently than "right left left right left right"
+- They can do arithmetic better than any other animal besides humans (as far as I know). Like if food is usually placed in slot 20, they can communicate "the food is three slots before the usual place" more efficiently than "the food is in the 17th slot"
 
 ## Weird Stuff I Like
 
