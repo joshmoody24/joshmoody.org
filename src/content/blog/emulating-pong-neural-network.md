@@ -1,8 +1,8 @@
 ---
-title: 'Emulating Pong with a Neural Network'
+title: "Emulating Pong with a Neural Network"
 description: "People have been training neural nets to play Atari games like Pong for years. But is it possible to simulate the game itself with a neural network? Sort of... but it's extremely difficult."
-pubDate: 'Dec 20, 2023'
-heroImage: '/pong-variance-attention.png'
+pubDate: "Dec 20, 2023"
+heroImage: "/pong-variance-attention.webp"
 ---
 
 ## Neural Game Emulation
@@ -18,13 +18,13 @@ I recently had a strange question pop into my mind. Could I train an AI to emula
     </video>
 </div>
 
-At least the results are interesting to watch. I call my useless invention *Dream Pong*. In this post, I'll explain what I tried and why it doesn't work.
+At least the results are interesting to watch. I call my useless invention _Dream Pong_. In this post, I'll explain what I tried and why it doesn't work.
 
 ## How Dream Pong Works
 
 Others have tried emulating games with deep learning. [One group tried to predict the next game frame from previous frames](https://ar5iv.labs.arxiv.org/html/1507.08750). My experiment is similar but is based on RAM, not images.
 
-Dream Pong consists of two neural networks: the *state predictor* and the *visualizer*.
+Dream Pong consists of two neural networks: the _state predictor_ and the _visualizer_.
 
 The state predictor's job is to emulate the game by taking the current game state (stored in the Atari's 128 bytes of RAM) and predicting the next state based on the player's input.
 
@@ -44,13 +44,13 @@ After creating the dataset, I got to work training the state predictor and the v
 
 ### The State Predictor
 
-The state predictor was difficult to train. It achieved better results by predicting the *difference* between the current state and the next state, rather than by predicting the next state directly.
+The state predictor was difficult to train. It achieved better results by predicting the _difference_ between the current state and the next state, rather than by predicting the next state directly.
 
 ![Training results for the state predictor. The loss got pretty low, but not low enough.](/pong-state-predictor-loss.png)
 
 While it gets remarkably accurate, it's still not accurate enough to simulate the game realistically.
 
-Sadly, this makes sense because neural networks are universal function *approximators*. Even the tiniest bit of inaccuracy in a CPU can throw off the entire system, and it seems dubious that a neural network (of reasonable size) could approximate CPU logic without some degree of error.
+Sadly, this makes sense because neural networks are universal function _approximators_. Even the tiniest bit of inaccuracy in a CPU can throw off the entire system, and it seems dubious that a neural network (of reasonable size) could approximate CPU logic without some degree of error.
 
 My best result (twelve fully connected layers with hidden size 128) achieves a mean squared error of 0.00138, and even that isn't enough to generate realistic results. But it is good enough to keep the simulation semi-stable for a few seconds. Sort of.
 
@@ -93,11 +93,11 @@ I started with MSE (mean squared error) loss, which worked decently well. It str
 
 But I wanted something even better. So I implemented a custom perceptual loss function. Both the real and generated screenshots were passed through the first few layers of a pretrained image classifier (Mobilenet v3) and measured their similarity. I hoped this loss function would emphasize edges and shapes more than simple MSE loss, but it didn't fare much better in practice.
 
-For my next attempt, I designed a new loss function that I call *local variance attention.* This function is based on MSE loss, but the resulting values are multiplied by the local variance of each pixel (i.e., how different each pixel is from its neighbors). This increases the loss of the parts of the image that are most visually interesting, like the edges of the paddles, ball, and numbers.
+For my next attempt, I designed a new loss function that I call _local variance attention._ This function is based on MSE loss, but the resulting values are multiplied by the local variance of each pixel (i.e., how different each pixel is from its neighbors). This increases the loss of the parts of the image that are most visually interesting, like the edges of the paddles, ball, and numbers.
 
 I hoped this technique would push the optimizer toward local minimums that were better at producing images of the ball and paddles. The mid-training outputs were fascinating. Notice how the algorithm is focused on areas that change the most frequently, like the paddle area.
 
-![Examples of using local variance attention. The most visually interesting parts of the image are the most accurate, while the rest of the image is still noisy.](/pong-variance-attention.png)
+![Examples of using local variance attention. The most visually interesting parts of the image are the most accurate, while the rest of the image is still noisy.](/pong-variance-attention.webp)
 
 Now we know the most common ball trajectories, I guess. But did attention actually improve results? Not really. It mostly just resulted in a noisier training process.
 

@@ -33,7 +33,7 @@ const posts = (await getCollection('blog')).sort(
                 )}
 								<div class="content">
 									<header>
-										<h4 class="title">{post.data.title}</h4>
+										<h2 class="title">{post.data.title}</h2>
 										<time datetime={post.data.pubDate.toISOString()} class="date">
 											<FormattedDate date={post.data.pubDate} />
 										</time>
