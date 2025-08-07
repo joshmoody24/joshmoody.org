@@ -17,31 +17,22 @@ const posts = (await getCollection('blog')).sort(
 	description="A collection of Josh Moody's technical blog posts."
 >
 	<section>
-		<ul class="posts">
+		<ul>
 			{
 				posts
 				.filter(p => p.data.pubDate < new Date())
 				.sort((a,b) => a.data.pubDate < b.data.pubDate ? 1 : -1)
 				.map((post) => (
 					<li>
-						<article class="blog-post">
-							<a href={`/blog/${post.slug}/`}>
-                {post.data.heroImage && (
-                  <div class="image-container">
-                    <img src={post.data.heroImage} alt={`Header image for blog post "${post.data.title}"`} />
-                  </div>
-                )}
-								<div class="content">
-									<header>
-										<h2 class="title">{post.data.title}</h2>
-										<time datetime={post.data.pubDate.toISOString()} class="date">
-											<FormattedDate date={post.data.pubDate} />
-										</time>
-									</header>
-									<p class="description">{post.data.description}</p>
-								</div>
-							</a>
-						</article>
+						<a href={`/blog/${post.slug}/`}>
+							<h3>{post.data.title}</h3>
+						</a>
+						<p>{post.data.description}</p>
+						<small>
+							<time datetime={post.data.pubDate.toISOString()}>
+								<FormattedDate date={post.data.pubDate} />
+							</time>
+						</small>
 					</li>
 				))
 			}

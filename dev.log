@@ -1,0 +1,8 @@
+
+> joshmoody.org@0.0.1 dev
+> astro dev
+
+  ◆ Astro collects completely anonymous usage data.
+    This optional program helps shape our roadmap.
+    Run `npm run astro telemetry disable` to opt-out.
+    Details: https://astro.build/telemetry

@@ -3,12 +3,12 @@ import type { HTMLAttributes } from 'astro/types';
 
 type Props = HTMLAttributes<'a'>;
 
-const { href, class: className, ...props } = Astro.props;
+const { href, ...props } = Astro.props;
 
 const { pathname } = Astro.url;
 const isActive = href === pathname || href === pathname.replace(/\/$/, '');
 ---
 
-<a class="button" href={href} class:list={[className, { active: isActive }]} {...props}>
+<a href={href} {...props}>
 	<slot />
 </a>
