@@ -516,7 +516,9 @@ select {
   background-color: var(--color-background);
   border: var(--border-width) solid var(--color-border);
   border-radius: var(--border-radius);
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
 }
 
 input:is(
@@ -847,4 +849,9 @@ p.description {
 
 .hero-image img {
   width: 100%;
+}
+
+/* Popovers */
+div[popover] > *:last-child {
+  margin-bottom: 0;
 }

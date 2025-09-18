@@ -1,0 +1,31 @@
+---
+interface Props {
+  number: number;
+}
+
+const { number } = Astro.props;
+---
+
+<sup id="footnote-{number}-ref">
+  <button
+      type="button"
+      aria-label={`Show footnote ${number}`}
+      aria-controls={`footnote-${number}`}
+      popovertarget={`footnote-${number}`}
+      popovertargetaction="toggle"
+  >
+    {number}
+  </button>
+</sup>
+
+<style>
+  sup {
+    color: var(--color-primary)
+  }
+
+  button {
+    all: unset;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+</style>

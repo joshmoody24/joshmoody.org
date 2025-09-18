@@ -4,13 +4,15 @@ import { SITE_TITLE } from '../consts';
 
 interface Props {
 	title: string;
+  subtitle?: string;
 }
 
-const {title} = Astro.props;
+const {title, subtitle} = Astro.props;
 ---
 
 <header>
 	<h1>{title}</h1>
+  { subtitle && <p class="subtitle">{subtitle}</p> }
 	<nav aria-label="Main navigation">
 		<ul>
 			<li><HeaderLink href="/">Home</HeaderLink></li>
@@ -20,3 +22,11 @@ const {title} = Astro.props;
 		</ul>
 	</nav>
 </header>
+
+<style>
+.subtitle {
+  font-size: 1.5rem;
+  color: var(--color-text-secondary);
+  margin-top: 0.25rem;
+}
+</style>

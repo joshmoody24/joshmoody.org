@@ -6,7 +6,7 @@ import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import {ViewTransitions} from 'astro:transitions';
 
-const { title, description, image } = Astro.props;
+const { title, description, image, subtitle } = Astro.props;
 ---
 
 <html lang="en">
@@ -17,7 +17,7 @@ const { title, description, image } = Astro.props;
 
 	<body>
 		<main>
-			<Header title={title} />
+      <Header title={title} subtitle={subtitle} />
 			<slot />
 		</main>
 		<Footer />

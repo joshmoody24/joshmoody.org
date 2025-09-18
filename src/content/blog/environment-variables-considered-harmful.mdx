@@ -1,0 +1,279 @@
+---
+title: "Environment Variables Considered Harmful"
+subtitle: "*when used excessively"
+description: "In certain contexts, environment variables are inferior to just storing the configuration in code."
+pubDate: "Sept 17, 2025"
+---
+import Footnote from "../../components/Footnote.astro";
+import FootnoteRef from "../../components/FootnoteRef.astro"
+
+## The problem with environment variables
+
+Every software application I've seen has some kind of environment variable system. You know what I'm talking about. Something like:
+
+```bash
+# prod.env
+APP_ENV=production
+
+# General configuration
+APP_NAME=MyApp
+APP_PORT=8080
+LOG_LEVEL=info
+TZ=UTC
+
+# Database configuration
+DATABASE_HOST=prod.db.example.com
+DATABASE_USER=admin
+DATABASE_PASSWORD=mypassword
+
+# API configuration
+API_BASE_URL=https://api.example.com
+
+# Third-party service keys
+SERVICE_A_USERNAME=service_user
+SERVICE_B_PASSWORD=supersecret
+SERVICE_B_API_KEY=anothersecretkey
+```
+
+Everyone does this. But I think **7 out of the 12 variables above are better off being stored in application code instead of environment variables.** Here's why.
+
+## Scope of this article
+
+The claims I make in this article apply specifically to server-based software projects that are:
+
+- Applications (not libraries or frameworks)
+- Rebuilt and redeployed frequently (i.e., many times per day)<FootnoteRef number={1} />
+
+<Footnote number={1}><p>[The Twelve-Factor App recommends environment variables for all config,](https://12factor.net/config) and that was great advice in 2011 when deployment was rarer and type systems weaker. But in 2025, many teams are using CI/CD pipelines, reproducible builds, and strong typing. In those contexts, putting non-secret, non-volatile config into code often gives you more reliability, safety, and clarity than env vars.</p></Footnote>
+
+If these conditions aren't met, the case for environment variables is stronger.
+
+## What environment variables are good for
+
+Environment variables have two good use cases:
+
+1. **Secrets.** Data you intentionally want to hide from source control, like passwords and API keys.
+2. **Settings that need to change without rebuilding the application.** For example, you might want to temporarily change a production server's log level to `debug` while investigating an issue, without recompiling the code.<FootnoteRef number={2} />
+
+<Footnote number={2}><p>I am tentatively considering adding a third item to this list: settings that are different for each developer.</p><p>If every developer in your org needs a different `APP_ID` or something, that probably makes sense as an environment variable instead of having to maintain a giant list of developers in git.</p><p>But I'm not sure about this; part of me thinks it's better to keep this in git. [Let me know what you think.](/contact)</p></Footnote>
+
+
+## What environment variables are bad for
+
+Anything that doesn't fit into the use cases above is probably better off in code.
+
+### Why is code better?
+
+#### 1. Simplicity
+
+Reading a setting from application code is objectively simpler than reading one from environment variables (using the [Rich Hickey definition of simplicity](https://youtu.be/SxdOUGdseq4?si=I7AzRDdCN74Hp_GS&t=196)). It's just one line of code.
+
+But to read a setting parameters from environment variables, you need at minimum:
+
+1. A system for setting/reading parameters for development machines, e.g., a shell script.
+2. A system for setting/reading parameters for production servers, e.g., AWS Parameter Store.
+
+In particular, the second part (production) can get complicated. Fewer things can go wrong when a variable is just stored in code.
+
+Granted, you'll need the complex system anyway for storing secrets, but it should be used only when necessary.
+
+#### 2. Type safety (depending on the language)
+
+In code, you can enforce the existence and format of configuration values at compile time. With environment variables, you have to check at runtime, which is error-prone.
+
+I have seen too many production outages caused by a missing environment variable that could have been caught by a type checker.
+
+#### 3. Version control
+
+Configuration in code is versioned alongside application code, making it easier to track changes and roll back if necessary.
+
+Services like AWS Parameter Store also do versioning, but it's not as convenient as just using git.
+
+#### 4. Discoverability
+
+Configuration in code is easier to find and understand, especially for new team members.
+
+> New hire: Why are all my API requests failing?
+
+> Me: Hmm, weird.
+
+[5 minutes of poking around later]
+
+> Me: Oh, it's because `API_URL_BASE` is missing from your .env file.
+
+> New hire: Gotcha. Is that documented somewhere?
+
+> Me: Nope, just gotta ask someone.
+
+I've had this conversation too many times to count.<FootnoteRef number={3} />
+
+<Footnote number={3}>
+  <p>Yes, this is a skill issue. The variable should have been documented somewhere. Remember that not writing machine code by hand is also a skill issue. If a setting isn't secret, just keep the dang thing in source control and it will work automatically.</p>
+</Footnote>
+
+## What Variables Should Be Moved to Code?
+
+### True constants
+
+Values that are the same across all environments and never change should not be environment variables.
+
+It's in the name *environment variable.* Constants are not environment-specific nor do they vary.
+
+Let's fix it.
+
+```ts
+// config.ts
+export const APP_NAME = "MyApp";
+export const TZ = "UTC";
+```
+
+```bash
+# prod.env
+APP_ENV=production
+
+# General configuration
+APP_PORT=8080
+LOG_LEVEL=info
+
+# Database configuration
+DATABASE_HOST=prod.db.example.com
+DATABASE_USER=admin
+DATABASE_PASSWORD=mypassword
+
+# API configuration
+API_BASE_URL=https://api.example.com
+
+# Third-party service keys
+SERVICE_A_USERNAME=service_user
+SERVICE_B_PASSWORD=supersecret
+SERVICE_B_API_KEY=anothersecretkey
+```
+
+### Settings that are functionally dependent on other settings
+
+Consider the database settings in the example above: they all change together. When `APP_ENV` is `"production"`, they all need to be the production values. When `APP_ENV` is `"staging"`, they all need to be the staging values, etc. You can't mix and match.
+
+This is a [*functional dependency:*](https://en.wikipedia.org/wiki/Functional_dependency) if you know the value of `APP_ENV`, you can determine the correct values for all the database settings.
+
+Functional dependencies between environment variables create the possibility of the variables getting out of sync. It also makes it more annoying to temporarily switch to a different environment — you have to change multiple variables instead of just one.
+
+Let's fix it. Here's the final version of the code:
+
+```ts
+// config.ts
+export const APP_NAME = "MyApp";
+export const TZ = "UTC";
+```
+
+```ts
+// env.ts
+type Environment = "production" | "staging" | "local";
+
+interface EnvironmentConfig {
+  databaseHost: string;
+  databaseUser: string;
+  apiBaseUrl: string;
+  serviceAUsername: string;
+}
+
+const environmentConfigs: Record<
+  Environment,
+  EnvironmentConfig
+> = {
+  production: {
+    appPort: 8080,
+    databaseHost: "prod.db.example.com",
+    databaseUser: "admin",
+    apiBaseUrl: "https://api.example.com",
+    serviceAUsername: "service_user",
+  },
+  staging: {
+    // etc.
+  },
+  local: {
+    // etc.
+  },
+};
+
+export const environment =
+  environmentConfigs[process.env.APP_ENV];
+```
+
+```bash
+# prod.env
+APP_ENV=production
+
+# General configuration
+LOG_LEVEL=info
+
+# Database configuration
+DATABASE_PASSWORD=mypassword
+
+# Third-party service keys
+SERVICE_B_PASSWORD=supersecret
+SERVICE_B_API_KEY=anothersecretkey
+```
+
+And that's the final version! Notice how much code we removed from the `.env` file. It's in a better place.
+
+That leaves just five true "environment" variables. These should not be moved:
+
+- `APP_ENV` is the root environment variable that many settings depend on.<FootnoteRef number={4} />
+
+<Footnote number={4}>
+  <p>Note that I'm using `APP_ENV` despite `NODE_ENV` probably being a more conventional name in JavaScript apps. Both work, I just want this article to be as language-agnostic as possible.</p>
+</Footnote>
+- `LOG_LEVEL` is a variable that you probably want to change without rebuilding the app, e.g., when debugging a production issue.
+- The remaining three are all secrets that should not be checked into source control for security.
+
+You may find the idea of putting `DATABASE_HOST` and `DATABASE_USER` into source control a bit uncomfortable. I felt the same way at first, but I think it's a false fear. If leaking your database host would cause a problem, you already have a problem.<FootnoteRef number={5} />
+
+<Footnote number={5}>
+  <p>See section 2.4, bullet point 4 in [the NIST Guide to General Server Security.](https://en.wikipedia.org/wiki/Security_through_obscurity)</p>
+  <p>For a more general overview, see the ["Security through obscurity" Wikipedia article.](https://en.wikipedia.org/wiki/Security_through_obscurity)</p>
+  <p>You may retort that sure, security through obsurity is not enough by itself, but it's better than nothing. Might as well be obscure if you can be.</p>
+  <p>I think that's somewhat fair, but keep in mind that randomly shutting down production servers is also a bad thing, and yet [Netflix's Chaos Monkey](https://github.com/Netflix/chaosmonkey) exists. I think there's value in intentionally [burning the antipattern boats](https://www.collinsdictionary.com/us/dictionary/english/burn-your-boats) because it forces you to get good or die.</p>
+</Footnote>
+
+## Precedent for code-based configuration
+
+I'm not the first person to suggest putting configuration in code. For example, Elixir projects typically include [one Elixir file per environment](https://hexdocs.pm/elixir/main/config-and-releases.html#:~:text=This%20file%20often%20imports%20configuration%20files%20based%20on%20the%20environment%2C%20such%20as%20config/dev.exs%20and%20config/prod.exs).
+
+```elixir
+# config/prod.exs
+import Config
+config :my_app, MyApp.Repo,
+  username: "admin",
+  password: System.get_env("DATABASE_PASSWORD"),
+  hostname: "prod.db.example.com",
+  database: "my_app_prod",
+  pool_size: 10
+```
+
+Django encourages something similar
+
+```python
+# production.py
+from .base import *
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'MyDb',
+        'USER': 'admin',
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': 'prod.db.example.com',
+        'PORT': '5432',
+    }
+}
+```
+
+Despite using a Django example, in my experience, code-based config is not common in Python or JavaScript ecosystems.<FootnoteRef number={6} />
+
+<Footnote number={6}><p>To produce the Django example above, I actually had to modify the code from a [Geeks for Geeks Django tutorial](https://www.geeksforgeeks.org/python/how-to-manage-local-vs-production-settings-in-django/) to reduce its dependency on `os.environ.get`. My point is, Django's structure encourages putting non-secret settings in `.py` files instead of environment variables, even if developers aren't always doing it that way.</p></Footnote>
+
+## Conclusion
+
+Environment variables are sometimes necessary, but if you see a chance to safely move one into code, take it. The benefits (simplicity, type safety, source control, discoverability) are worth it.
+
+I realize the burden of proving value is on the person breaking from convention. I'm confident this article is sufficiently convincing.

@@ -9,10 +9,10 @@ import MainLayout from "./Main.astro";
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, subtitle, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
-<MainLayout title={title} description={description} image={heroImage}>
+<MainLayout title={title} subtitle={subtitle} description={description} image={heroImage}>
 	<article>
 		{ heroImage && (
 			<div class="hero-image">
