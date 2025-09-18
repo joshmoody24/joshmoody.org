@@ -221,7 +221,7 @@ That leaves just five true "environment" variables. These should not be moved:
 - `APP_ENV` is the root environment variable that many settings depend on.<FootnoteRef number={4} />
 
 <Footnote number={4}>
-  <p>Note that I'm using `APP_ENV` despite `NODE_ENV` probably being a more conventional name in JavaScript apps. Both work, I just want this article to be as language-agnostic as possible.</p>
+  <p>Note that I'm using `APP_ENV` despite `NODE_ENV` probably being a more conventional name in JavaScript apps. `NODE_ENV` can work, but it tends to come with baggage, e.g., not having a `staging` value. I think having a separate `APP_ENV` is valuable.</p>
 </Footnote>
 - `LOG_LEVEL` is a variable that you probably want to change without rebuilding the app, e.g., when debugging a production issue.
 - The remaining three are all secrets that should not be checked into source control for security.
