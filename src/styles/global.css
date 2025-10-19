@@ -1,5 +1,7 @@
 /* Minimal Modern Reset */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -17,32 +19,37 @@ img {
 
 /* CSS Custom Properties */
 :root {
-  --color-text: #2d3748;
-  --color-text-secondary: #4a5568;
-  --color-background: #ffffff;
-  --color-primary: #3182ce;
-  --color-accent: #4299e1;
-  --color-border: #e2e8f0;
+  --hue: 190;
+  --chroma: 0.025;
+
+  --color-text: oklch(0.25 var(--chroma) var(--hue));
+  --color-text-secondary: oklch(0.3 var(--chroma) var(--hue));
+  --color-background: oklch(0.99 0 0);
+  --color-border: oklch(0.5 0.01 var(--hue));
+  --color-primary: oklch(0.42 0.14 var(--hue));
+  --color-accent: oklch(0.35 0.15 var(--hue));
 
   --spacing-xs: 0.3125rem;
   --spacing-sm: 0.625rem;
   --spacing-md: 1.25rem;
   --spacing-lg: 2.5rem;
 
-  --font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-family:
+    system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
   --line-height: 1.7;
 
-  --border-width: 1px;
+  --border-width: 2px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-text: #e2e8f0;
-    --color-text-secondary: #a0aec0;
-    --color-background: #1a202c;
-    --color-primary: #63b3ed;
-    --color-accent: #4299e1;
-    --color-border: #2d3748;
+    --color-text: oklch(0.85 var(--chroma) var(--hue));
+    --color-text-secondary: oklch(0.7 var(--chroma) var(--hue));
+    --color-background: oklch(0.15 var(--chroma) var(--hue));
+    --color-border: oklch(0.3 var(--chroma) var(--hue));
+    --color-primary: oklch(0.72 0.1 var(--hue));
+    --color-accent: oklch(0.7 0.1 var(--hue));
   }
 }
 
@@ -243,7 +250,6 @@ th {
 article {
   line-height: var(--line-height);
 }
-
 
 article h2,
 article h3 {
