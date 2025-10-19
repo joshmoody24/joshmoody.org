@@ -78,11 +78,9 @@ body {
 a {
   color: var(--color-primary);
   text-decoration: none;
-  transition: color 0.2s ease;
 }
 
 a:hover {
-  color: var(--color-accent);
   text-decoration: underline;
 }
 
@@ -186,8 +184,6 @@ header a {
   letter-spacing: 0.02em;
   padding: 0.375rem 0.75rem;
   border-radius: 6px;
-  transition: all 0.2s ease;
-  opacity: 0.9;
   display: inline-block;
   background-color: transparent;
 }
@@ -196,23 +192,18 @@ header a {
   border: var(--border-width) solid var(--color-border);
 }
 
-.button:hover,
-header a:hover {
-  opacity: 1;
+.button:hover {
   background-color: rgba(0, 0, 0, 0.05);
   text-decoration: none;
 }
 
 header a[aria-current="page"] {
-  opacity: 1;
   font-weight: 600;
-  background-color: rgba(0, 0, 0, 0.05);
+  text-decoration: underline;
 }
 
 @media (prefers-color-scheme: dark) {
-  .button:hover,
-  header a:hover,
-  header a[aria-current="page"] {
+  .button:hover {
     background-color: rgba(255, 255, 255, 0.05);
   }
 }
