@@ -327,85 +327,8 @@ footer a svg {
   top: -2px; /* Move it up by 2px */
 }
 
-/* Disabled button state */
-button:disabled,
-input:is([type="button"], [type="reset"], [type="submit"]):disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
 ul {
   list-style: square;
-}
-
-fieldset {
-  border: var(--border-width) solid var(--color-border);
-  border-radius: var(--border-radius);
-  padding: var(--spacing-sm);
-}
-
-label,
-legend {
-  display: block;
-  font-weight: 600;
-  margin-bottom: var(--spacing-xs);
-  color: var(--color-text);
-}
-
-input:is(
-  [type="email"],
-  [type="number"],
-  [type="password"],
-  [type="search"],
-  [type="tel"],
-  [type="text"],
-  [type="url"]
-),
-textarea,
-select {
-  appearance: none;
-  box-shadow: none;
-  box-sizing: inherit;
-  padding: 0.8rem 1rem;
-  width: 100%;
-  font-size: 0.9375rem;
-  font-family: var(--font-family);
-  color: var(--color-text);
-  background-color: var(--color-background);
-  border: var(--border-width) solid var(--color-border);
-  border-radius: var(--border-radius);
-  transition:
-    border-color 0.2s,
-    box-shadow 0.2s;
-}
-
-input:is(
-    [type="email"],
-    [type="number"],
-    [type="password"],
-    [type="search"],
-    [type="tel"],
-    [type="text"],
-    [type="url"]
-  ):focus,
-textarea:focus,
-select:focus {
-  outline: none;
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
-}
-
-fieldset,
-input,
-select,
-textarea {
-  margin: 0 0 var(--spacing-md) 0;
-}
-
-input::placeholder,
-textarea::placeholder {
-  color: var(--color-text-secondary);
-  font-style: italic;
 }
 
 table {
