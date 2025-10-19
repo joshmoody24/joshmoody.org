@@ -331,36 +331,6 @@ ul {
   list-style: square;
 }
 
-table {
-  width: 100%;
-  border-spacing: 0;
-  border-collapse: collapse;
-  margin-bottom: var(--spacing-md);
-}
-
-td,
-th {
-  padding: var(--spacing-sm);
-  text-align: left;
-}
-
-:is(td, th):first-child {
-  padding-left: 0;
-}
-
-:is(td, th):last-child {
-  padding-right: 0;
-}
-
-th {
-  border-bottom: var(--border-width) solid var(--color-border);
-  font-weight: 600;
-}
-
-td {
-  border-bottom: var(--border-width) solid var(--color-border);
-}
-
 article {
   line-height: var(--line-height);
 }
