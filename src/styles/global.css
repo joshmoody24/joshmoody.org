@@ -251,6 +251,11 @@ article {
   line-height: var(--line-height);
 }
 
+article .date {
+  display: block;
+  margin-bottom: var(--spacing-md);
+}
+
 article h2,
 article h3 {
   margin-top: var(--spacing-lg);

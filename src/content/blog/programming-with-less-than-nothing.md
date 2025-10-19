@@ -6,8 +6,8 @@ description:
 pubDate: "2025-10-19"
 ---
 
-The code you are about to read is real, but you are not expected
-to understand it. Just enjoy the ride.
+The code you are about to read is real. But it is not meant to
+be fully understood.
 
 ## The software engineering interview
 
