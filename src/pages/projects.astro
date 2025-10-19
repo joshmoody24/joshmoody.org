@@ -2,6 +2,66 @@
 import Layout from '../layouts/Main.astro';
 ---
 
+<style>
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-md);
+  list-style-type: none;
+  padding: 0;
+  margin: var(--spacing-md) 0;
+}
+
+.game-card {
+  border: var(--border-width) solid var(--color-border);
+  overflow: hidden;
+  background-color: var(--color-background);
+  height: 100%;
+}
+
+.game-card a {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.game-image {
+  width: 100%;
+  overflow: hidden;
+}
+
+.game-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-bottom: var(--border-width) solid var(--color-border);
+}
+
+.game-content {
+  padding: var(--spacing-md);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.game-card h3 {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text);
+  text-align: left;
+}
+
+@media (prefers-color-scheme: dark) {
+  .game-image {
+    background-color: rgba(255, 255, 255, 0.03);
+  }
+}
+</style>
+
 <Layout
 	title="Projects"
 	description="Various technical projects by Josh Moody, including games, websites, videos, and digital art."
