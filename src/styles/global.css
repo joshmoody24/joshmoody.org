@@ -34,9 +34,6 @@ img {
 
   --border-width: 1px;
   --border-radius: 0.25rem;
-
-  --card-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-  --card-shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -47,8 +44,6 @@ img {
     --color-primary: #63b3ed;
     --color-accent: #4299e1;
     --color-border: #2d3748;
-    --card-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-    --card-shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.18);
   }
 }
 
@@ -244,13 +239,7 @@ header a[aria-current="page"] {
   border: var(--border-width) solid var(--color-border);
   overflow: hidden;
   background-color: var(--color-background);
-  box-shadow: var(--card-shadow);
   height: 100%;
-  transition: box-shadow 0.3s ease;
-}
-
-.game-card:hover {
-  box-shadow: var(--card-shadow-hover);
 }
 
 .game-card a {
@@ -429,14 +418,6 @@ hr {
   margin: 0;
 }
 
-.posts li {
-  transition: box-shadow 0.3s ease;
-}
-
-.posts li:hover {
-  box-shadow: var(--card-shadow-hover);
-}
-
 .posts li a {
   text-decoration: none;
   color: var(--color-text);
@@ -483,8 +464,6 @@ p.description {
   border: var(--border-width) solid var(--color-border);
   overflow: hidden;
   background-color: var(--color-background);
-  box-shadow: var(--card-shadow);
-  transition: box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
 }
@@ -511,10 +490,6 @@ p.description {
   background-color: rgba(0, 0, 0, 0.02);
   border-bottom: var(--border-width) solid var(--color-border);
   display: block;
-}
-
-.blog-post:hover {
-  box-shadow: var(--card-shadow-hover);
 }
 
 .blog-post img {
