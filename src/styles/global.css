@@ -91,11 +91,6 @@ a:hover {
   text-decoration: underline;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-}
-
 h1,
 h2,
 h3,
@@ -186,12 +181,9 @@ header nav li {
   margin: 0;
 }
 
-/* Base button style - used for all buttons and navigation links */
+/* Navigation and button styles */
 .button,
-button,
-input:is([type="button"], [type="reset"], [type="submit"]),
-header a,
-.nav-link {
+header a {
   font-weight: 500;
   color: var(--color-text);
   text-decoration: none;
@@ -202,46 +194,30 @@ header a,
   transition: all 0.2s ease;
   opacity: 0.9;
   display: inline-block;
-  border: var(--border-width) solid var(--color-border);
   background-color: transparent;
-  cursor: pointer;
 }
 
-/* Header links don't need borders */
-header a {
-  border: none;
+.button {
+  border: var(--border-width) solid var(--color-border);
 }
 
-/* Hover state for all buttons and links */
 .button:hover,
-button:hover,
-input:is([type="button"], [type="reset"], [type="submit"]):hover,
-header a:hover,
-.nav-link:hover {
+header a:hover {
   opacity: 1;
   background-color: rgba(0, 0, 0, 0.05);
   text-decoration: none;
 }
 
-/* Active/current state */
-header a[aria-current="page"],
-.button.active,
-.nav-link.active {
+header a[aria-current="page"] {
   opacity: 1;
   font-weight: 600;
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-/* Dark mode hover and active states */
 @media (prefers-color-scheme: dark) {
   .button:hover,
-  button:hover,
-  input:is([type="button"], [type="reset"], [type="submit"]):hover,
   header a:hover,
-  .nav-link:hover,
-  header a[aria-current="page"],
-  .button.active,
-  .nav-link.active {
+  header a[aria-current="page"] {
     background-color: rgba(255, 255, 255, 0.05);
   }
 }
@@ -327,8 +303,36 @@ footer a svg {
   top: -2px; /* Move it up by 2px */
 }
 
+ul,
+ol {
+  padding-left: 1.5rem;
+  margin-bottom: var(--spacing-md);
+}
+
 ul {
-  list-style: square;
+  list-style: disc;
+}
+
+li {
+  margin-bottom: var(--spacing-xs);
+}
+
+table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  margin-bottom: var(--spacing-md);
+}
+
+th,
+td {
+  padding: var(--spacing-sm);
+  text-align: left;
+  border-bottom: var(--border-width) solid var(--color-border);
+}
+
+th {
+  font-weight: 600;
 }
 
 article {
@@ -399,38 +403,11 @@ pre > code {
   }
 }
 
-progress {
-  appearance: none;
-  display: block;
-  height: 0.8rem;
-  overflow: hidden;
-  padding: 0;
-  width: 100%;
-  background: var(--color-background);
-  border: var(--border-width) solid var(--color-border);
-  border-radius: var(--border-radius);
-  margin: var(--spacing-md) 0;
-}
-
-progress::-webkit-progress-bar {
-  background-color: var(--color-background);
-}
-
-progress::-webkit-progress-value {
-  background-color: var(--color-primary);
-}
-
-progress::-moz-progress-bar {
-  background-color: var(--color-primary);
-}
-
 hr {
   border: 0;
   border-top: var(--border-width) solid var(--color-border);
   margin: var(--spacing-md) 0;
 }
-
-/* Dark mode overrides are handled through CSS variables */
 
 .sr-only {
   position: absolute;
@@ -442,10 +419,6 @@ hr {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
-}
-
-a.button {
-  text-decoration: none;
 }
 
 .posts {
