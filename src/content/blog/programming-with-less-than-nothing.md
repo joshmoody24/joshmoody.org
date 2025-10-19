@@ -579,11 +579,11 @@ You lean back, exhausted but triumphant.
 
 Dana is dead.
 
-<hr style="margin-top: 120px; margin-bottom: 180px;" />
+<hr style="margin-top: 100px; margin-bottom: 150px;" />
 
 ## What the heck did I just read?
 
-The culmination of months of effort, that's what.
+The culmination of months of effort!
 
 [Combinatory logic](https://en.wikipedia.org/wiki/Combinatory_logic)
 is a model of computation that is extremely minimalist. All you

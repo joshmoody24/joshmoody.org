@@ -304,6 +304,12 @@ pre > code {
   code {
     background-color: rgba(255, 255, 255, 0.03);
   }
+
+  .astro-code,
+  .astro-code span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+  }
 }
 
 hr {
