@@ -581,7 +581,7 @@ Dana is dead.
 The culmination of months of effort!
 
 [Combinatory logic](https://en.wikipedia.org/wiki/Combinatory_logic)
-is a model of computation that is extremely minimalist. All you
+is a model of computation that is extremely minimal. All you
 start with are two functions: `S` and `K`.
 
 - `S` is a function that, given three functions `x`, `y`, and
