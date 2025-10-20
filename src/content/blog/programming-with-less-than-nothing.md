@@ -447,7 +447,7 @@ Variables are for wimps. You replace each with its definition.
   #output-block ~ pre * {
       white-space: pre-wrap;
       word-break: break-word;
-      max-height: 400px;
+      max-height: 450px;
       overflow: auto;
   }
 </style>
