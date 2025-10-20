@@ -1,6 +1,15 @@
 import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
 
+// Parse date strings as MST (Mountain Standard Time)
+const parseLocalDate = (val: string | Date) => {
+  if (typeof val === 'string') {
+    // Parse as MST (UTC-7) by appending time and timezone offset
+    return new Date(val + 'T00:00:00-07:00');
+  }
+  return new Date(val);
+};
+
 const blog = defineCollection({
   // Type-check frontmatter using a schema
   schema: z.object({
@@ -11,11 +20,11 @@ const blog = defineCollection({
     pubDate: z
       .string()
       .or(z.date())
-      .transform((val) => new Date(val)),
+      .transform(parseLocalDate),
     updatedDate: z
       .string()
       .optional()
-      .transform((str) => (str ? new Date(str) : undefined)),
+      .transform((str) => (str ? parseLocalDate(str) : undefined)),
     heroImage: z.string().optional(),
   }),
 });
