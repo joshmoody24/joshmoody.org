@@ -6,7 +6,7 @@ description:
 pubDate: "2025-10-19"
 ---
 
-Dana. The interviewer. Friendly. Efficient. She leans forward.
+Dana. The interviewer. Friendly, efficient. She leans forward.
 
 "So," she says, "walk me through FizzBuzz."
 
