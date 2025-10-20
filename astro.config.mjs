@@ -11,7 +11,7 @@ export default defineConfig({
   markdown: {
     shikiConfig: {
       themes: {
-        light: "slack-ochin",
+        light: "light-plus",
         dark: "andromeeda",
       },
     },

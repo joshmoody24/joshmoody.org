@@ -2,14 +2,9 @@
 title: "Programming With Less Than Nothing"
 description:
   "Lambda calculus is for wimps. Real programmers use
-  combinatory logic. S and K only."
+  combinatory logic."
 pubDate: "2025-10-19"
 ---
-
-The code you are about to read is real. But it is not meant to
-be fully understood.
-
-## The software engineering interview
 
 Dana. The interviewer. Friendly. Efficient. She leans forward.
 
@@ -27,7 +22,7 @@ let K = (x) => (y) => x;
 ```
 
 "That should do it," you say to yourself. "Just need to combine
-them a few times."
+these a few times."
 
 Dana raises an eyebrow. You continue.
 
@@ -68,7 +63,7 @@ let NOT = V(FALSE)(TRUE);
 
 She stands. "Okay," she says finally. "Let me stop you there."
 
-"Is something wrong?"
+"Something wrong?"
 
 "You're not the first candidate to show up here and reinvent
 programming from first principles using lambda calculus."
@@ -128,7 +123,7 @@ let ADD = (m) => (n) =>
   S(C(B(B(B))(IS_ZERO)(m))(SUCC))(ADD(PRED(m)))(n);
 ```
 
-"Ah," she says. "Now you can remove `n`."
+"Ah," she says. "Now we can remove `n`."
 
 She's warming up.
 
@@ -587,7 +582,7 @@ The culmination of months of effort!
 
 [Combinatory logic](https://en.wikipedia.org/wiki/Combinatory_logic)
 is a model of computation that is extremely minimalist. All you
-start with are two functions, `S` and `K`.
+start with are two functions: `S` and `K`.
 
 - `S` is a function that, given three functions `x`, `y`, and
   `z`, returns `x(z)(y(z))`.
@@ -611,27 +606,28 @@ It is also extremely difficult to understand.
 ## Further reading
 
 If you found this post interesting (whether or not you
-understood it), the following resources would be good places to
-start exploring these ideas further:
+understood it), the following resources would be good places
+start exploring:
 
 - [_To Mock a Mockingbird_, by Raymond Smullyan](https://raymondsmullyan.com/books/to-mock-a-mockingbird-and-other-logic-puzzles/)
-- [Kyle Kingsbury's _Technical Interview_ series](https://aphyr.com/tags/interviews)
 - [_Programming with Nothing_, by Tom Stuart](https://tomstu.art/programming-with-nothing)
+- [Kyle Kingsbury's _Technical Interview_ series](https://aphyr.com/tags/interviews)
 
 In particular, I strongly recommend reading _To Mock a Mockbird_
-if you want to understand combinatory logic. It's the most fun
-and interesting logic puzzle book in the world, and the most
+if you want to understand combinatory logic. It's the most fun,
 accessible way to learn combinatory logic from scratch. It took
-me about a month to work through it. Time well spent!
+me about a month's spare time to work through it. Time well
+spent!
 
 ### Skoobert
 
 After reading _To Mock a Mockingbird_, I wanted to program in
-combinatory logic but found existing tools lacking. Thus, I
-spent a several weekends building Skoobert, which is intended to
-be the ideal programming language for experimenting with lambda
-calculus and combinatory logic. Give it a try and Let me know
-what you think of it!
+combinatory logic but found existing tools lacking. So I spent a
+weekend building Skoobert, which is intended to be the ideal
+programming language for experimenting with lambda calculus and
+combinatory logic. Give it a try and Let me know what you think
+of it!
 
+- [Skoobert on GitHub](https://github.com/joshmoody24/skoobert)
 - [Skoobert playground](https://joshmoody24.github.io/skoobert/)
 - [FizzBuzz in Skoobert (with explanatory comments)](https://joshmoody24.github.io/skoobert/?example=sk-fizzbuzz-annotated)

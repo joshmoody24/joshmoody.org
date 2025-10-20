@@ -44,8 +44,8 @@ img {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-text: oklch(0.85 var(--chroma) var(--hue));
-    --color-text-secondary: oklch(0.7 var(--chroma) var(--hue));
+    --color-text: oklch(0.92 var(--chroma) var(--hue));
+    --color-text-secondary: oklch(0.72 var(--chroma) var(--hue));
     --color-background: oklch(0.15 var(--chroma) var(--hue));
     --color-border: oklch(0.3 var(--chroma) var(--hue));
     --color-primary: oklch(0.72 0.1 var(--hue));
@@ -265,7 +265,6 @@ blockquote,
 pre {
   margin: var(--spacing-md) 0;
   padding: var(--spacing-sm) var(--spacing-md);
-  border-left: 3px solid var(--color-primary);
   background-color: rgba(0, 0, 0, 0.02);
   overflow-y: hidden;
 }
@@ -282,7 +281,6 @@ blockquote p:last-child {
 
 pre {
   border: var(--border-width) solid var(--color-border);
-  border-left: 3px solid var(--color-primary);
 }
 
 code {
