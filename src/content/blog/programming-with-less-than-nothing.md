@@ -625,7 +625,7 @@ After reading _To Mock a Mockingbird_, I wanted to program in
 combinatory logic but found existing tools lacking. So I spent a
 weekend building Skoobert, which is intended to be the ideal
 programming language for experimenting with lambda calculus and
-combinatory logic. Give it a try and Let me know what you think!
+combinatory logic. Give it a try and let me know what you think!
 
 - [Skoobert on GitHub](https://github.com/joshmoody24/skoobert)
 - [Skoobert playground](https://joshmoody24.github.io/skoobert/)
