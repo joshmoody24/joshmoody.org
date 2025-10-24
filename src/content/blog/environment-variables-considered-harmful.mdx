@@ -37,16 +37,16 @@ SERVICE_B_PASSWORD=supersecret
 SERVICE_B_API_KEY=anothersecretkey
 ```
 
-Everyone does this. But I think **7 out of the 12 variables above are better off being stored in application code instead of environment variables.** Here's why.
+Everyone does this. But I think **7 out of the 12 variables above should be stored in code instead of environment variables.** Here's why.
 
 ## Scope of this article
 
-The claims I make in this article apply specifically to server-based software projects that are:
+The claims I make here apply specifically to server-based software projects that are:
 
 - Applications (not libraries or frameworks)
 - Rebuilt and redeployed frequently (i.e., many times per day)<FootnoteRef number={1} />
 
-<Footnote number={1}><p>[The Twelve-Factor App recommends environment variables for all config,](https://12factor.net/config) and that was great advice in 2011 when deployment was rarer and type systems weaker. But in 2025, many teams are using CI/CD pipelines, reproducible builds, and strong typing. In those contexts, putting non-secret, non-volatile config into code often gives you more reliability, safety, and clarity than env vars.</p></Footnote>
+<Footnote number={1}><p>[The Twelve-Factor App recommends environment variables for all config,](https://12factor.net/config) and that was great advice in 2011 when deployment was rarer and type systems weaker. But in 2025, many teams are using CI/CD pipelines and strong typing. In that context, putting non-secret config into code gives you more reliability, safety, and clarity.</p></Footnote>
 
 If these conditions aren't met, the case for environment variables is stronger.
 
@@ -70,18 +70,18 @@ Anything that doesn't fit into the use cases above is probably better off in cod
 
 Reading a setting from application code is objectively simpler than reading one from environment variables (using the [Rich Hickey definition of simplicity](https://youtu.be/SxdOUGdseq4?si=I7AzRDdCN74Hp_GS&t=196)). It's just one line of code.
 
-But to read a setting parameters from environment variables, you need at minimum:
+But to read from environment variables, you need at minimum:
 
 1. A system for setting/reading parameters for development machines, e.g., a shell script.
 2. A system for setting/reading parameters for production servers, e.g., AWS Parameter Store.
 
-In particular, the second part (production) can get complicated. Fewer things can go wrong when a variable is just stored in code.
+In particular, the production part can get complicated. Fewer things go wrong when a variable is stored in code.
 
-Granted, you'll need the complex system anyway for storing secrets, but it should be used only when necessary.
+Granted, you'll need the complex system anyway for storing secrets, but it's better to minimize its use.
 
 #### 2. Type safety (depending on the language)
 
-In code, you can enforce the existence and format of configuration values at compile time. With environment variables, you have to check at runtime, which is error-prone.
+In code, you can enforce the existence and format of configuration values at compile time. With environment variables, you have to check at runtime.
 
 I have seen too many production outages caused by a missing environment variable that could have been caught by a type checker.
 
@@ -103,7 +103,7 @@ Configuration in code is easier to find and understand, especially for new team 
 
 > Me: Oh, it's because `API_URL_BASE` is missing from your .env file.
 
-> New hire: Gotcha. Is that documented somewhere?
+> New hire: Is that documented somewhere?
 
 > Me: Nope, just gotta ask someone.
 
@@ -117,7 +117,7 @@ I've had this conversation too many times to count.<FootnoteRef number={3} />
 
 ### True constants
 
-Values that are the same across all environments and never change should not be environment variables.
+Values that never change should not be environment variables.
 
 It's in the name *environment variable.* Constants are not environment-specific nor do they vary.
 
@@ -153,7 +153,7 @@ SERVICE_B_API_KEY=anothersecretkey
 
 ### Settings that are functionally dependent on other settings
 
-Consider the database settings in the example above: they all change together. When `APP_ENV` is `"production"`, they all need to be the production values. When `APP_ENV` is `"staging"`, they all need to be the staging values, etc. You can't mix and match.
+The database settings in the example above all need to change together. When `APP_ENV` is `"production"`, they should all be the production values. When `APP_ENV` is `"staging"`, they should all be the staging values. You can't mix and match.
 
 This is a [*functional dependency:*](https://en.wikipedia.org/wiki/Functional_dependency) if you know the value of `APP_ENV`, you can determine the correct values for all the database settings.
 
@@ -216,7 +216,7 @@ SERVICE_B_PASSWORD=supersecret
 SERVICE_B_API_KEY=anothersecretkey
 ```
 
-And that's the final version! Notice how much code we removed from the `.env` file. It's in a better place.
+That's the final version! Notice how much code we removed from the `.env` file.
 
 That leaves just five true "environment" variables. These should not be moved:
 
@@ -272,7 +272,7 @@ DATABASES = {
 
 Despite using a Django example, in my experience, code-based config is not common in Python or JavaScript ecosystems.<FootnoteRef number={6} />
 
-<Footnote number={6}><p>To produce the Django example above, I actually had to modify the code from a [Geeks for Geeks Django tutorial](https://www.geeksforgeeks.org/python/how-to-manage-local-vs-production-settings-in-django/) to reduce its dependency on `os.environ.get`. My point is, Django's structure encourages putting non-secret settings in `.py` files instead of environment variables, even if developers aren't always doing it that way.</p></Footnote>
+<Footnote number={6}><p>To produce the Django example above, I had to modify the code from a [Geeks for Geeks Django tutorial](https://www.geeksforgeeks.org/python/how-to-manage-local-vs-production-settings-in-django/) to reduce its dependency on `os.environ.get`. My point is, Django's structure encourages putting non-secret settings in `.py` files instead of environment variables, even if developers aren't always doing it that way.</p></Footnote>
 
 ## Conclusion
 
