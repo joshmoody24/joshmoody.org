@@ -39,6 +39,8 @@ export async function GET(context) {
     // Convert relative URLs to absolute URLs
     content = content.replace(/href="\/([^"]+)"/g, `href="${context.site}$1"`);
     content = content.replace(/src="\/([^"]+)"/g, `src="${context.site}$1"`);
+    // Convert sibling blog post links (../) to absolute URLs
+    content = content.replace(/href="\.\.\/([^"]+)"/g, `href="${context.site}blog/$1/"`);
     // Convert anchor links to absolute URLs
     content = content.replace(/href="#([^"]+)"/g, `href="${postUrl}#$1"`);
 
