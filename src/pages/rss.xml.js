@@ -44,7 +44,8 @@ export async function GET(context) {
 
     if (post.data.heroImage) {
       const imageUrl = new URL(post.data.heroImage, context.site).toString();
-      content = `<p><img src="${imageUrl}" alt="${post.data.title}" width="100%" /></p>${content}`;
+      const escapedTitle = post.data.title.replace(/"/g, '&quot;');
+      content = `<p><img src="${imageUrl}" alt="${escapedTitle}" width="100%" /></p>${content}`;
     }
 
     return {
