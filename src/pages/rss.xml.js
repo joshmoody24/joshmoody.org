@@ -14,11 +14,15 @@ export async function GET(context) {
   );
 
   const items = sortedPosts.map((post) => {
-    // Remove import statements but keep everything else
-    const cleanedBody = post.body.replace(
+    // Remove import statements and MDX components
+    let cleanedBody = post.body.replace(
       /^import\s+.*?from\s+['"].*?['"];?\s*$/gm,
       "",
     );
+
+    // Remove unclosed or problematic JSX tags that could break HTML parsing
+    cleanedBody = cleanedBody.replace(/<[A-Z]\w+[^>]*>/g, "");
+    cleanedBody = cleanedBody.replace(/<\/[A-Z]\w+>/g, "");
 
     const html = parser.render(cleanedBody);
 
@@ -30,9 +34,17 @@ export async function GET(context) {
       },
     });
 
+    const postUrl = new URL(`/blog/${post.slug}/`, context.site).toString();
+
+    // Convert relative URLs to absolute URLs
+    content = content.replace(/href="\/([^"]+)"/g, `href="${context.site}$1"`);
+    content = content.replace(/src="\/([^"]+)"/g, `src="${context.site}$1"`);
+    // Convert anchor links to absolute URLs
+    content = content.replace(/href="#([^"]+)"/g, `href="${postUrl}#$1"`);
+
     if (post.data.heroImage) {
       const imageUrl = new URL(post.data.heroImage, context.site).toString();
-      content = `<img src="${imageUrl}" alt="${post.data.title}" style="max-width: 100%; height: auto;" />${content}`;
+      content = `<p><img src="${imageUrl}" alt="${post.data.title}" width="100%" /></p>${content}`;
     }
 
     return {
@@ -46,6 +58,10 @@ export async function GET(context) {
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     site: context.site,
+    xmlns: {
+      atom: "http://www.w3.org/2005/Atom",
+    },
+    customData: `<atom:link href="${context.site}rss.xml" rel="self" type="application/rss+xml" />`,
     items: items,
   });
 }
