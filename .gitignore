@@ -17,5 +17,9 @@ pnpm-debug.log*
 .env
 .env.production
 
+.crush/
+.clj-kondo/
+.lsp/
+
 # macOS-specific files
 .DS_Store
