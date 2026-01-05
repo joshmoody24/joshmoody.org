@@ -4,6 +4,7 @@ description:
   "I solved each day of Advent of Code 2025 in a different
   unusual programming language. Here's how they stack up."
 pubDate: "Jan 05 2026"
+heroImage: "/advent-of-code/advent-of-code-clojure.png"
 ---
 
 ## Solving Advent of Code in a different language each day
