@@ -8,7 +8,7 @@ const parser = new MarkdownIt();
 
 export async function GET(context) {
   const posts = await getCollection("blog");
-  const sortedPosts = posts.sort(
+  const sortedPosts = posts.filter((post) => post.data.pubDate).sort(
     (a, b) =>
       new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
   );
