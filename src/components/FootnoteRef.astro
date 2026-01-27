@@ -6,17 +6,13 @@ interface Props {
 const { number } = Astro.props;
 ---
 
-<sup id="footnote-{number}-ref">
-  <button
-      type="button"
-      aria-label={`Show footnote ${number}`}
-      aria-controls={`footnote-${number}`}
-      popovertarget={`footnote-${number}`}
-      popovertargetaction="toggle"
-  >
-    {number}
-  </button>
-</sup>
+<sup id={`footnote-${number}-ref`}><button
+  type="button"
+  aria-label={`Show footnote ${number}`}
+  aria-controls={`footnote-${number}`}
+  popovertarget={`footnote-${number}`}
+  popovertargetaction="toggle"
+>{number}</button></sup>
 
 <style>
   sup {
