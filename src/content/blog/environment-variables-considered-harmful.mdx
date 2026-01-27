@@ -231,7 +231,7 @@ That leaves just five true "environment" variables. These should not be moved:
 You may find the idea of putting `DATABASE_HOST` and `DATABASE_USER` into source control a bit uncomfortable. I felt the same way at first, but I think it's a false fear. If leaking your database host would cause a problem, you already have a problem.<FootnoteRef number={5} />
 
 <Footnote number={5}>
-  <p>See section 2.4, bullet point 4 in [the NIST Guide to General Server Security.](https://en.wikipedia.org/wiki/Security_through_obscurity)</p>
+  <p>See section 2.4, bullet point 4 in [the NIST Guide to General Server Security.](https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-123.pdf#page=15)</p>
   <p>For a more general overview, see the ["Security through obscurity" Wikipedia article.](https://en.wikipedia.org/wiki/Security_through_obscurity)</p>
   <p>You may retort that sure, security through obsurity is not enough by itself, but it's better than nothing. Might as well be obscure if you can be.</p>
   <p>I think that's somewhat fair, but keep in mind that randomly shutting down production servers is also a bad thing, and yet [Netflix's Chaos Monkey](https://github.com/Netflix/chaosmonkey) exists. I think there's value in intentionally [burning the antipattern boats](https://www.collinsdictionary.com/us/dictionary/english/burn-your-boats) because it forces you to get good or die.</p>
