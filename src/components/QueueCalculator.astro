@@ -1,0 +1,446 @@
+<div class="queue-calculator">
+  <fieldset>
+    <legend>Calculator Parameters</legend>
+
+    <div class="input-group">
+      <label for="rho">
+        Desired utilization ratio:
+        <span id="rho-display" aria-live="polite">50%</span>
+      </label>
+      <small class="helper-text">What percentage of your time do you want to spend responding to agents? Leave some slack to handle spikes.</small>
+      <input
+        type="range"
+        id="rho"
+        min="0.01"
+        max="1"
+        step="0.01"
+        value="0.5"
+        aria-valuenow="0.5"
+        aria-valuemin="0.01"
+        aria-valuemax="1"
+      />
+    </div>
+
+    <div class="input-group">
+      <label for="t-agent">Average agent time:</label>
+      <small class="helper-text">How long does an agent typically run before requiring your input?</small>
+      <div class="input-with-suffix">
+        <input
+          type="number"
+          id="t-agent"
+          min="0.1"
+          step="0.1"
+          value="10"
+          aria-describedby="t-agent-unit"
+        />
+        <span class="input-suffix" id="t-agent-unit">minutes</span>
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label for="t-reply">Base human reply time:</label>
+      <small class="helper-text">How long does it take you to read the agent's output, act on it, and reply when managing just one agent?</small>
+      <div class="input-with-suffix">
+        <input
+          type="number"
+          id="t-reply"
+          min="0.1"
+          step="0.1"
+          value="1"
+          aria-describedby="t-reply-unit"
+        />
+        <span class="input-suffix" id="t-reply-unit">minutes</span>
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label for="algorithm">Context switching model:</label>
+      <small class="helper-text">How does switching between agents (changing tabs, worktrees, mental context, etc.) slow you down?</small>
+      <select id="algorithm">
+        <option value="constant">Constant (no overhead)</option>
+        <option value="linear">Linear (proportional overhead)</option>
+        <option value="logarithmic" selected>Logarithmic (diminishing overhead)</option>
+      </select>
+    </div>
+
+    <div class="input-group" id="contextSwitchFactor-group">
+      <label for="contextSwitchFactor" id="contextSwitchFactor-label">Context switching overhead:</label>
+      <small class="helper-text" id="contextSwitchFactor-helper">How much extra time does switching to each additional agent add to your replies?</small>
+      <div class="input-with-suffix">
+        <input
+          type="number"
+          id="contextSwitchFactor"
+          min="0"
+          step="0.1"
+          value="1.0"
+          aria-describedby="contextSwitchFactor-suffix"
+        />
+        <span class="input-suffix" id="contextSwitchFactor-suffix">minutes</span>
+      </div>
+    </div>
+  </fieldset>
+
+  <div class="calculator-output">
+    <div class="result">
+      <label for="result-value"><strong>Recommended agents:</strong></label>
+      <output id="result-value" class="result-number" for="rho t-agent t-reply algorithm contextSwitchFactor">8.0</output>
+    </div>
+    <div class="calculation-steps" id="calc-steps" aria-live="polite">
+      <!-- Calculation steps will be inserted here -->
+    </div>
+  </div>
+</div>
+
+<style>
+  .queue-calculator {
+    margin: var(--spacing-md) 0;
+    font-family: var(--font-family);
+  }
+
+  fieldset {
+    border: var(--border-width) solid var(--color-border);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  legend {
+    font-weight: 600;
+    padding: 0 var(--spacing-sm);
+    color: var(--color-text);
+  }
+
+  .input-group.hidden {
+    display: none;
+  }
+
+  label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 500;
+    color: var(--color-text);
+  }
+
+  .helper-text {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-xs);
+    line-height: 1.4;
+  }
+
+  input[type="range"] {
+    width: 100%;
+    height: 8px;
+    background: var(--color-border);
+    border-radius: 4px;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--color-primary);
+    cursor: pointer;
+    border-radius: 50%;
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: var(--color-primary);
+    cursor: pointer;
+    border-radius: 50%;
+    border: none;
+  }
+
+  input[type="range"]:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  #rho-display {
+    float: right;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .input-with-suffix {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    border: var(--border-width) solid var(--color-border);
+    padding: var(--spacing-sm);
+    background-color: var(--color-background);
+  }
+
+  .input-with-suffix:focus-within {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 0;
+  }
+
+  .input-with-suffix input[type="number"] {
+    flex: 1;
+    min-width: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: var(--color-text);
+    font-family: var(--font-family);
+    font-size: 1rem;
+  }
+
+  .input-with-suffix input[type="number"]:focus {
+    outline: none;
+  }
+
+  .input-suffix {
+    flex-shrink: 0;
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+    white-space: nowrap;
+  }
+
+  input[type="number"] {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border: var(--border-width) solid var(--color-border);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-family);
+    font-size: 1rem;
+  }
+
+  input[type="number"]:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 0;
+  }
+
+  select {
+    width: 100%;
+    padding: var(--spacing-sm);
+    padding-right: 2rem;
+    border: var(--border-width) solid var(--color-border);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-family);
+    font-size: 1rem;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.5rem center;
+    background-size: 12px;
+  }
+
+  select:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 0;
+  }
+
+  input[type="number"]:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    input[type="number"]:disabled {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+  }
+
+  .calculator-output {
+    background-color: rgba(0, 0, 0, 0.02);
+    padding: var(--spacing-md);
+    border: var(--border-width) solid var(--color-border);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .calculator-output {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+  }
+
+  .result {
+    font-size: 1.125rem;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .result-number {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-left: var(--spacing-xs);
+  }
+
+  .calculation-steps {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    white-space: pre-line;
+  }
+
+  @media (max-width: 600px) {
+    .input-with-unit {
+      flex-direction: column;
+    }
+
+    select {
+      width: 100%;
+    }
+  }
+</style>
+
+<script>
+  // see my blog post "Data Science Has a Variable Naming Problem" for why I'm using names like "utilizationRatio" instead of "rho"
+
+  // context switching adjustment
+  function calculateAdjustedReplyTime(
+    baseReplyTime: number,
+    numAgents: number,
+    algorithm: string,
+    contextSwitchFactor: number
+  ): number {
+    if (algorithm === "constant") return baseReplyTime;
+    if (algorithm === "linear") return baseReplyTime + contextSwitchFactor * (numAgents - 1);
+    if (algorithm === "logarithmic") return baseReplyTime + contextSwitchFactor * Math.log2(numAgents);
+    return baseReplyTime;
+  }
+
+  function solveNumAgents(
+    utilizationRatio: number,
+    agentTime: number,
+    baseReplyTime: number,
+    algorithm: string,
+    contextSwitchFactor: number
+  ): number {
+    if (utilizationRatio === 0) return 0;
+    if (baseReplyTime <= 0) return 0;
+
+    const constantSolution = (utilizationRatio * agentTime) / baseReplyTime + utilizationRatio;
+
+    if (algorithm === "constant") return constantSolution;
+
+    // numerical solver
+    let n = constantSolution; // educated guess
+
+    const maxIterations = 100;
+    const tolerance = 0.001;
+
+    for (let i = 0; i < maxIterations; i++) {
+      const adjustedReplyTime = calculateAdjustedReplyTime(baseReplyTime, n, algorithm, contextSwitchFactor);
+      const n_new = (utilizationRatio * agentTime) / adjustedReplyTime + utilizationRatio;
+
+      if (Math.abs(n_new - n) < tolerance) {
+        return n_new;
+      }
+
+      n = n_new;
+    }
+
+    return n;
+  }
+
+  function formatCalculationSteps(
+    utilizationRatio: number,
+    agentTime: number,
+    baseReplyTime: number,
+    algorithm: string,
+    contextSwitchFactor: number,
+    numAgents: number
+  ): string {
+    const utilizationPercent = (utilizationRatio * 100).toFixed(0);
+    const agentTimeFormatted = agentTime.toFixed(1);
+    const replyTimeFormatted = baseReplyTime.toFixed(1);
+
+    if (algorithm === "constant") {
+      const step1 = (utilizationRatio * agentTime).toFixed(1);
+      const step2 = ((utilizationRatio * agentTime) / baseReplyTime).toFixed(1);
+      return `Using constant cognitive load:\nn = (ρ × T_a) / T_r + ρ\nn = (${utilizationRatio} × ${agentTimeFormatted}) / ${replyTimeFormatted} + ${utilizationRatio}\nn = ${step1} / ${replyTimeFormatted} + ${utilizationRatio}\nn = ${step2} + ${utilizationRatio} = ${numAgents.toFixed(1)} agents`;
+    } else {
+      const adjustedReplyTime = calculateAdjustedReplyTime(baseReplyTime, numAgents, algorithm, contextSwitchFactor);
+      const algorithmName =
+        algorithm === "linear" ? "linear" : "logarithmic";
+      return `Using ${algorithmName} cognitive load (contextSwitchFactor = ${contextSwitchFactor.toFixed(1)}):\nSolved numerically: n = ${numAgents.toFixed(1)} agents\nT_r adjusted from ${replyTimeFormatted} to ${adjustedReplyTime.toFixed(1)} minutes`;
+    }
+  }
+
+  const rhoInput = document.getElementById("rho") as HTMLInputElement;
+  const rhoDisplay = document.getElementById("rho-display") as HTMLElement;
+  const tAgentInput = document.getElementById("t-agent") as HTMLInputElement;
+  const tReplyInput = document.getElementById("t-reply") as HTMLInputElement;
+  const algorithmSelect = document.getElementById("algorithm") as HTMLSelectElement;
+  const contextSwitchFactorInput = document.getElementById("contextSwitchFactor") as HTMLInputElement;
+  const contextSwitchFactorGroup = document.getElementById("contextSwitchFactor-group") as HTMLElement;
+  const contextSwitchFactorLabel = document.getElementById("contextSwitchFactor-label") as HTMLElement;
+  const contextSwitchFactorSuffix = document.getElementById("contextSwitchFactor-suffix") as HTMLElement;
+  const contextSwitchFactorHelper = document.getElementById("contextSwitchFactor-helper") as HTMLElement;
+  const resultValue = document.getElementById("result-value") as HTMLElement;
+  const calcSteps = document.getElementById("calc-steps") as HTMLElement;
+
+  function calculate() {
+    const utilizationRatio = parseFloat(rhoInput.value);
+    const agentTime = parseFloat(tAgentInput.value);
+    const replyTime = parseFloat(tReplyInput.value);
+    const algorithm = algorithmSelect.value;
+    const contextSwitchFactor = parseFloat(contextSwitchFactorInput.value);
+
+    rhoDisplay.textContent = `${(utilizationRatio * 100).toFixed(0)}%`;
+    rhoInput.setAttribute("aria-valuenow", utilizationRatio.toString());
+
+    if (replyTime <= 0 || agentTime <= 0) {
+      resultValue.textContent = "Error";
+      calcSteps.textContent = "Agent time and reply time must be greater than 0";
+      return;
+    }
+
+    const numAgents = solveNumAgents(utilizationRatio, agentTime, replyTime, algorithm, contextSwitchFactor);
+
+    resultValue.textContent = Math.round(numAgents).toString();
+    calcSteps.textContent = formatCalculationSteps(
+      utilizationRatio,
+      agentTime,
+      replyTime,
+      algorithm,
+      contextSwitchFactor,
+      numAgents
+    );
+  }
+
+  // change the helper text based on conetxt switch model
+  function updateFactorInput() {
+    const algorithm = algorithmSelect.value;
+    const isConstant = algorithm === "constant";
+
+    contextSwitchFactorInput.disabled = isConstant;
+    contextSwitchFactorGroup.classList.toggle("hidden", isConstant);
+
+    if (algorithm === "linear") {
+      contextSwitchFactorLabel.textContent = "Context switching overhead:";
+      contextSwitchFactorSuffix.textContent = "minutes per agent";
+      contextSwitchFactorHelper.textContent = "How much extra time does each additional agent add to your replies?";
+    } else if (algorithm === "logarithmic") {
+      contextSwitchFactorLabel.textContent = "Context switching overhead:";
+      contextSwitchFactorSuffix.textContent = "minutes per doubling";
+      contextSwitchFactorHelper.textContent = "Minutes of overhead when you double your agent count (e.g., 1.0 means +1 minute when going from 4 to 8 agents).";
+    }
+
+    calculate();
+  }
+
+  // I legitimately debated using React for this, then remembered I'm not a WEAKLING
+  rhoInput.addEventListener("input", calculate);
+  tAgentInput.addEventListener("input", calculate);
+  tReplyInput.addEventListener("input", calculate);
+  algorithmSelect.addEventListener("change", updateFactorInput);
+  contextSwitchFactorInput.addEventListener("input", calculate);
+
+  updateFactorInput();
+  calculate();
+</script>

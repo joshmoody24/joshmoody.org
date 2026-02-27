@@ -2,7 +2,7 @@
   "printWidth": 80,
   "overrides": [
     {
-      "files": "*.md",
+      "files": ["*.md", "*.mdx"],
       "options": {
         "printWidth": 64,
         "proseWrap": "always"

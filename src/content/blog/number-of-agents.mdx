@@ -1,0 +1,124 @@
+---
+title: "How Many Coding Agents Should You Run In Parallel?"
+description:
+  "It's easy to get mentally overloaded by running a billion
+  Claude Codes at the same time. Perhaps queuing theory can save
+  us."
+pubDate: "2026-02-27"
+---
+
+import QueueCalculator from "../../components/QueueCalculator.astro";
+import Footnote from "../../components/Footnote.astro";
+import FootnoteRef from "../../components/FootnoteRef.astro"
+
+## I have a constant headache and I blame Claude
+
+For better and worse,<FootnoteRef number={1}/> I use a lot of AI these days, especially coding agents like
+Claude Code. I mostly like them, although there are some downsides. One particularly
+painful aspect is that I just can't dang _focus_
+anymore.
+
+<Footnote number={1}>There's a high chance people I work with see this phrase and read into it way more than I intended.</Footnote>
+
+The problem with agents is that they are so _painfully_ slow.
+Every time I use Opus 4.6, I get close to actually dying of
+boredom because I know darn well there will be a fifteen-minute
+pause after every message.
+
+During these lulls, what are you supposed to do? I know of three
+options:
+
+1. Putter around.<FootnoteRef number={2} /><Footnote number={2}><p>This gets old fast. Even I can only read blog posts for so long.</p></Footnote>
+2. Get a snack.
+3. Spin up another agent to do some other thing. It will also be slow. Repeat until brain is mush.
+
+Option 3 is the only one that doesn't get
+boring fast, so I tend towards it. Basically, my work
+consists of juggling parallel coding agents until my
+brain is frenzied mush pressing on the back of my eye sockets at a PSI typical of tires.
+
+My hunch is that I'm spreading myself thinner than is optimal,
+so I brushed up on math to prove it.
+
+## Queueing theory
+
+Turns out there's a whole mathematical framework for analyzing situations like this. [Queueing theory](https://en.wikipedia.org/wiki/Queueing_theory) is the study of waiting in lines (A.K.A queues),
+and it was probably started by some guy bored out of his mind at the post office or something.<FootnoteRef number={3} />
+
+<Footnote number={3}><p>Source: I made it up but not without precedent. I devoted years of my college life to optimizing [Trimps](https://trimps.github.io/) and [Cookie Clicker](https://orteil.dashnet.org/cookieclicker/),
+so I know from experience that idle games entice the mind towards mathematical analysis of idle games.</p></Footnote>
+
+The bottleneck in agent management is the human's brain, which can be modeled as a [G/G/1](https://en.wikipedia.org/wiki/G/G/1_queue) queue. Therefore, queuing theory has the answers.
+
+For those who don't care about the math, here's the calculator:
+
+## Number of Agents Optimizer
+
+<QueueCalculator />
+
+Apparently 3 agents is optimal for me, which is fewer than I typically use. No wonder my frontal lobe is f̴̡͒ŕ̴̞ă̸̦z̴͚̊z̸͓͗l̶̪͊e̶̦͗d̴̳͑.
+
+This algorithm is probably timeless; it should hold true even in wildly
+hypothetical scenarios like every human commanding an
+infinite number of near-infinitely fast superintelligences. It also applies to more than just AI. Like, in general, if
+your job consists entirely of telling other people what to do on your behalf, then these constraints are relevant to you.
+
+## Algorithm Explanation
+
+The calculator is based on several queueing theory
+equations. First, let's define symbols:
+
+| Symbol | Name | Description |
+|--------|------|-------------|
+| $n$ | Number of agents | number of agents running in parallel |
+| $\lambda$ | Throughput | human/agent interactions per unit time |
+| $T_a$ | Agent time | average time an agent runs autonomously |
+| $T_r$ | Reply time | average time for you to respond to an agent |
+| $W$ | Cycle time | average time of one round-trip interaction with an agent |
+| $\rho$ | Human utilization | fraction of your time spent responding to agents |
+
+The calculator combines these fundamental relationships:
+
+| Relationship | Equation |
+|--------------|----------|
+| [Little's Law](https://en.wikipedia.org/wiki/Little%27s_law) | $n = \lambda \times W$ |
+| Cycle time | $W = T_a + T_r$ |
+| Human utilization | $\rho = \lambda \times T_r$ |
+| Utilization constraint | $\rho \leq 1$ |
+
+Combining these through substitution gives us:
+
+$$n = \frac{\rho \times T_a}{T_r} + \rho$$
+
+For example, let's say you want to spend 80% of your time responding to agents. If the agent runs for 9 minutes on average between responses, and you take 1 minute to reply, then:
+
+$$n = \frac{0.8 \times 9}{1} + 0.8 = 7.2 + 0.8 = 8$$
+
+You should run 8 agents.
+
+However, that seems like way too many to me, because
+it's not taking context switching into
+account. First, the human brain sucks at multitasking. Second, so does everything else. As the number
+of agents grows, your brain has to work harder, and you also have to juggle more tasks like switching browser tabs, opening new files, etc. Time to respond increases.
+
+I'm not aware of any empirical data for the exact relationship between $n$ and $T_r$, which is why
+I gave options. But I suspect
+it's logarithmic. In my experience, managing two agents
+requires way more overhead than one, but
+managing seven isn't that much harder than six.
+
+Once logarithms get involved, it's hard to solve the equation
+algebraically, so I chickened out and used a numerical solver.
+
+## Surely there are other factors at play, right?
+
+Surely indeed. Let me know all the reasons this calculator is
+subtly wrong! In the meantime, I will be using three agents.
+
+## AI disclaimer
+
+Generally, I don't let LLMs anywhere near my blog posts, but due to the subject matter, it kind of felt wrong *not* to use them a little bit this time. Some of the calculator styling was written by an LLM under a tight leash.
+I also had an LLM sanity check my math, for whatever that's worth. Rest assured that this post is 98% grass-fed, free-range human.
+
+<small><a href="/queueing-theory/qt-proof-of-work-1.jpg">Proof of human effort.</a></small>
+<small><a href="/queueing-theory/qt-proof-of-work-2.jpg">More proof.</a></small>
