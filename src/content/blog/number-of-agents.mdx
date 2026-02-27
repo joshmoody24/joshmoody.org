@@ -49,7 +49,7 @@ so I brushed up on math to prove it.
 
 ## Queueing theory
 
-Turns out there's a whole mathematical framework for analyzing
+Turns out there's a whole framework for analyzing
 situations like this.
 [Queueing theory](https://en.wikipedia.org/wiki/Queueing_theory)
 is the study of waiting in lines (A.K.A queues), and it was
@@ -85,6 +85,11 @@ infinite number of near-infinitely fast superintelligences. It
 also applies to more than just AI. Like, in general, if your job
 consists entirely of telling other people what to do on your
 behalf, then these constraints are relevant to you.
+
+This algorithm optimizes for throughput at your desired utilization level.
+If you run fewer agents than it recommends, you will spend more time idling than you wanted.
+If you run more, you'll exceed your desired utilization until you reach 100%.
+After that, if context switching cost is non-constant, your overall throughput goes down.
 
 ## Algorithm Explanation
 
