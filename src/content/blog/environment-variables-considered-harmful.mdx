@@ -58,15 +58,12 @@ software projects that are:
   day)<FootnoteRef number={1} />
 
 <Footnote number={1}>
-  <p>
-    [The Twelve-Factor App recommends environment variables for
-    all config,](https://12factor.net/config) and that was great
-    advice in 2011 when deployment was rarer and type systems
-    weaker. But in 2025, many teams are using CI/CD pipelines
-    and strong typing. In that context, putting non-secret
-    config into code gives you more reliability, safety, and
-    clarity.
-  </p>
+  [The Twelve-Factor App recommends environment variables for
+  all config,](https://12factor.net/config) and that was great
+  advice in 2011 when deployment was rarer and type systems
+  weaker. But in 2025, many teams are using CI/CD pipelines and
+  strong typing. In that context, putting non-secret config into
+  code gives you more reliability, safety, and clarity.
 </Footnote>
 
 If these conditions aren't met, the case for environment
@@ -85,20 +82,17 @@ Environment variables have two good use cases:
    code.<FootnoteRef number={2} />
 
 <Footnote number={2}>
-  <p>
     I am tentatively considering adding a third item to this
     list: settings that are different for each developer.
-  </p>
-  <p>
+
     If every developer in your org needs a different `APP_ID` or
     something, that probably makes sense as an environment
     variable instead of having to maintain a giant list of
     developers in git.
-  </p>
-  <p>
+
     But I'm not sure about this; part of me thinks it's better
     to keep this in git. [Let me know what you think.](/contact)
-  </p>
+
 </Footnote>
 
 ## What environment variables are bad for
@@ -168,13 +162,11 @@ I've had this conversation too many times to
 count.<FootnoteRef number={3} />
 
 <Footnote number={3}>
-  <p>
-    Yes, this is a skill issue. The variable should have been
-    documented somewhere. Remember that not writing machine code
-    by hand is also a skill issue. If a setting isn't secret,
-    just keep the dang thing in source control and it will work
-    automatically.
-  </p>
+  Yes, this is a skill issue. The variable should have been
+  documented somewhere. Remember that not writing machine code
+  by hand is also a skill issue. If a setting isn't secret, just
+  keep the dang thing in source control and it will work
+  automatically.
 </Footnote>
 
 ## What Variables Should Be Moved to Code?
@@ -301,13 +293,11 @@ not be moved:
   depend on.<FootnoteRef number={4} />
 
 <Footnote number={4}>
-  <p>
-    Note that I'm using `APP_ENV` despite `NODE_ENV` probably
-    being a more conventional name in JavaScript apps.
-    `NODE_ENV` can work, but it tends to come with baggage,
-    e.g., not having a `staging` value. I think having a
-    separate `APP_ENV` is valuable.
-  </p>
+  Note that I'm using `APP_ENV` despite `NODE_ENV` probably
+  being a more conventional name in JavaScript apps. `NODE_ENV`
+  can work, but it tends to come with baggage, e.g., not having
+  a `staging` value. I think having a separate `APP_ENV` is
+  valuable.
 </Footnote>
 - `LOG_LEVEL` is a variable that you probably want to change
 without rebuilding the app, e.g., when debugging a production
@@ -321,22 +311,18 @@ your database host would cause a problem, you already have a
 problem.<FootnoteRef number={5} />
 
 <Footnote number={5}>
-  <p>
     See section 2.4, bullet point 4 in [the NIST Guide to
     General Server
     Security.](https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-123.pdf#page=15)
-  </p>
-  <p>
+
     For a more general overview, see the ["Security through
     obscurity" Wikipedia
     article.](https://en.wikipedia.org/wiki/Security_through_obscurity)
-  </p>
-  <p>
+
     You may retort that sure, security through obsurity is not
     enough by itself, but it's better than nothing. Might as
     well be obscure if you can be.
-  </p>
-  <p>
+
     I think that's somewhat fair, but keep in mind that randomly
     shutting down production servers is also a bad thing, and
     yet [Netflix's Chaos
@@ -345,7 +331,7 @@ problem.<FootnoteRef number={5} />
     antipattern
     boats](https://www.collinsdictionary.com/us/dictionary/english/burn-your-boats)
     because it forces you to get good or die.
-  </p>
+
 </Footnote>
 
 ## Precedent for code-based configuration
@@ -388,15 +374,13 @@ config is not common in Python or JavaScript
 ecosystems.<FootnoteRef number={6} />
 
 <Footnote number={6}>
-  <p>
-    To produce the Django example above, I had to modify the
-    code from a [Geeks for Geeks Django
-    tutorial](https://www.geeksforgeeks.org/python/how-to-manage-local-vs-production-settings-in-django/)
-    to reduce its dependency on `os.environ.get`. My point is,
-    Django's structure encourages putting non-secret settings in
-    `.py` files instead of environment variables, even if
-    developers aren't always doing it that way.
-  </p>
+  To produce the Django example above, I had to modify the code
+  from a [Geeks for Geeks Django
+  tutorial](https://www.geeksforgeeks.org/python/how-to-manage-local-vs-production-settings-in-django/)
+  to reduce its dependency on `os.environ.get`. My point is,
+  Django's structure encourages putting non-secret settings in
+  `.py` files instead of environment variables, even if
+  developers aren't always doing it that way.
 </Footnote>
 
 ## Conclusion
