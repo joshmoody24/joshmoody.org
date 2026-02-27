@@ -85,9 +85,12 @@
       <label for="result-value"><strong>Recommended agents:</strong></label>
       <output id="result-value" class="result-number" for="rho t-agent t-reply algorithm contextSwitchFactor">8.0</output>
     </div>
-    <div class="calculation-steps" id="calc-steps" aria-live="polite">
-      <!-- Calculation steps will be inserted here -->
-    </div>
+    <details class="calculation-details">
+      <summary>Show calculation steps</summary>
+      <div class="calculation-steps" id="calc-steps" aria-live="polite">
+        <!-- Calculation steps will be inserted here -->
+      </div>
+    </details>
   </div>
 </div>
 
@@ -279,11 +282,29 @@
     margin-left: var(--spacing-xs);
   }
 
+  .calculation-details {
+    margin-top: var(--spacing-sm);
+  }
+
+  .calculation-details summary {
+    cursor: pointer;
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    padding: var(--spacing-xs) 0;
+    user-select: none;
+    width: fit-content;
+  }
+
+  .calculation-details summary:hover {
+    color: var(--color-primary);
+  }
+
   .calculation-steps {
     font-size: 0.875rem;
     color: var(--color-text-secondary);
     line-height: 1.6;
     white-space: pre-line;
+    margin-top: var(--spacing-sm);
   }
 
   @media (max-width: 600px) {
