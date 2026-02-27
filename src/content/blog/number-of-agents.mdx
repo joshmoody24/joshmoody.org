@@ -109,7 +109,8 @@ The calculator combines these fundamental relationships:
 | Human utilization                                            | $\rho = \lambda \times T_r$ |
 | Utilization constraint                                       | $\rho \leq 1$               |
 
-Combining these through substitution gives us:
+Combining these through substitution<FootnoteRef number={4} /> gives us:
+
 
 $$n = \frac{\rho \times T_a}{T_r} + \rho$$
 
@@ -120,6 +121,12 @@ between responses, and you take 1 minute to reply, then:
 $$n = \frac{0.8 \times 9}{1} + 0.8 = 7.2 + 0.8 = 8$$
 
 You should run 8 agents.
+
+<Footnote number={4}>
+  Exercise for the reader time! \*dab emoji\*
+
+  See my horribly messy notebook scribbles at the bottom for some derivations if you're desperate. But doing it yourself is probably easier.
+</Footnote>
 
 However, that seems like way too many to me, because it's not
 taking context switching into account. First, the human brain
