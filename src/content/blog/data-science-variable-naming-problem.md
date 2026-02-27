@@ -1,18 +1,37 @@
 ---
 title: "Data Science Has a Variable Naming Problem"
-description: "Machine learning code almost always suffers from confusing variable names. Clearer, more descriptive variable names can simplify code and make it more accessible to all skill levels."
+description:
+  "Machine learning code almost always suffers from confusing
+  variable names. Clearer, more descriptive variable names can
+  simplify code and make it more accessible to all skill levels."
 pubDate: "Nov 09 2023"
 ---
 
 ## Variable Names Are a Big Deal
 
-Software engineers universally frown upon single-letter variable names. Data scientists haven't gotten the memo yet.
+Software engineers universally frown upon single-letter variable
+names. Data scientists haven't gotten the memo yet.
 
-I've noticed a problem with nearly every paper, article, tutorial, and blog post about machine learning: bad variable names. The problem is so widespread that I initially took it for granted. But the confusing variable names were reducing my learning rate (heh) so much that I think it's worth talking about. As someone from a software engineering background, I declare unto the data science community that there is a better way.
+I've noticed a problem with nearly every paper, article,
+tutorial, and blog post about machine learning: bad variable
+names. The problem is so widespread that I initially took it for
+granted. But the confusing variable names were reducing my
+learning rate (heh) so much that I think it's worth talking
+about. As someone from a software engineering background, I
+declare unto the data science community that there is a better
+way.
 
-To illustrate the problem, here's an example I encountered recently while working on a project. I was studying Peter Bloem's fantastic tutorial [Transformers from scratch](https://peterbloem.nl/blog/transformers). In his guide, Bloem provides excellent PyTorch code snippets for implementing a transformer model. Central to transformers is a concept called "attention." Bloem's code for computing attention is shown below.
+To illustrate the problem, here's an example I encountered
+recently while working on a project. I was studying Peter
+Bloem's fantastic tutorial
+[Transformers from scratch](https://peterbloem.nl/blog/transformers).
+In his guide, Bloem provides excellent PyTorch code snippets for
+implementing a transformer model. Central to transformers is a
+concept called "attention." Bloem's code for computing attention
+is shown below.
 
-I've commented my thoughts from when I first read this. You don't need to understand the code to understand my point.
+I've commented my thoughts from when I first read this. You
+don't need to understand the code to understand my point.
 
 ```python
 def forward(self, x):
@@ -87,13 +106,27 @@ def forward(self, x):
     # I feel like I understood about 25% of what I just read.
 ```
 
-To the inexperienced, this code is completely incomprehensible. An experienced data scientist could probably understand most of it on a first pass, but that's only possible because data scientists have spent years adapting to industry convention and tradition. Relative novices like me get steamrolled by it.
+To the inexperienced, this code is completely incomprehensible.
+An experienced data scientist could probably understand most of
+it on a first pass, but that's only possible because data
+scientists have spent years adapting to industry convention and
+tradition. Relative novices like me get steamrolled by it.
 
-I don't blame Bloem for writing his code this way; everyone does it. I believe this coding style stems from the fact that machine learning research papers describe their algorithms using mathematical notation. For some reason, mathematicians love writing equations as concisely as possible, even when it means sacrificing clarity. Some people go so far as to declare [math notation is broken](https://davidwees.com/content/mathematical-notation-broken/).
+I don't blame Bloem for writing his code this way; everyone does
+it. I believe this coding style stems from the fact that machine
+learning research papers describe their algorithms using
+mathematical notation. For some reason, mathematicians love
+writing equations as concisely as possible, even when it means
+sacrificing clarity. Some people go so far as to declare
+[math notation is broken](https://davidwees.com/content/mathematical-notation-broken/).
 
-I personally wouldn't call math notation _broken_, but I don't think it's descriptive enough to be a good coding style. In academia, sure, but not the real world. Too much cognitive load.
+I personally wouldn't call math notation _broken_, but I don't
+think it's descriptive enough to be a good coding style. In
+academia, sure, but not the real world. Too much cognitive load.
 
-Here's how I would improve the code snippet above. (feel free to skip this if you're not experienced with PyTorch or transformer models)
+Here's how I would improve the code snippet above. (feel free to
+skip this if you're not experienced with PyTorch or transformer
+models)
 
 ```python
 def forward(self, input_tensor):
@@ -137,16 +170,27 @@ def forward(self, input_tensor):
     return self.unifyheads(attention_output)
 ```
 
-Does it make the code a bit longer? Sure, but it's much easier on the brain. Could this be taken too far? Absolutely. At some point _really long_ variable names do more harm than good. But anything is better than single-letter variable names. Just one or two extra letters can make a big difference.
+Does it make the code a bit longer? Sure, but it's much easier
+on the brain. Could this be taken too far? Absolutely. At some
+point _really long_ variable names do more harm than good. But
+anything is better than single-letter variable names. Just one
+or two extra letters can make a big difference.
 
-Why don't data scientists do this already? I suspect the reason is because they view themselves as next-door neighbors to mathematicians.
+Why don't data scientists do this already? I suspect the reason
+is because they view themselves as next-door neighbors to
+mathematicians.
 
 ![A spectrum with software engineering on the left and mathematics on the right. Data science is much closer to mathematics](/data-sci-spectrum-false.webp)
 
-But I think data science is closer to the middle of the mathematics/programming spectrum.
+But I think data science is closer to the middle of the
+mathematics/programming spectrum.
 
 ![A spectrum with software engineering on the left and mathematics on the right. Data science is in the center](/data-sci-spectrum-true.webp)
 
-Therefore, I submit that machine learning code should not look like it came out of a math textbook.
+Therefore, I submit that machine learning code should not look
+like it came out of a math textbook.
 
-TL;DR: **Everyone benefits from better variable names.** Students learn faster, new hires onboard quicker, and everyone's cognitive load lessens. Next time you're implementing an ML algorithm, go easy on the interns and make your code readable.
+TL;DR: **Everyone benefits from better variable names.**
+Students learn faster, new hires onboard quicker, and everyone's
+cognitive load lessens. Next time you're implementing an ML
+algorithm, go easy on the interns and make your code readable.

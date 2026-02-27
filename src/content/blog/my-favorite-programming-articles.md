@@ -1,47 +1,71 @@
 ---
 title: "My Favorite Programming Articles"
-description: "A collection of the best programming articles I've ever read."
+description:
+  "A collection of the best programming articles I've ever read."
 pubDate: "Mar 7, 2025"
 updatedDate: "Jul 30, 2025"
 ---
 
 ## The Modern Equivalent of Spellbooks
 
-I collect blog posts like [Frieren collects grimoires](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGJ4cG91YzBqaXIydjkyZzFyZTZ5cjR5NnFtc3cybmZtbXl4dnR1NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/jUckyQVjuHNx9vXUtv/giphy.gif). Here are some of my favorites.
+I collect blog posts like
+[Frieren collects grimoires](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGJ4cG91YzBqaXIydjkyZzFyZTZ5cjR5NnFtc3cybmZtbXl4dnR1NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/jUckyQVjuHNx9vXUtv/giphy.gif).
+Here are some of my favorites.
 
 ## [The Grug Brained Developer](https://grugbrain.dev/)
 
-> complexity is spirit demon that enter codebase through well-meaning but ultimately very clubbable non grug-brain developers and project managers who not fear complexity spirit demon or even know about sometime
+> complexity is spirit demon that enter codebase through
+> well-meaning but ultimately very clubbable non grug-brain
+> developers and project managers who not fear complexity spirit
+> demon or even know about sometime
 
-The HTMX guy is my [role model](https://htmx.org/essays/htmx-sucks/), and _Grug_ is his finest work. I read it every few months and it gets better every time.
+The HTMX guy is my
+[role model](https://htmx.org/essays/htmx-sucks/), and _Grug_ is
+his finest work. I read it every few months and it gets better
+every time.
 
 ## [Out of the Tar Pit](https://curtclifton.net/papers/MoseleyMarks06a.pdf)
 
-This essay is about software complexity. It proposes a paradigm called _Functional Relational Programming_ as a way to mitigate it.
+This essay is about software complexity. It proposes a paradigm
+called _Functional Relational Programming_ as a way to mitigate
+it.
 
-This paradigm [(mostly)](https://www.cell-lang.net/) never caught on, but its core concepts are as relevant as ever.
+This paradigm [(mostly)](https://www.cell-lang.net/) never
+caught on, but its core concepts are as relevant as ever.
 
 ## [How Do Committees Invent?](http://melconway.com/research/committees.html)
 
-Conway's Law has been called [The Only Unbreakable Law](https://youtu.be/5IUj1EZwpJY?si=tBVxsRatPCONu9eW) of software. This essay is a deep dive into the implications of that law.
+Conway's Law has been called
+[The Only Unbreakable Law](https://youtu.be/5IUj1EZwpJY?si=tBVxsRatPCONu9eW)
+of software. This essay is a deep dive into the implications of
+that law.
 
-In short, organizations can only produce copies of their communication structures.
+In short, organizations can only produce copies of their
+communication structures.
 
 ## [Taco Bell Programming](http://widgetsandshit.com/teddziuba/2010/10/taco-bell-programming.html)
 
-> Every item on the menu at Taco Bell is just a different configuration of roughly eight ingredients.
+> Every item on the menu at Taco Bell is just a different
+> configuration of roughly eight ingredients.
 >
-> The more I write code and design systems, the more I understand that many times, you can achieve the desired functionality simply with clever reconfigurations of the basic Unix tool set.
+> The more I write code and design systems, the more I
+> understand that many times, you can achieve the desired
+> functionality simply with clever reconfigurations of the basic
+> Unix tool set.
 
 You can build a lot with a little.
 
 ## [A Relational Model of Data for Large Shared Data Banks](https://www.seas.upenn.edu/~zives/03f/cis550/codd.pdf)
 
-The legendary paper by E.F. Codd that introduced the relational database model. I think every software engineer should read it.
+The legendary paper by E.F. Codd that introduced the relational
+database model. I think every software engineer should read it.
 
-I will die on a hill screaming that the relational model is the most beautiful concept in computer science besides maybe combinatory logic and git.
+I will die on a hill screaming that the relational model is the
+most beautiful concept in computer science besides maybe
+combinatory logic and git.
 
-Today's programmers have a lot of misconceptions about relational databases. Here are a few:
+Today's programmers have a lot of misconceptions about
+relational databases. Here are a few:
 
 | Myth                                                                                                        | Fact                                                                                                                                                                                          |
 | ----------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -53,15 +77,28 @@ If you just learned something, you need Codd in your life.
 
 ## [The Third Manifesto](https://www.dcs.warwick.ac.uk/~hugh/TTM/DTATRM.pdf)
 
-This book-length manifesto expands on Codd's paper. It argues that we've gone astray from the "true" relational model and proposes a precise definition of what a relational database should be. It also introduces a new language called Tutorial D that is more relational than SQL.
+This book-length manifesto expands on Codd's paper. It argues
+that we've gone astray from the "true" relational model and
+proposes a precise definition of what a relational database
+should be. It also introduces a new language called Tutorial D
+that is more relational than SQL.
 
-It's a dense read, but worth it if you're a relational stan like me.
+It's a dense read, but worth it if you're a relational stan like
+me.
 
 ## [The Vietnam of Computer Science](https://www.odbms.org/wp-content/uploads/2013/11/031.01-Neward-The-Vietnam-of-Computer-Science-June-2006.pdf)
 
-> Object/Relational Mapping is the Vietnam of Computer Science. It represents a quagmire which starts well, gets more complicated as time passes, and before long entraps its users in a commitment that has no clear demarcation point, no clear win conditions, and no clear exit strategy.
+> Object/Relational Mapping is the Vietnam of Computer Science.
+> It represents a quagmire which starts well, gets more
+> complicated as time passes, and before long entraps its users
+> in a commitment that has no clear demarcation point, no clear
+> win conditions, and no clear exit strategy.
 
-This one is particularly relevant to modern software development because it argues that Object-Relational Mappers (ORMs) are a fundamentally flawed approach to database interaction due to the [impedance mismatch](https://en.wikipedia.org/wiki/Object%E2%80%93relational_impedance_mismatch) between object-oriented and relational paradigms.
+This one is particularly relevant to modern software development
+because it argues that Object-Relational Mappers (ORMs) are a
+fundamentally flawed approach to database interaction due to the
+[impedance mismatch](https://en.wikipedia.org/wiki/Object%E2%80%93relational_impedance_mismatch)
+between object-oriented and relational paradigms.
 
 I promise this is the last essay about relational databases.
 
@@ -71,11 +108,17 @@ This is how I fake design competence.
 
 ## [Where are the builders?](https://near.blog/where-are-the-builders/)
 
-As someone who loves redstone computers and things that are "technically Turing-complete," I totally vibed with this article.
+As someone who loves redstone computers and things that are
+"technically Turing-complete," I totally vibed with this
+article.
 
 ## [The case against morning yoga, daily routines, and endless meetings](https://andrewchen.substack.com/p/10x-work-versus-1x-work)
 
-As a night owl who hates meetings, I found this article refreshing. It pushes back on conventional productivity and career advice. It gives off major [_Black Swan_](https://en.wikipedia.org/wiki/The_Black_Swan:_The_Impact_of_the_Highly_Improbable) vibes.
+As a night owl who hates meetings, I found this article
+refreshing. It pushes back on conventional productivity and
+career advice. It gives off major
+[_Black Swan_](https://en.wikipedia.org/wiki/The_Black_Swan:_The_Impact_of_the_Highly_Improbable)
+vibes.
 
 ## [Distributed == Relational](https://frest.substack.com/p/distributed-relational)
 
@@ -87,17 +130,24 @@ Sorry, had to slip one more relational article in here!
 
 ## [Nikhil Suresh's Entire Blog](https://ludic.mataroa.blog/blog/you-must-read-at-least-one-book-to-ride/)
 
-I love this guy. If you like _The Black Swan_, you'll love him too.
+I love this guy. If you like _The Black Swan_, you'll love him
+too.
 
 ## [Antipatterns](https://cedanet.com.au/antipatterns/)
 
-Most engineers know about the [Gang of Four design patterns](https://refactoring.guru/design-patterns) and perhaps Martin Fowler's [enterprise design patterns](https://martinfowler.com/articles/enterprisePatterns.html), but knowing the opposite is important, too.
+Most engineers know about the
+[Gang of Four design patterns](https://refactoring.guru/design-patterns)
+and perhaps Martin Fowler's
+[enterprise design patterns](https://martinfowler.com/articles/enterprisePatterns.html),
+but knowing the opposite is important, too.
 
-You know you can trust this article because it calls ORMs an antipattern.
+You know you can trust this article because it calls ORMs an
+antipattern.
 
 ## [Programmer Archetypes](https://www.seangoedecke.com/programmer-archetypes/)
 
-An interesting take on the different types of programmers you'll meet in the wild and how to work with them.
+An interesting take on the different types of programmers you'll
+meet in the wild and how to work with them.
 
 ## [Just Use Postgres for Everything](https://www.amazingcto.com/postgres-for-everything/)
 
@@ -109,57 +159,101 @@ A mind-blowing demonstration of lambda calculus.
 
 ## [To Mock a Mockingbird](https://en.wikipedia.org/wiki/To_Mock_a_Mockingbird)
 
-A book to read if you think _Programming with Nothing_ isn't minimalist enough.
+A book to read if you think _Programming with Nothing_ isn't
+minimalist enough.
 
-The puzzles in this book inspired me to write a [combinatory logic interpreter](https://github.com/joshmoody24/skoobert).
+The puzzles in this book inspired me to write a
+[combinatory logic interpreter](https://github.com/joshmoody24/skoobert).
 
 ## [The Rails Doctrine](https://rubyonrails.org/doctrine)
 
-I go back and forth on whether I think <abbr title="David Heinemeier Hansson">DHH</abbr> is based or crazy (probably both), but this essay is the strongest argument I've seen for the former.
+I go back and forth on whether I think
+<abbr title="David Heinemeier Hansson">DHH</abbr> is based or
+crazy (probably both), but this essay is the strongest argument
+I've seen for the former.
 
-In particular, I like the section [Provide sharp knives](https://rubyonrails.org/doctrine#:~:text=about%20the%20person.-,Provide%20sharp%20knives,-Ruby%20includes%20a), which is DHH's justification for monkey patching in Ruby.
+In particular, I like the section
+[Provide sharp knives](https://rubyonrails.org/doctrine#:~:text=about%20the%20person.-,Provide%20sharp%20knives,-Ruby%20includes%20a),
+which is DHH's justification for monkey patching in Ruby.
 
-> [Monkey patching] has frequently been derided as simply too much for mere mortal programmers to handle.
+> [Monkey patching] has frequently been derided as simply too
+> much for mere mortal programmers to handle.
 >
-> [But] the flip side of monkey patching is the power to do such feats of wonder as `2.days.ago`.
+> [But] the flip side of monkey patching is the power to do such
+> feats of wonder as `2.days.ago`.
 >
-> If you can change anything, what is there to stop you from overwriting `String#capitalize` so that `"something bold".capitalize` returns `"Something Bold"` rather than `"Something bold"`? That might work in your local application, but then break all sorts of auxiliary code that depend on the original implementation.
+> If you can change anything, what is there to stop you from
+> overwriting `String#capitalize` so that
+> `"something bold".capitalize` returns `"Something Bold"`
+> rather than `"Something bold"`? That might work in your local
+> application, but then break all sorts of auxiliary code that
+> depend on the original implementation.
 >
-> Nothing, is the answer. There’s nothing programmatically in Ruby to stop you using its sharp knives to cut ties with reason. We enforce such good senses by convention, by nudges, and through education. Not by banning sharp knives from the kitchen and insisting everyone use spoons to slice tomatoes.
+> Nothing, is the answer. There’s nothing programmatically in
+> Ruby to stop you using its sharp knives to cut ties with
+> reason. We enforce such good senses by convention, by nudges,
+> and through education. Not by banning sharp knives from the
+> kitchen and insisting everyone use spoons to slice tomatoes.
 >
-> Ruby on Rails is an environment for chefs and those who wish to become chefs. You might start out doing the dishes, but you can work your way up to running the kitchen. Don’t let anyone tell you that you can’t be trusted with the best tool in the trade as part of that journey.
+> Ruby on Rails is an environment for chefs and those who wish
+> to become chefs. You might start out doing the dishes, but you
+> can work your way up to running the kitchen. Don’t let anyone
+> tell you that you can’t be trusted with the best tool in the
+> trade as part of that journey.
 
-The prevailing wisdom among programmers is that it's good to "lock down" a language to prevent errors, i.e., static typing. I see value in that, but I also find it inherently pessimistic towards programmers' abilities. I find DHH's optimism refreshing.
+The prevailing wisdom among programmers is that it's good to
+"lock down" a language to prevent errors, i.e., static typing. I
+see value in that, but I also find it inherently pessimistic
+towards programmers' abilities. I find DHH's optimism
+refreshing.
 
 ## [Stability by Design](https://potetm.com/devtalk/stability-by-design.html)
 
-This article uses Clojure as an example of how to design software systems that are stable and maintainable.
+This article uses Clojure as an example of how to design
+software systems that are stable and maintainable.
 
-I'm an armchair fan of Clojure (I admire it but haven't used it much), and I think this article does a great job of explaining why Clojure is "the most static dynamic language."
+I'm an armchair fan of Clojure (I admire it but haven't used it
+much), and I think this article does a great job of explaining
+why Clojure is "the most static dynamic language."
 
 ## [What Problems to Solve - By Richard Feynman](http://genius.cat-v.org/richard-feynman/writtings/letters/problems)
 
-This is a letter from the legendary physicist Richard Feynman to a former student. In it, Feynman encourages the student not to worry about how "humble" their work seems.
+This is a letter from the legendary physicist Richard Feynman to
+a former student. In it, Feynman encourages the student not to
+worry about how "humble" their work seems.
 
-> No problem is too small or too trivial if we can really do something about it.
+> No problem is too small or too trivial if we can really do
+> something about it.
 
-This one cuts deep, because I often have delusions of grandeur and daydream about solving the Reimann Hypothesis or whatever. I like to read this whenever my ego grows larger than my abilities.
+This one cuts deep, because I often have delusions of grandeur
+and daydream about solving the Reimann Hypothesis or whatever. I
+like to read this whenever my ego grows larger than my
+abilities.
 
 ## [Studying Animal Languages Without Translation: An Insight from Ants](https://reznikova.net/wp-content/uploads/2013/03/reznikova2017.pdf)
 
 The information theory of ants.
 
-Easily the coolest paper I've ever read. Sections 4 and 5 go especially hard.
+Easily the coolest paper I've ever read. Sections 4 and 5 go
+especially hard.
 
 The highlights:
 
-- Ants can communicate directions through a binary maze at 1 bit per minute
-- They use data compression, e.g., they can communicate "left left left left left right" more efficiently than "right left left right left right"
-- They can do arithmetic better than any other animal besides humans (as far as I know). Like if food is usually placed in slot 20, they can communicate "the food is three slots before the usual place" more efficiently than "the food is in the 17th slot"
+- Ants can communicate directions through a binary maze at 1 bit
+  per minute
+- They use data compression, e.g., they can communicate "left
+  left left left left right" more efficiently than "right left
+  left right left right"
+- They can do arithmetic better than any other animal besides
+  humans (as far as I know). Like if food is usually placed in
+  slot 20, they can communicate "the food is three slots before
+  the usual place" more efficiently than "the food is in the
+  17th slot"
 
 ## Weird Stuff I Like
 
-Here's a bunch of quirky links that I find fascinating, horrifying, hilarious, or all of the above:
+Here's a bunch of quirky links that I find fascinating,
+horrifying, hilarious, or all of the above:
 
 - [A brief, incomplete, and mostly wrong history of programming languages](https://james-iry.blogspot.com/2009/05/brief-incomplete-and-mostly-wrong.html)
 - [modalzmodalzmodalz](https://modalzmodalzmodalz.com/)

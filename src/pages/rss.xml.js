@@ -8,10 +8,12 @@ const parser = new MarkdownIt();
 
 export async function GET(context) {
   const posts = await getCollection("blog");
-  const sortedPosts = posts.filter((post) => post.data.pubDate).sort(
-    (a, b) =>
-      new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
-  );
+  const sortedPosts = posts
+    .filter((post) => post.data.pubDate)
+    .sort(
+      (a, b) =>
+        new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
+    );
 
   const items = sortedPosts.map((post) => {
     // Remove import statements and MDX components
@@ -40,13 +42,16 @@ export async function GET(context) {
     content = content.replace(/href="\/([^"]+)"/g, `href="${context.site}$1"`);
     content = content.replace(/src="\/([^"]+)"/g, `src="${context.site}$1"`);
     // Convert sibling blog post links (../) to absolute URLs
-    content = content.replace(/href="\.\.\/([^"]+)"/g, `href="${context.site}blog/$1/"`);
+    content = content.replace(
+      /href="\.\.\/([^"]+)"/g,
+      `href="${context.site}blog/$1/"`,
+    );
     // Convert anchor links to absolute URLs
     content = content.replace(/href="#([^"]+)"/g, `href="${postUrl}#$1"`);
 
     if (post.data.heroImage) {
       const imageUrl = new URL(post.data.heroImage, context.site).toString();
-      const escapedTitle = post.data.title.replace(/"/g, '&quot;');
+      const escapedTitle = post.data.title.replace(/"/g, "&quot;");
       content = `<p><img src="${imageUrl}" alt="${escapedTitle}" width="100%" /></p>${content}`;
     }
 
