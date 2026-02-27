@@ -367,7 +367,8 @@
       const adjustedReplyTime = calculateAdjustedReplyTime(baseReplyTime, numAgents, algorithm, contextSwitchFactor);
       const algorithmName =
         algorithm === "linear" ? "linear" : "logarithmic";
-      return `Using ${algorithmName} cognitive load (contextSwitchFactor = ${contextSwitchFactor.toFixed(1)}):\nSolved numerically: n = ${numAgents.toFixed(1)} agents\nT_r adjusted from ${replyTimeFormatted} to ${adjustedReplyTime.toFixed(1)} minutes`;
+      const overheadUnit = algorithm === "linear" ? "minutes/agent" : "minutes/doubling";
+      return `Using ${algorithmName} cognitive load (overhead = ${contextSwitchFactor.toFixed(1)} ${overheadUnit}):\nSolved numerically: n = ${numAgents.toFixed(1)} agents\nT_r adjusted from ${replyTimeFormatted} to ${adjustedReplyTime.toFixed(1)} minutes`;
     }
   }
 
