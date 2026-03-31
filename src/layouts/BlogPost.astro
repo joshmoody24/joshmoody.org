@@ -9,12 +9,12 @@ import MainLayout from "./Main.astro";
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, subtitle, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, subtitle, description, pubDate, updatedDate, heroImage, customHeroImageLocation } = Astro.props;
 ---
 
 <MainLayout title={title} subtitle={subtitle} description={description} image={heroImage}>
 	<article>
-		{ heroImage && (
+		{ heroImage && !customHeroImageLocation && (
 			<div class="hero-image">
 				{<img src={heroImage} alt="Header image " />}
 			</div>
