@@ -11,6 +11,16 @@ heroImage: "/liquid-pr-test-failures.png"
 customHeroImageLocation: true
 ---
 
+## Disclaimer
+
+This post is not intended as a criticism of Tobi. I think
+autoresearch is a cool idea and I like the fact that AI coding
+tools are giving more people the opportunity to code. I am
+critiquing the hype-based news coverage of this event and the
+public's lack of interest in primary sources.
+
+## The Autoresearch PR
+
 The CEO of Shopify, Tobi Lütke, recently
 [made headlines](https://x.com/altryne/status/2032223053116260367)
 by using the AI tool
@@ -47,14 +57,6 @@ If I maintained Liquid, I wouldn't bother cleaning this up
 because it seems unsalvageable. But I also wouldn't have the
 guts to close a PR opened by the CEO. Therefore, I predict it
 will stay open forever.
-
-## Disclaimer
-
-This post is not intended as a criticism of Tobi. I think
-autoresearch is a cool idea and I like the fact that AI coding
-tools are giving more people the opportunity to code. I am
-critiquing the hype-based news coverage of this event and the
-public's lack of interest in primary sources.
 
 ## TL;DR
 
