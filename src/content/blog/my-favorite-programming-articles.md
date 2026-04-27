@@ -124,9 +124,9 @@ vibes.
 
 Sorry, had to slip one more relational article in here!
 
-## [The Redo Opportunity](https://tylerhogge.com/2024/08/20/the-redo-opportunity/)
+## [The Redo Opportunity](https://www.tylerhogge.com/blog/the-redo-opportunity/)
 
-[Because I'm mentioned in it.](https://tylerhogge.com/2024/08/20/the-redo-opportunity/#:~:text=That%20left%20engineering,hit%20the%20stretch.)
+[Because I'm mentioned in it.](https://www.tylerhogge.com/blog/the-redo-opportunity/#:~:text=That%20left%20engineering,hit%20the%20stretch.)
 
 ## [Nikhil Suresh's Entire Blog](https://ludic.mataroa.blog/blog/you-must-read-at-least-one-book-to-ride/)
 
