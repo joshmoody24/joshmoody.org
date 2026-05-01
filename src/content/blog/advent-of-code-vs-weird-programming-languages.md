@@ -822,7 +822,7 @@ Day 9's puzzle was finding the biggest rectangle constructible
 from a set of points. This is trivial in any other language, but
 it pushed me to my limits in Factor.
 
-```factor
+```
 USING: arrays io.encodings.utf8 io.files io.pathnames kernel math math.functions sequences splitting math.parser prettyprint vocabs.loader ;
 IN: maxrectangle
 
