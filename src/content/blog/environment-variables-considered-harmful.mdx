@@ -223,7 +223,7 @@ correct values for all the database settings.
 Functional dependencies between environment variables create the
 possibility of the variables getting out of sync. It also makes
 it more annoying to temporarily switch to a different
-environment — you have to change multiple variables instead of
+environment because you have to change multiple variables instead of
 just one.
 
 Let's fix it. Here's the final version of the code:
@@ -301,7 +301,7 @@ not be moved:
 </Footnote>
 - `LOG_LEVEL` is a variable that you probably want to change
 without rebuilding the app, e.g., when debugging a production
-issue. - The remaining three are all secrets that should not be
+issue. The remaining three are all secrets that should not be
 checked into source control for security.
 
 You may find the idea of putting `DATABASE_HOST` and
