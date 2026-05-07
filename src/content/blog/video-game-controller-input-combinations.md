@@ -4,7 +4,6 @@ title:
 description:
   "Video game controllers have many input mechanisms. Let's
   count how ways you can combine them!"
-heroImage: "/video-game-controllers/snes-gamepad.webp"
 pubDate: "Dec 18, 2024"
 ---
 
@@ -111,7 +110,7 @@ That's a prime opportunity to stash a secret!
 
 ## SNES Controller
 
-![SNES Controller](/video-game-controllers/snes-gamepad.jpg)
+![SNES Controller](/video-game-controllers/snes-gamepad.webp)
 
 Every new button increases the number of states exponentially.
 The SNES controller introduces two more face buttons and

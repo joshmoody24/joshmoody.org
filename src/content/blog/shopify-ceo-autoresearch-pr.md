@@ -7,8 +7,6 @@ description:
   optimize Liquid parsing speed. The code quality is poor and no
   one will ever merge it."
 pubDate: "March 31, 2026"
-heroImage: "/liquid-pr-test-failures.png"
-customHeroImageLocation: true
 ---
 
 ## Disclaimer

@@ -5,8 +5,9 @@ description:
   "They say you should make apps that you personally want to
   use. They didn't realize how weird my wants are."
 pubDate: "May 28 2025"
-heroImage: "/divsoup-homepage.webp"
 ---
+
+![divsoup homepage](/divsoup-homepage.webp)
 
 ## I’m the Only Person Who Wanted This, but It’s a Thing Now, I Guess
 

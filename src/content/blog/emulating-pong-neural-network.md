@@ -6,7 +6,6 @@ description:
   itself with a neural network? Sort of... but it's extremely
   difficult."
 pubDate: "Dec 20, 2023"
-heroImage: "/pong-variance-attention.webp"
 ---
 
 ## Neural Game Emulation
