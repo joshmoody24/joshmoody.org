@@ -47,7 +47,10 @@ ps -eo comm,pid,%cpu --sort=-%cpu
 | grep '^powershell'
 ```
 
-## The Secrets of Interactive Emails
+## ~~The Secrets of Interactive Emails~~
+
+**Update: I have written about this on the
+[Redo Engineering Blog](https://redo.com/eng-blog/how-to-call-an-api-from-an-email/).**
 
 Some email clients (notably Apple Mail) are powerful enough to
 embed fully interactive shopping carts or even video games
@@ -59,7 +62,11 @@ undocumented Apple Mail rendering bugs.
 
 [This guy explains the big picture pretty well, but I've gone farther than him.](https://youtu.be/efAbKfUeSW0?si=WwbayYbML6cZGEV0)
 
-## AMP4Email Is a Bad Framework (And How to Use It Anyway)
+## ~~AMP4Email Is a Bad Framework (And How to Use It Anyway)~~
+
+**Update: I have written about this on the
+[Redo Engineering Blog](https://redo.com/eng-blog/how-to-call-an-api-from-an-email/),
+combined with the preceding topic.**
 
 Speaking of interactive emails, Gmail has a whole framework for
 it: [AMP4Email](https://amp.dev/about/email). It lets emails
@@ -97,7 +104,7 @@ if you want to figure it out for yourself.
 
 ## Art Peaked in the Dada Movement
 
-![Fountain by Marcel Duchamp](https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/The_blind_man_MET_b1120124_004.jpg/800px-The_blind_man_MET_b1120124_004.jpg)
+![Fountain by Marcel Duchamp](https://upload.wikimedia.org/wikipedia/commons/d/dd/Marcel_Duchamp%2C_1917%2C_Fountain%2C_photograph_by_Alfred_Stieglitz.jpg)
 
 [Do I even need to elaborate on this?](<https://en.wikipedia.org/wiki/Fountain_(Duchamp)>)
 
