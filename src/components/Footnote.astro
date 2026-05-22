@@ -9,7 +9,7 @@ const { number } = Astro.props;
   id={`footnote-${number}`}
   role="note"
   aria-labelledby={`footnote-${number}-ref`}
-  popover="hint"
+  popover="auto"
 ><slot /></div>
 
 <style>
@@ -36,7 +36,20 @@ const { number } = Astro.props;
     max-width: min(350px, 90vw);
   }
 
-  div[popover]::backdrop {
+  /* ::backdrop styling for popovers is unreliable in Safari/WebKitGTK —
+     background-color and backdrop-filter don't consistently apply. Use a
+     body::before overlay instead (see is:global block below). */
+  /* div[popover]::backdrop {
     backdrop-filter: brightness(0.67);
+  } */
+</style>
+
+<style is:global>
+  body:has([popover]:popover-open)::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.33);
+    z-index: 9999;
   }
 </style>
