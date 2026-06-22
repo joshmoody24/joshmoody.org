@@ -2,16 +2,18 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.css';
+import JsonLd from './JsonLd.astro';
 
 interface Props {
 	title: string;
 	description: string;
 	image?: string;
+	jsonLd?: object[];
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
+const { title, description, image = '/blog-placeholder-1.jpg', jsonLd } = Astro.props;
 ---
 
 <!-- Global Metadata -->
@@ -25,6 +27,8 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
+
+<JsonLd nodes={jsonLd} />
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>

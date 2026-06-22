@@ -6,6 +6,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
 import Layout from '../../layouts/Main.astro';
+import { blogNode } from '../../lib/schema';
 
 const posts = (await getCollection('blog')).filter((post) => post.data.pubDate);
 ---
@@ -103,6 +104,7 @@ const posts = (await getCollection('blog')).filter((post) => post.data.pubDate);
 <Layout
 	title="Blog"
 	description="A collection of Josh Moody's technical blog posts."
+	jsonLd={[blogNode()]}
 >
 	<section>
 		<ul class="posts">
