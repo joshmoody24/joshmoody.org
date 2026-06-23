@@ -1,0 +1,36 @@
+---
+interface Props {
+  number: number;
+}
+
+const { title, id } = Astro.props;
+---
+<aside class="note" aria-labelledby={id}>
+  <h2 id={id}>{title}</h2>
+  <div class="note-body">
+    <slot />
+  </div>
+</aside>
+
+<style>
+  aside {
+    padding: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    border: 2px solid var(--color-accent);
+    background-color: var(--color-border);
+    border-radius: 2px;
+  }
+
+  h2 {
+    margin: 0;
+    padding-top: var(--spacing-xs);
+    padding-bottom: var(--spacing-sm);
+    font-size: 1.2rem;
+  }
+</style>
+
+<style is:global>
+  .note-body *:last-child {
+      margin: 0;
+  }
+</style>
