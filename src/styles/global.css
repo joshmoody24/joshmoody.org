@@ -271,7 +271,8 @@ pre {
 
 blockquote {
   font-style: italic;
-  color: var(--color-text-secondary);
+  color: var(--color-text);
+  border-left: 3px solid var(--color-accent);
 }
 
 /* Remove bottom margin from last paragraph in blockquotes */
