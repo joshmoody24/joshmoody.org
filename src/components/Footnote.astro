@@ -13,19 +13,10 @@ const { number } = Astro.props;
 ><slot /></div>
 
 <style>
-  sup {
-    color: var(--color-primary)
-  }
-
-  button {
-    all: unset;
-    cursor: pointer;
-    text-decoration: underline;
-  }
-
   div[popover] {
     inset: unset;
     margin: 0;
+    margin-inline: 1rem;
     position: absolute;
     top: calc(anchor(bottom) + 8px);
     justify-self: anchor-center;
