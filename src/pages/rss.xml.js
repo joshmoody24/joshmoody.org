@@ -36,7 +36,7 @@ export async function GET(context) {
       },
     });
 
-    const postUrl = new URL(`/blog/${post.slug}/`, context.site).toString();
+    const postUrl = new URL(`/blog/${post.id}/`, context.site).toString();
 
     // Convert relative URLs to absolute URLs
     content = content.replace(/href="\/([^"]+)"/g, `href="${context.site}$1"`);
@@ -57,7 +57,7 @@ export async function GET(context) {
 
     return {
       ...post.data,
-      link: `/blog/${post.slug}/`,
+      link: `/blog/${post.id}/`,
       content: content,
     };
   });

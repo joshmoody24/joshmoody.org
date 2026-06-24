@@ -18,7 +18,7 @@ const parseLocalDate = (val: string | Date) => {
 };
 
 const blog = defineCollection({
-  // Type-check frontmatter using a schema
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/blog" }),
   schema: z.object({
     title: z.string(),
     subtitle: z.string().optional(),

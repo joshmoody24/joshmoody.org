@@ -1,4 +1,5 @@
 import { defineConfig } from "astro/config";
+import { unified } from "@astrojs/markdown-remark";
 import mdx from "@astrojs/mdx";
 import remarkMath from "remark-math";
 import rehypeMathjax from "rehype-mathjax";
@@ -11,8 +12,10 @@ export default defineConfig({
   integrations: [mdx(), sitemap()],
   compressHTML: true,
   markdown: {
-    remarkPlugins: [remarkMath],
-    rehypePlugins: [[rehypeMathjax, { svg: false }]],
+    processor: unified({
+      remarkPlugins: [remarkMath],
+      rehypePlugins: [[rehypeMathjax, { svg: false }]],
+    }),
     shikiConfig: {
       themes: {
         light: "light-plus",

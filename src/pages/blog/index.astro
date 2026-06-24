@@ -115,7 +115,7 @@ const posts = (await getCollection('blog')).filter((post) => post.data.pubDate);
 				.map((post) => (
 					<li>
 						<article class="blog-post">
-							<a href={`/blog/${post.slug}/`}>
+							<a href={`/blog/${post.id}/`}>
                 {post.data.heroImage && (
                   <div class="image-container">
                     <img src={post.data.heroImage} alt={`Header image for blog post "${post.data.title}"`} />
