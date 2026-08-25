@@ -137,7 +137,7 @@ const pinAnnotatedHeadingIds = (tree, refs) => {
   const slugger = new GithubSlugger();
   walk(tree, (node) => {
     if (node.type !== "heading") return;
-    const id = slugger.slug(headingText(node));
+    const id = slugger.slug(headingText(node).trim());
     let annotated = false;
     walk(node, (child) => (annotated ||= refs.has(child)));
     if (annotated) {
