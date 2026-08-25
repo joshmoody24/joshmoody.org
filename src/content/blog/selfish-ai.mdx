@@ -7,8 +7,6 @@ description:
 pubDate: "June 23, 2026"
 ---
 
-import Footnote from "../../components/Footnote.astro";
-import FootnoteRef from "../../components/FootnoteRef.astro";
 import Note from "../../components/Note.astro";
 
 <Note title="🏺 AI disclaimer" id="ai-disclaimer">
@@ -73,9 +71,9 @@ author.
 | 🧱    | Brick Wall                                   | Wow, that's a lot of text                                                                                                 |
 | 🐋    | Whale                                        | Wow, that's a _LOT_ of text                                                                                               |
 | 🔄♐  | Counterclockwise arrows button + Sagittarius | [Reverse centaur](https://doctorow.medium.com/https-pluralistic-net-2025-12-05-pop-that-bubble-u-washington-8b6b75abc28e) |
-| 💙    | Blue heart                                   | Corporate AI slop<FootnoteRef number={1} />                                                                               |
+| 💙    | Blue heart                                   | Corporate AI slop<FootnoteRef id="blue-is-corporate" />                                                                               |
 
-<Footnote number={1}>
+<Footnote id="blue-is-corporate">
   [Blue is typically considered a corporate, techie
   color](https://www.motion-marketing.com/blog/industry-tech/technology-branding/)
 </Footnote>
@@ -109,9 +107,9 @@ Reward human effort with compliment emojis:
 | 💚    | Green heart                  | I love this human content (certified organic™)                                                              |
 | 💪    | Flexed arm                   | The opposite of 🦾, human effort _à la_ [John Henry](<https://en.wikipedia.org/wiki/John_Henry_(folklore)>) |
 | 🫆    | Fingerprint                  | Evidence of human                                                                                           |
-| 🏺    | Amphora (Ancient Greek vase) | Authentic human art that will stand for millennia<FootnoteRef number={2}/>                                  |
+| 🏺    | Amphora (Ancient Greek vase) | Authentic human art that will stand for millennia<FootnoteRef id="amphora-deniability" />                                  |
 
-<Footnote number={2}>
+<Footnote id="amphora-deniability">
   Yes, the amphora emoji is also on the passive-aggressive list
   because irony, but obviously it works for human content too.
   By reacting to both kinds of content with it, you gain
@@ -140,20 +138,20 @@ it positively. Be extra nice and chill.
 ## Force the author to engage with their slop
 
 Ask genuine questions that force the slop
-author<FootnoteRef number={3} /> to reflect on what they
+author<FootnoteRef id="slauthor" /> to reflect on what they
 produced and answer directly from their human brain. The
 questions should be short and simple. Match the author's effort
 level.
 
-<Footnote number={3}>Slauthor?</Footnote>
+<Footnote id="slauthor">Slauthor?</Footnote>
 
 - How did you come up with this idea?
 - I really liked **[interesting detail]**, how did you learn to
   **[verb]** like that?
 
-## Epmathy<FootnoteRef number={4} />
+## Epmathy<FootnoteRef id="epmathy" />
 
-<Footnote number={4}>
+<Footnote id="epmathy">
   I spelled this heading exactly as intended.
 </Footnote>
 

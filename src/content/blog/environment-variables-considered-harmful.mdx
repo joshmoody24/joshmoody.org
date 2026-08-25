@@ -7,8 +7,6 @@ description:
 pubDate: "Sept 17, 2025"
 ---
 
-import Footnote from "../../components/Footnote.astro";
-import FootnoteRef from "../../components/FootnoteRef.astro";
 
 ## The problem with environment variables
 
@@ -55,9 +53,9 @@ software projects that are:
 
 - Applications (not libraries or frameworks)
 - Rebuilt and redeployed frequently (i.e., many times per
-  day)<FootnoteRef number={1} />
+  day)<FootnoteRef id="twelve-factor" />
 
-<Footnote number={1}>
+<Footnote id="twelve-factor">
   [The Twelve-Factor App recommends environment variables for
   all config,](https://12factor.net/config) and that was great
   advice in 2011 when deployment was rarer and type systems
@@ -79,9 +77,9 @@ Environment variables have two good use cases:
    application.** For example, you might want to temporarily
    change a production server's log level to `debug` while
    investigating an issue, without recompiling the
-   code.<FootnoteRef number={2} />
+   code.<FootnoteRef id="per-developer-settings" />
 
-<Footnote number={2}>
+<Footnote id="per-developer-settings">
     I am tentatively considering adding a third item to this
     list: settings that are different for each developer.
 
@@ -159,9 +157,9 @@ especially for new team members.
 > Me: Nope, just gotta ask someone.
 
 I've had this conversation too many times to
-count.<FootnoteRef number={3} />
+count.<FootnoteRef id="skill-issue" />
 
-<Footnote number={3}>
+<Footnote id="skill-issue">
   Yes, this is a skill issue. The variable should have been
   documented somewhere. Remember that not writing machine code
   by hand is also a skill issue. If a setting isn't secret, just
@@ -290,9 +288,9 @@ That leaves just five true "environment" variables. These should
 not be moved:
 
 - `APP_ENV` is the root environment variable that many settings
-  depend on.<FootnoteRef number={4} />
+  depend on.<FootnoteRef id="app-env-naming" />
 
-<Footnote number={4}>
+<Footnote id="app-env-naming">
   Note that I'm using `APP_ENV` despite `NODE_ENV` probably
   being a more conventional name in JavaScript apps. `NODE_ENV`
   can work, but it tends to come with baggage, e.g., not having
@@ -308,9 +306,9 @@ You may find the idea of putting `DATABASE_HOST` and
 `DATABASE_USER` into source control a bit uncomfortable. I felt
 the same way at first, but I think it's a false fear. If leaking
 your database host would cause a problem, you already have a
-problem.<FootnoteRef number={5} />
+problem.<FootnoteRef id="security-through-obscurity" />
 
-<Footnote number={5}>
+<Footnote id="security-through-obscurity">
     See section 2.4, bullet point 4 in [the NIST Guide to
     General Server
     Security.](https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-123.pdf#page=15)
@@ -371,9 +369,9 @@ DATABASES = {
 
 Despite using a Django example, in my experience, code-based
 config is not common in Python or JavaScript
-ecosystems.<FootnoteRef number={6} />
+ecosystems.<FootnoteRef id="django-example" />
 
-<Footnote number={6}>
+<Footnote id="django-example">
   To produce the Django example above, I had to modify the code
   from a [Geeks for Geeks Django
   tutorial](https://www.geeksforgeeks.org/python/how-to-manage-local-vs-production-settings-in-django/)

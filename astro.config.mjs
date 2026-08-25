@@ -3,6 +3,7 @@ import { unified } from "@astrojs/markdown-remark";
 import mdx from "@astrojs/mdx";
 import remarkMath from "remark-math";
 import rehypeMathjax from "rehype-mathjax";
+import { remarkFootnotes } from "./src/plugins/remark-footnotes.mjs";
 
 import sitemap from "@astrojs/sitemap";
 
@@ -13,7 +14,7 @@ export default defineConfig({
   compressHTML: true,
   markdown: {
     processor: unified({
-      remarkPlugins: [remarkMath],
+      remarkPlugins: [remarkMath, remarkFootnotes],
       rehypePlugins: [[rehypeMathjax, { svg: false }]],
     }),
     shikiConfig: {
