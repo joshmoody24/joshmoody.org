@@ -75,16 +75,17 @@
     translate: -50% -50%;
     margin: 0;
   }
-
-  /* ::backdrop is unreliable in Safari/WebKitGTK, so dim via the body. */
-  body:has(.footnote-popover:popover-open)::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: rgb(0 0 0 / 0.33);
-  }
 }
 /* ---- end fallback ---- */
+
+/* ::backdrop is unreliable in Safari/WebKitGTK, so dim via the body. */
+body:has(.footnote-popover:popover-open)::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgb(0 0 0 / 0.33);
+}
 
 .footnotes {
   margin-top: var(--spacing-lg);
