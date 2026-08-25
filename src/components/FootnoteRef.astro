@@ -6,7 +6,7 @@ interface Props {
 const { number } = Astro.props;
 ---
 
-<sup id={`footnote-${number}-ref`}><button
+&#8288;<sup id={`footnote-${number}-ref`}><button
   type="button"
   id={`footnote-${number}-btn`}
   style={`anchor-name: --footnote-${number}`}
@@ -24,6 +24,7 @@ const { number } = Astro.props;
     font-size: 0.833rem;
     font-weight: normal;
     font-style: normal;
+    white-space: nowrap;
   }
 
   button {

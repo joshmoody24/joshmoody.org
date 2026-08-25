@@ -19,31 +19,41 @@ const { number } = Astro.props;
     padding: var(--spacing-md);
     color: var(--color-text);
     border: 1px solid var(--color-border);
-    max-width: min(350px, 90vw);
+    max-width: min(420px, calc(100vw - 2rem));
+    max-height: min(70dvh, calc(100dvh - 2rem));
+    overflow: auto;
+    overscroll-behavior: contain;
+    position: fixed;
+    inset: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
   }
 
-  /* CSS Anchor Positioning: position near the trigger button */
-  @supports (anchor-name: --foo) {
-    div[popover] {
-      inset: unset;
-      margin: 0;
-      margin-inline: 1rem;
-      position: absolute;
-      top: calc(anchor(bottom) + 8px);
-      justify-self: anchor-center;
-      position-try-fallbacks: flip-block;
+  /* Modern desktop behavior: place near the footnote reference when space allows. */
+  @media (min-width: 48rem) {
+    @supports (anchor-name: --foo) {
+      div[popover] {
+        inset: unset;
+        margin: 0;
+        margin-inline: 1rem;
+        position: absolute;
+        top: calc(anchor(bottom) + 8px);
+        justify-self: anchor-center;
+        transform: none;
+        max-height: min(60dvh, calc(100dvh - 2rem));
+        position-try-fallbacks: flip-block, flip-inline, flip-block flip-inline;
+      }
     }
   }
 
-  /* Fallback for browsers without CSS Anchor Positioning (mobile Safari, Firefox) */
-  @supports not (anchor-name: --foo) {
-    div[popover] {
-      position: fixed;
-      inset: auto;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      margin: 0;
+  /* Fallback: keep footnotes centered when CSS Anchor Positioning is unavailable. */
+  @media (min-width: 48rem) {
+    @supports not (anchor-name: --foo) {
+      div[popover] {
+        max-width: min(420px, calc(100vw - 4rem));
+      }
     }
   }
 
