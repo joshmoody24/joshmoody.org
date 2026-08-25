@@ -1,0 +1,73 @@
+/* Shared link/button container styles */
+header nav ul,
+.contact-links,
+.button-group {
+  display: flex;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+  margin-bottom: 0;
+  padding: 0;
+  list-style: none;
+}
+
+header nav li {
+  margin: 0;
+}
+
+/* Navigation and button styles */
+.button,
+header a {
+  font-weight: 500;
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  padding: 0.375rem 0.75rem;
+  display: inline-block;
+  background-color: transparent;
+}
+
+.button {
+  border: var(--border-width) solid var(--color-border);
+}
+
+.button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  text-decoration: none;
+}
+
+header a[aria-current="page"] {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+@media (prefers-color-scheme: dark) {
+  .button:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+}
+
+/* Additional margin for standalone button groups */
+.contact-links,
+.button-group {
+  margin: var(--spacing-md) 0;
+}
+
+footer {
+  margin-top: var(--spacing-lg);
+  padding: var(--spacing-md) 0;
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  flex-shrink: 0; /* Prevents the footer from shrinking */
+}
+
+footer a svg {
+  vertical-align: middle;
+  margin-left: var(--spacing-xs);
+  position: relative;
+  top: -2px; /* Move it up by 2px */
+}
+
+.footer-content {
+  text-align: center;
+}

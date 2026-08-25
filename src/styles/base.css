@@ -1,0 +1,87 @@
+/* Base Styles */
+*,
+*::after,
+*::before {
+  text-decoration-thickness: 0.125rem;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-weight: 400;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-family);
+  line-height: var(--line-height);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  line-height: 1.2;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+h1 {
+  font-size: 1.75rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+h4 {
+  font-size: 1.125rem;
+}
+
+h5,
+h6 {
+  font-size: 1rem;
+}
+
+main {
+  margin: 0 auto;
+  max-width: 41.25rem;
+  padding: 0 var(--spacing-md);
+  width: 100%;
+  flex: 1 0 auto; /* This allows main to grow and push footer down */
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: var(--spacing-md);
+}
+
+main > header {
+  padding: var(--spacing-lg) 0 var(--spacing-lg);
+}
+
+main > header h1 {
+  margin-top: 0;
+  margin-bottom: var(--spacing-md);
+}
