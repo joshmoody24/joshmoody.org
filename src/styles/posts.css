@@ -1,0 +1,41 @@
+.posts {
+  list-style-type: none;
+  padding-left: 0;
+  display: grid;
+  gap: var(--spacing-md);
+  margin: 0;
+}
+
+.posts li a {
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.posts li a div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+}
+
+ul.projects li,
+article li {
+  margin-top: var(--spacing-xs);
+  margin-bottom: var(--spacing-xs);
+}
+
+time.date {
+  text-wrap: nowrap;
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  text-align: right;
+}
+
+.posts h2 {
+  margin: 0;
+  color: var(--color-text);
+  flex: 1;
+  font-size: 1.125rem;
+}
