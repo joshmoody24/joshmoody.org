@@ -10,21 +10,40 @@ const { number } = Astro.props;
   role="note"
   aria-labelledby={`footnote-${number}-ref`}
   popover="auto"
+  anchor={`footnote-${number}-btn`}
 ><slot /></div>
 
 <style>
   div[popover] {
-    inset: unset;
-    margin: 0;
-    margin-inline: 1rem;
-    position: absolute;
-    top: calc(anchor(bottom) + 8px);
-    justify-self: anchor-center;
     background-color: var(--color-background);
     padding: var(--spacing-md);
     color: var(--color-text);
     border: 1px solid var(--color-border);
     max-width: min(350px, 90vw);
+  }
+
+  /* CSS Anchor Positioning: position near the trigger button */
+  @supports (anchor-name: --foo) {
+    div[popover] {
+      inset: unset;
+      margin: 0;
+      margin-inline: 1rem;
+      position: absolute;
+      top: calc(anchor(bottom) + 8px);
+      justify-self: anchor-center;
+    }
+  }
+
+  /* Fallback for browsers without CSS Anchor Positioning (mobile Safari, Firefox) */
+  @supports not (anchor-name: --foo) {
+    div[popover] {
+      position: fixed;
+      inset: auto;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0;
+    }
   }
 
   /* ::backdrop styling for popovers is unreliable in Safari/WebKitGTK —
