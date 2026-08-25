@@ -10,7 +10,7 @@ const { number } = Astro.props;
   role="note"
   aria-labelledby={`footnote-${number}-ref`}
   popover="auto"
-  anchor={`footnote-${number}-btn`}
+  style={`position-anchor: --footnote-${number}`}
 ><slot /></div>
 
 <style>
@@ -31,6 +31,7 @@ const { number } = Astro.props;
       position: absolute;
       top: calc(anchor(bottom) + 8px);
       justify-self: anchor-center;
+      position-try-fallbacks: flip-block;
     }
   }
 
