@@ -23,18 +23,10 @@ const blogPosting = blogPostingNode({ url: canonicalURL, title, description, pub
 				{<img src={heroImage} alt="Header image " />}
 			</div>
 		)}
-		<small class="date">
-			By Josh Moody <span title="Em dash produced by a human">—</span>
-			{
-				pubDate && (
-					<>Published: <FormattedDate date={pubDate} /></>
-				)
-			}
-			{
-				updatedDate && (
-					<>— Updated: <FormattedDate date={updatedDate} /></>
-				)
-			}
+		<small class="byline">
+			<span class="author">By Josh Moody</span>
+			{pubDate && <span>Published <FormattedDate date={pubDate} /></span>}
+			{updatedDate && <span>Updated <FormattedDate date={updatedDate} /></span>}
 		</small>
 		<slot />
 	</article>

@@ -8,8 +8,6 @@ pubDate: "July 29, 2025"
 updatedDate: "June 5, 2026"
 ---
 
-import Footnote from "../../components/Footnote.astro";
-import FootnoteRef from "../../components/FootnoteRef.astro";
 
 ## Okay But Why
 
@@ -178,9 +176,9 @@ fuzzy.
 
 I used to have severe arachnophobia. Then I became interested in
 species identification. Now I get excited when I see
-one.<FootnoteRef number={1} />
+one.<FootnoteRef id="spider-roommate" />
 
-<Footnote number={1}>
+<Footnote id="spider-roommate">
   There is currently a spider chilling on my windowsill two feet
   away as I type this on my bed. He's been there a couple
   months. We're homies.
@@ -286,9 +284,9 @@ of all, it's in the constellation
 [Scorpius](https://science.nasa.gov/solar-system/skywatching/night-sky-network/july2025-night-sky-notes/),
 which is one of the coolest and easiest to recognize. Second,
 Antares is a huge red giant that's pretty close to Earth and is
-about to explode.<FootnoteRef number={2}/>
+about to explode.<FootnoteRef id="supernova-timing" />
 
-<Footnote number={2}>
+<Footnote id="supernova-timing">
   Relatively speaking. The supernova is probably thousands of
   years away. But in space terms that's really soon.
 </Footnote>

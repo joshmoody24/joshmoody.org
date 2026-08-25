@@ -5,8 +5,6 @@ description:
 pubDate: "April 30, 2026"
 ---
 
-import Footnote from "../../components/Footnote.astro";
-import FootnoteRef from "../../components/FootnoteRef.astro";
 
 Weird glitch in the news matrix today.
 
@@ -25,15 +23,15 @@ on Elon Musk's new SpaceX pay package. One phrase caught my eye:
 >   but it's paywalled)
 
 Terawatt is not a unit of *processing* power. It's a unit of power, as in "how fast energy is being used."
-The entire world currently consumes electricity at a rate of 3.5 terawatts.<FootnoteRef number={1} /> That's one hungry space computer.
+The entire world currently consumes electricity at a rate of 3.5 terawatts.<FootnoteRef id="electricity-consumption" /> That's one hungry space computer.
 
-<Footnote number={1}>
+<Footnote id="electricity-consumption">
   [Electricity consumption was 28,000 terawatt-hours in 2023.](https://www.iea.org/data-and-statistics/data-tools/energy-statistics-data-browser?country=WORLD&fuel=Energy%20consumption&indicator=TotElecCons) Extrapolating 2026 consumption as 31,000 terawatt-hours and dividing by (365.25 × 24) results in 3.536 terawatts on average.
 </Footnote>
 
-Maybe they<FootnoteRef number={2} /> meant "teraflops," but 100 teraflops of processing power is roughly one [NVIDIA GeForce RTX 5090 graphics card](https://www.techpowerup.com/gpu-specs/geforce-rtx-5090.c4216#:~:text=FP32%20(float)-,104.8%20TFLOPS,-FP64%20(double)).
+Maybe they<FootnoteRef id="who-they-means" /> meant "teraflops," but 100 teraflops of processing power is roughly one [NVIDIA GeForce RTX 5090 graphics card](https://www.techpowerup.com/gpu-specs/geforce-rtx-5090.c4216#:~:text=FP32%20(float)-,104.8%20TFLOPS,-FP64%20(double)).
 
-<Footnote number={2}>
+<Footnote id="who-they-means">
   "They" being either the SpaceX board or the Reuters journalist. Not sure which.
 </Footnote>
 

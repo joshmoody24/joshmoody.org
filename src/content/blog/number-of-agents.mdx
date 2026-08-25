@@ -8,17 +8,15 @@ pubDate: "2026-02-27"
 ---
 
 import QueueCalculator from "../../components/QueueCalculator.astro";
-import Footnote from "../../components/Footnote.astro";
-import FootnoteRef from "../../components/FootnoteRef.astro";
 
 ## I have a constant headache and I blame Claude
 
-For better and worse,<FootnoteRef number={1}/> I use a lot of AI
+For better and worse,<FootnoteRef id="read-into-it" /> I use a lot of AI
 these days, especially coding agents like Claude Code. I mostly
 like them, although there are some downsides. One particularly
 painful aspect is that I just can't dang _focus_ anymore.
 
-<Footnote number={1}>
+<Footnote id="read-into-it">
   There's a high chance people I work with will see this phrase and
   read into it way more than I intended.
 </Footnote>
@@ -32,7 +30,7 @@ During these lulls, what are you supposed to do? I know of three
 options:
 
 1. Putter
-   around.<FootnoteRef number={2} /><Footnote number={2}><p>This
+   around.<FootnoteRef id="putter-around" /><Footnote id="putter-around"><p>This
    gets old fast. Even I can only read blog posts for so
    long.</p></Footnote>
 2. Get a snack.
@@ -54,9 +52,9 @@ situations like this.
 [Queueing theory](https://en.wikipedia.org/wiki/Queueing_theory)
 is the study of waiting in lines (A.K.A queues), and it was
 probably invented by some guy bored out of his mind at the post
-office or something.<FootnoteRef number={3} />
+office or something.<FootnoteRef id="idle-games" />
 
-<Footnote number={3}>
+<Footnote id="idle-games">
   Source: I made it up but not without precedent. I devoted
   years of my college life to optimizing
   [Trimps](https://trimps.github.io/) and [Cookie
@@ -114,7 +112,7 @@ The calculator combines these fundamental relationships:
 | Human utilization                                            | $\rho = \lambda \times T_r$ |
 | Utilization constraint                                       | $\rho \leq 1$               |
 
-Combining these through substitution<FootnoteRef number={4} /> gives us:
+Combining these through substitution<FootnoteRef id="derivation" /> gives us:
 
 
 $$n = \frac{\rho \times T_a}{T_r} + \rho$$
@@ -127,7 +125,7 @@ $$n = \frac{0.8 \times 9}{1} + 0.8 = 7.2 + 0.8 = 8$$
 
 You should run 8 agents.
 
-<Footnote number={4}>
+<Footnote id="derivation">
   Exercise for the reader time! \*dab emoji\*
 
   See my horribly messy notebook scribbles at the bottom for some derivations if you're desperate. But doing it yourself is probably easier.
