@@ -8,6 +8,8 @@ const { number } = Astro.props;
 
 <sup id={`footnote-${number}-ref`}><button
   type="button"
+  id={`footnote-${number}-btn`}
+  style={`anchor-name: --footnote-${number}`}
   aria-label={`Show footnote ${number}`}
   aria-controls={`footnote-${number}`}
   popovertarget={`footnote-${number}`}
