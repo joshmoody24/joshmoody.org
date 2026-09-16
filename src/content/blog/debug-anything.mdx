@@ -1,0 +1,109 @@
+---
+title: "You can debug anything"
+description:
+  "Restarting your computer is the most efficient way to fix
+  bugs, but not the most interesting."
+pubDate: "Sept 16, 2026"
+---
+
+The other day I opened Stardew Valley online but got an endless
+loading screen:
+
+![Stardew Valley endlessly connecting to online services](/stardew-valley-connecting.png)
+
+My desktop computer runs [NixOS](https://nixos.org/), so I get
+bugs like this often. I was about to play on my laptop instead,
+but on a whim, I sicced my boy Claude on it.
+
+![Claude Code session where Claude successfully identified the root cause of my Stardew Valley connection issues, patched the buggy binaries, and told me how to fix my ethernet.](/stardew-valley-claude-code.png)
+
+Claude fixed it. Apparently Stardew Valley uses the
+[GOG Galaxy SDK](https://docs.gog.com/sdk/) for networking (even
+on Steam), and
+[glibc 2.4.1+ refuses to run](https://lists.gnu.org/archive/html/info-gnu/2025-01/msg00014.html#:~:text=*%20dlopen%20and%20dlmopen,objects%20will%0A%20%20fail.)
+two of its binaries (`libGalaxy64.so` and
+`libGalaxyCSharpGlue.so`) because they request an executable
+stack. Claude patched their headers to not ask for it, and it
+worked.<FootnoteRef id="second-problem" />
+
+<Footnote id="second-problem">
+  Well, that was the first problem. The second was me plugging
+  both ends of an ethernet cable into the same switch. In my
+  defense, I am stupid.
+</Footnote>
+
+To be fair, Claude didn't solve the executable stack thing from
+first principles.
+[It found the solution on the internet.](https://forums.stardewvalley.net/threads/stuck-on-connecting-to-online-services-screen-when-trying-to-play-co-op.37195/)<FootnoteRef id="navier-stokes" />
+
+<Footnote id="navier-stokes">Navier-Stokes reference</Footnote>
+
+I like how easily you can debug random issues like this
+nowadays. Previously I would have just updated my drivers and
+rebooted, which has like an 80% success rate. And if that didn't
+work I'd try another computer. But you don't learn anything from
+that. More fun to resist rebooting until you've found the cause
+and learned something weird about your operating
+system.<FootnoteRef id="nixos-plug" />
+
+<Footnote id="nixos-plug">
+  Especially when you record the solution in a config file so it
+  automatically applies to all your computers and you never have
+  to think about it again #NixOs
+</Footnote>
+
+A few other things I've troubleshot in the same way recently:
+
+- Chrome has a bug where if you restart PulseAudio underneath
+  it,
+  [audio playback stops working](https://issues.chromium.org/issues/41461763)
+- My low framerate in Clair Obscur was because Vulkan has no
+  concept of a default GPU, so the game was randomly choosing my
+  iGPU
+- A strange ClickHouse / Iceberg SQL bug when using
+  `IS NOT NULL`<FootnoteRef id="clickhouse-iceberg-bug" />
+- Laptop GPU power saving features are the cause of all evil in
+  the world. Like seriously, why is this so hard. I've never had
+  a Linux laptop that just worked when you plugged in a monitor.
+  AMD, Nvidia, doesn't matter. Nobody will ever fix this.
+
+<Footnote id="clickhouse-iceberg-bug">
+I was running into weird crashes on a huge SQL query, so I told
+Claude to binary search it's way to a minimum reproducible
+example. Then I took a long walk. I came back to Claude
+proclaiming victory in all caps. [My GitHub issue was quickly resolved.](https://github.com/ClickHouse/ClickHouse/issues/106147) Props to ClickHouse, I love those guys.
+
+![Claude finding an obscure ClickHouse bug](/claude-clickhouse-bug-repro.png)
+
+</Footnote>
+
+Moral of the story is that if you like learning weird things
+about computers, resist the urge to fix things the easy way.
+Poke around yourself and break stuff more. Even if you're out of
+your depth,
+[you can usually binary search to the root cause in O(log n) time](https://en.wikipedia.org/wiki/MECE_principle).<FootnoteRef id="mece" />
+
+<Footnote id="mece">
+  I swear I've read a blog post about using the MECE framework
+  to debug software, but I can't find it. Please help.
+</Footnote>
+
+I don't actually do that, but it's good advice. I just sic AI on
+it. Not as good, but
+easier.<FootnoteRef id="debugging-character-building" />
+
+<Footnote id="debugging-character-building">
+  I know this post is basically just AI glaze, but sigh, I miss
+  building character by banging my head against an instrutable
+  bug for days. Or exploring an open source repo looking for the
+  bug that I swear is not mine.
+</Footnote>
+
+<style>{`
+  @import url('https://googleapis.com');
+
+  .cursive {
+    font-family: 'Dancing Script', cursive;
+    font-size: 24px;
+  }
+`}</style>
