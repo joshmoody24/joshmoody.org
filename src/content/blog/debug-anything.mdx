@@ -1,5 +1,5 @@
 ---
-title: "You can debug anything"
+title: "You Can Debug Anything"
 description:
   "Restarting your computer is the most efficient way to fix
   bugs, but not the most interesting."
@@ -51,20 +51,26 @@ system.<FootnoteRef id="nixos-plug" />
   to think about it again #NixOs
 </Footnote>
 
-A few other things I troubleshot in the same way recently:
+A few other things I could have avoiding troubleshooting but did
+anyway:
 
-- Chrome has a bug where if you restart PulseAudio underneath
-  it,
-  [audio playback stops working](https://issues.chromium.org/issues/41461763)
+- After losing the horse minigame in Ocarina of Time, I read the
+  source code to discover
+  [why Epona sucks at jumping over fences](/blog/potential-blog-posts/#why-epona-sucks-at-jumping-over-fences-in-ocarina-of-time).
+- I noticed that Chrome audio stopped working after running
+  `nixos-rebuild switch`. Turns out Chrome has a bug where if
+  you restart PulseAudio underneath it,
+  [audio playback stops working](https://issues.chromium.org/issues/41461763).
 - My low framerate in Clair Obscur was because Vulkan has no
   concept of a default GPU, so the game was randomly choosing my
-  iGPU
-- A strange ClickHouse / Iceberg SQL bug when using
+  iGPU. I fixed this by disabling my iGPU at the kernel level.
+- I discovered a ClickHouse / Iceberg SQL bug related to using
   `IS NOT NULL`<FootnoteRef id="clickhouse-iceberg-bug" />
-- Laptop GPU power saving features are the cause of all evil in
-  the world. Like seriously, why is this so hard. I've never had
-  a Linux laptop that just worked when you plugged in a monitor.
-  AMD, Nvidia, doesn't matter. Nobody will ever fix this.
+- For the hundredth time, I learned that laptop GPU power-saving
+  features are the cause of all evil in the world. Like
+  seriously, why is this so hard. I've never had a Linux laptop
+  that just worked when you plugged in a monitor. AMD, Nvidia,
+  doesn't matter. Nobody will ever fix this.
 
 <Footnote id="clickhouse-iceberg-bug">
 I was running into weird crashes on a huge SQL query, so I told
@@ -94,8 +100,8 @@ Therefore, logarithms.
 
 </Footnote>
 
-I don't actually do that, but it's good advice. I just tell AI
-to do it. Not as good, but
+I don't actually do that, but it's good advice. I just outsource
+to AI. Not as good, but
 easier.<FootnoteRef id="debugging-character-building" />
 
 ✨ <span class="cursive">Curiosity</span> ✨
@@ -103,7 +109,7 @@ easier.<FootnoteRef id="debugging-character-building" />
 <Footnote id="debugging-character-building">
 I know this post seems like AI glaze, but it's not really. **You can debug
 anything without AI and don't let anyone tell you otherwise.**
-It's just easier now, for better and worse. I admit, I sort of miss building character by banging my head against an
+It's just easier now, for better and worse. I miss building character by banging my head against an
 inscrutable bug for days. Or exploring an open source repo
 looking for the bug that I swear is not mine.
 
