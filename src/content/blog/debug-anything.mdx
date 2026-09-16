@@ -18,13 +18,13 @@ but on a whim, I sicced my boy Claude on it.
 ![Claude Code session where Claude successfully identified the root cause of my Stardew Valley connection issues, patched the buggy binaries, and told me how to fix my ethernet.](/stardew-valley-claude-code.png)
 
 Claude fixed it. Apparently Stardew Valley uses the
-[GOG Galaxy SDK](https://docs.gog.com/sdk/) for networking (even
-on Steam), and
-[glibc 2.4.1+ refuses to run](https://lists.gnu.org/archive/html/info-gnu/2025-01/msg00014.html#:~:text=*%20dlopen%20and%20dlmopen,objects%20will%0A%20%20fail.)
+[GOG Galaxy SDK](https://docs.gog.com/sdk/) for online services
+(even on Steam), and
+[glibc 2.41+ refuses to load](https://lists.gnu.org/archive/html/info-gnu/2025-01/msg00014.html#:~:text=*%20dlopen%20and%20dlmopen,objects%20will%0A%20%20fail.)
 two of its binaries (`libGalaxy64.so` and
 `libGalaxyCSharpGlue.so`) because they request an executable
-stack. Claude patched their headers to not ask for it, and it
-worked.<FootnoteRef id="second-problem" />
+stack. Claude patched their headers to not ask for that, and the
+game started working.<FootnoteRef id="second-problem" />
 
 <Footnote id="second-problem">
   Well, that was the first problem. The second was me plugging
@@ -32,8 +32,7 @@ worked.<FootnoteRef id="second-problem" />
   defense, I am stupid.
 </Footnote>
 
-To be fair, Claude didn't solve the executable stack thing from
-first principles.
+To be fair, Claude didn't solve this from first principles.
 [It found the solution on the internet.](https://forums.stardewvalley.net/threads/stuck-on-connecting-to-online-services-screen-when-trying-to-play-co-op.37195/)<FootnoteRef id="navier-stokes" />
 
 <Footnote id="navier-stokes">Navier-Stokes reference</Footnote>
@@ -52,7 +51,7 @@ system.<FootnoteRef id="nixos-plug" />
   to think about it again #NixOs
 </Footnote>
 
-A few other things I've troubleshot in the same way recently:
+A few other things I troubleshot in the same way recently:
 
 - Chrome has a bug where if you restart PulseAudio underneath
   it,
@@ -69,7 +68,7 @@ A few other things I've troubleshot in the same way recently:
 
 <Footnote id="clickhouse-iceberg-bug">
 I was running into weird crashes on a huge SQL query, so I told
-Claude to binary search it's way to a minimum reproducible
+Claude to binary search its way to a minimum reproducible
 example. Then I took a long walk. I came back to Claude
 proclaiming victory in all caps. [My GitHub issue was quickly resolved.](https://github.com/ClickHouse/ClickHouse/issues/106147) Props to ClickHouse, I love those guys.
 
@@ -84,23 +83,34 @@ your depth,
 [you can usually binary search to the root cause in O(log n) time](https://en.wikipedia.org/wiki/MECE_principle).<FootnoteRef id="mece" />
 
 <Footnote id="mece">
-  I swear I've read a blog post about using the MECE framework
-  to debug software, but I can't find it. Please help.
+
+I swear I've read a blog post about using the MECE framework to
+debug software, but I can't find it. Please help.
+
+Also, the MECE framework has linear-time vibes, but I assert
+without evidence that most bugs have a hierarchical hypothesis
+space, e.g., "the bug is on either the client or the server."
+Therefore, logarithms.
+
 </Footnote>
 
-I don't actually do that, but it's good advice. I just sic AI on
-it. Not as good, but
+I don't actually do that, but it's good advice. I just tell AI
+to do it. Not as good, but
 easier.<FootnoteRef id="debugging-character-building" />
 
+✨ <span class="cursive">Curiosity</span> ✨
+
 <Footnote id="debugging-character-building">
-  I know this post is basically just AI glaze, but sigh, I miss
-  building character by banging my head against an instrutable
-  bug for days. Or exploring an open source repo looking for the
-  bug that I swear is not mine.
+I know this post seems like AI glaze, but it's not really. **You can debug
+anything without AI and don't let anyone tell you otherwise.**
+It's just easier now, for better and worse. I admit, I sort of miss building character by banging my head against an
+inscrutable bug for days. Or exploring an open source repo
+looking for the bug that I swear is not mine.
+
 </Footnote>
 
 <style>{`
-  @import url('https://googleapis.com');
+  @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
 
   .cursive {
     font-family: 'Dancing Script', cursive;
