@@ -328,9 +328,11 @@
     algorithm: string,
     contextSwitchFactor: number
   ): number {
+    // Fewer than one agent has nothing to switch between, so it never gets a negative overhead.
+    const agents = Math.max(numAgents, 1);
     if (algorithm === "constant") return baseReplyTime;
-    if (algorithm === "linear") return baseReplyTime + contextSwitchFactor * (numAgents - 1);
-    if (algorithm === "logarithmic") return baseReplyTime + contextSwitchFactor * Math.log2(numAgents);
+    if (algorithm === "linear") return baseReplyTime + contextSwitchFactor * (agents - 1);
+    if (algorithm === "logarithmic") return baseReplyTime + contextSwitchFactor * Math.log2(agents);
     return baseReplyTime;
   }
 
@@ -344,28 +346,21 @@
     if (utilizationRatio === 0) return 0;
     if (baseReplyTime <= 0) return 0;
 
-    const constantSolution = (utilizationRatio * agentTime) / baseReplyTime + utilizationRatio;
+    const constantSolution = (utilizationRatio * (agentTime + baseReplyTime)) / baseReplyTime;
 
     if (algorithm === "constant") return constantSolution;
 
-    // numerical solver
-    let n = constantSolution; // educated guess
-
-    const maxIterations = 100;
-    const tolerance = 0.001;
-
-    for (let i = 0; i < maxIterations; i++) {
-      const adjustedReplyTime = calculateAdjustedReplyTime(baseReplyTime, n, algorithm, contextSwitchFactor);
-      const n_new = (utilizationRatio * agentTime) / adjustedReplyTime + utilizationRatio;
-
-      if (Math.abs(n_new - n) < tolerance) {
-        return n_new;
-      }
-
-      n = n_new;
-    }
-
-    return n;
+    // Bisection, not fixed-point iteration: n ← f(n) oscillates and diverges when switching overhead is large.
+    // Reply time only grows with n, so this excess is increasing with one root between ρ and the no-overhead answer.
+    const excess = (n: number) => {
+      const replyTime = calculateAdjustedReplyTime(baseReplyTime, n, algorithm, contextSwitchFactor);
+      return n - (utilizationRatio * (agentTime + replyTime)) / replyTime;
+    };
+    const [low, high] = Array.from({ length: 60 }).reduce<[number, number]>(([low, high]) => {
+      const mid = (low + high) / 2;
+      return excess(mid) > 0 ? [low, mid] : [mid, high];
+    }, [utilizationRatio, constantSolution]);
+    return (low + high) / 2;
   }
 
   function formatCalculationSteps(
@@ -381,9 +376,8 @@
     const replyTimeFormatted = baseReplyTime.toFixed(1);
 
     if (algorithm === "constant") {
-      const step1 = (utilizationRatio * agentTime).toFixed(1);
-      const step2 = ((utilizationRatio * agentTime) / baseReplyTime).toFixed(1);
-      return `Using constant cognitive load:\nn = (ρ × T_a) / T_r + ρ\nn = (${utilizationRatio} × ${agentTimeFormatted}) / ${replyTimeFormatted} + ${utilizationRatio}\nn = ${step1} / ${replyTimeFormatted} + ${utilizationRatio}\nn = ${step2} + ${utilizationRatio} = ${numAgents.toFixed(1)} agents`;
+      const cycleTime = (agentTime + baseReplyTime).toFixed(1);
+      return `Using constant cognitive load:\nn = ρ × (T_a + T_r) / T_r\nn = ${utilizationRatio} × (${agentTimeFormatted} + ${replyTimeFormatted}) / ${replyTimeFormatted}\nn = ${utilizationRatio} × ${cycleTime} / ${replyTimeFormatted} = ${numAgents.toFixed(1)} agents`;
     } else {
       const adjustedReplyTime = calculateAdjustedReplyTime(baseReplyTime, numAgents, algorithm, contextSwitchFactor);
       const algorithmName =

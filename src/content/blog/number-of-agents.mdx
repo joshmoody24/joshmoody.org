@@ -115,20 +115,28 @@ The calculator combines these fundamental relationships:
 Combining these through substitution<FootnoteRef id="derivation" /> gives us:
 
 
-$$n = \frac{\rho \times T_a}{T_r} + \rho$$
+$$n = \frac{\rho \times (T_a + T_r)}{T_r}$$
 
 For example, let's say you want to spend 80% of your time
 responding to agents. If the agent runs for 9 minutes on average
 between responses, and you take 1 minute to reply, then:
 
-$$n = \frac{0.8 \times 9}{1} + 0.8 = 7.2 + 0.8 = 8$$
+$$n = \frac{0.8 \times (9 + 1)}{1} = 8$$
 
-You should run 8 agents.
+You should run 8 agents.<FootnoteRef id="formula-precedent" />
 
 <Footnote id="derivation">
   Exercise for the reader time! \*dab emoji\*
 
   See my horribly messy notebook scribbles at the bottom for some derivations if you're desperate. But doing it yourself is probably easier.
+</Footnote>
+
+<Footnote id="formula-precedent">
+  October 2026 update: apparently BYU robotics researchers beat me to this formula by 23 years.
+  In [Seven Principles of Efficient Human Robot Interaction](https://scholarsarchive.byu.edu/facpub/1287),
+  Goodrich and Olsen call agent time *neglect time* ($NT = T_a$) and reply time
+  *interaction time* ($IT = T_r$). Their max number of robots per human,
+  $\frac{NT + IT}{IT}$, is this formula with $\rho = 1$.
 </Footnote>
 
 However, that seems like way too many to me, because it's not
