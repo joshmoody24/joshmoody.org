@@ -948,8 +948,8 @@ First obstacle: the lack of `number->string` and
 scratch, which involves exponents of 10 and mod 10.
 
 If that seems easy, Game Boy **doesn't natively support
-multiplication**. You have to use bit shifts. For example,
-&times;10 is `(n << 1) + (n << 1 << 1 << 1)`.
+multiplication**. You have to use single-bit shifts. For
+example, &times;10 is `(n << 1) + (n << 1 << 1 << 1)`.
 
 That's all fun and games until you realize the puzzle's maximum
 integers are **A COUPLE BITS OUT OF RANGE OF THE MAXIMUM 32-BIT
