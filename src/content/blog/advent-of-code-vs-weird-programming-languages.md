@@ -34,9 +34,6 @@ wrestle the language, I ranked it lower.
 | F         | [CSS](#css)                             | Styling                    | Bad programming language                 |
 | F         | [Game Boy Assembly](#game-boy-assembly) | Assembly                   | Suffering                                |
 
-Some days I switched languages mid-way through, hence the
-duplicate days.
-
 Caveat: This isn't meant to be taken seriously. Each ranking
 could be a fluke. Sometimes I picked a terrible language for a
 problem just for the heck of it.
