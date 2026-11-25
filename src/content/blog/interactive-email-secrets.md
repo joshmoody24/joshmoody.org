@@ -7,7 +7,7 @@ pubDate: "May 19, 2026"
 ---
 
 A while back
-[I promised to write certain blog posts on request](./potential-blog-posts).
+[I promised to write certain blog posts on request](/blog/potential-blog-posts/).
 I did get some votes, so I'm indebted. But one post that
 _nobody_ voted for was "The Secrets of Interactive Email." To
 stick it to the man, I wrote that first.
